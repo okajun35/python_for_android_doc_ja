@@ -1,0 +1,138 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2015, Alexander Taylor
+# This file is distributed under the same license as the python-for-android package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: python-for-android 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-28 04:38+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/commands.rst:3
+msgid "Commands"
+msgstr ""
+
+#: ../../source/commands.rst:5
+msgid "This page documents all the commands and options that can be passed to toolchain.py."
+msgstr ""
+
+#: ../../source/commands.rst:10
+msgid "Commands index"
+msgstr ""
+
+#: ../../source/commands.rst:12
+msgid "The commands available are the methods of the ToolchainCL class, documented below. They may have options of their own, or you can always pass `general arguments`_ or `distribution arguments`_ to any command (though if irrelevant they may not have an effect)."
+msgstr ""
+
+#: ../../source/commands.rst:22
+msgid "General arguments"
+msgstr ""
+
+#: ../../source/commands.rst:24
+msgid "These arguments may be passed to any command in order to modify its behaviour, though not all commands make use of them."
+msgstr ""
+
+#: ../../source/commands.rst:28
+msgid "``--debug``"
+msgstr ""
+
+#: ../../source/commands.rst:28
+msgid "Print extra debug information about the build, including all compilation output."
+msgstr ""
+
+#: ../../source/commands.rst:32
+msgid "``--sdk_dir``"
+msgstr ""
+
+#: ../../source/commands.rst:31
+msgid "The filepath where the Android SDK is installed. This can alternatively be set in several other ways."
+msgstr ""
+
+#: ../../source/commands.rst:36
+msgid "``--android_api``"
+msgstr ""
+
+#: ../../source/commands.rst:35
+msgid "The Android API level to target; python-for-android will check if the platform tools for this level are installed."
+msgstr ""
+
+#: ../../source/commands.rst:40
+msgid "``--ndk_dir``"
+msgstr ""
+
+#: ../../source/commands.rst:39
+msgid "The filepath where the Android NDK is installed. This can alternatively be set in several other ways."
+msgstr ""
+
+#: ../../source/commands.rst:48
+msgid "``--ndk_version``"
+msgstr ""
+
+#: ../../source/commands.rst:43
+msgid "The version of the NDK installed, important because the internal filepaths to build tools depend on this. This can alternatively be set in several other ways, or if your NDK dir contains a RELEASE.TXT containing the version this is automatically checked so you don't need to manually set it."
+msgstr ""
+
+#: ../../source/commands.rst:51
+msgid "Distribution arguments"
+msgstr ""
+
+#: ../../source/commands.rst:53
+msgid "p4a supports several arguments used for specifying which compiled Android distribution you want to use. You may pass any of these arguments to any command, and if a distribution is required they will be used to load, or compile, or download this as necessary."
+msgstr ""
+
+#: ../../source/commands.rst:58
+msgid "None of these options are essential, and in principle you need only supply those that you need."
+msgstr ""
+
+#: ../../source/commands.rst:63
+msgid "``--name NAME``"
+msgstr ""
+
+#: ../../source/commands.rst:63
+msgid "The name of the distribution. Only one distribution with a given name can be created."
+msgstr ""
+
+#: ../../source/commands.rst:68
+msgid "``--requirements LIST,OF,REQUIREMENTS``"
+msgstr ""
+
+#: ../../source/commands.rst:66
+msgid "The recipes that your distribution must contain, as a comma separated list. These must be names of recipes or the pypi names of Python modules."
+msgstr ""
+
+#: ../../source/commands.rst:71
+msgid "``--force_build BOOL``"
+msgstr ""
+
+#: ../../source/commands.rst:71
+msgid "Whether the distribution must be compiled from scratch."
+msgstr ""
+
+#: ../../source/commands.rst:75
+msgid "``--arch``"
+msgstr ""
+
+#: ../../source/commands.rst:74
+msgid "The architecture to build for. Currently only one architecture can be targeted at a time, and a given distribution can only include one architecture."
+msgstr ""
+
+#: ../../source/commands.rst:83
+msgid "``--bootstrap BOOTSTRAP``"
+msgstr ""
+
+#: ../../source/commands.rst:78
+msgid "The Java bootstrap to use for your application. You mostly don't need to worry about this or set it manually, as an appropriate bootstrap will be chosen from your ``--requirements``. Current choices are ``sdl2`` or ``pygame``; ``sdl2`` is experimental but preferable where possible."
+msgstr ""
+
+#: ../../source/commands.rst:85
+msgid "These options are preliminary. Others will include toggles for allowing downloads, and setting additional directories from which to load user dists."
+msgstr ""
+

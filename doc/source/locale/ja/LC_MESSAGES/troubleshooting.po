@@ -1,0 +1,186 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2015, Alexander Taylor
+# This file is distributed under the same license as the python-for-android package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: python-for-android 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-28 04:38+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/troubleshooting.rst:4
+msgid "Troubleshooting"
+msgstr ""
+
+#: ../../source/troubleshooting.rst:7
+msgid "Debug output"
+msgstr ""
+
+#: ../../source/troubleshooting.rst:9
+msgid "Add the ``--debug`` option to any python-for-android command to see full debug output including the output of all the external tools used in the compilation and packaging steps."
+msgstr ""
+
+#: ../../source/troubleshooting.rst:13
+msgid "If reporting a problem by email or irc, it is usually helpful to include this full log, via e.g. a `pastebin <http://paste.ubuntu.com/>`_ or `Github gist <https://gist.github.com/>`_."
+msgstr ""
+
+#: ../../source/troubleshooting.rst:19
+msgid "Getting help"
+msgstr ""
+
+#: ../../source/troubleshooting.rst:21
+msgid "python-for-android is managed by the Kivy Organisation, and you can get help with any problems using the same channels as Kivy itself:"
+msgstr ""
+
+#: ../../source/troubleshooting.rst:24
+msgid "by email to the `kivy-users Google group <https://groups.google.com/forum/#!forum/kivy-users>`_"
+msgstr ""
+
+#: ../../source/troubleshooting.rst:26
+msgid "by irc in the #kivy room at irc.freenode.net"
+msgstr ""
+
+#: ../../source/troubleshooting.rst:28
+msgid "If you find a bug, you can also post an issue on the `python-for-android Github page <https://github.com/kivy/python-for-android>`_."
+msgstr ""
+
+#: ../../source/troubleshooting.rst:33
+msgid "Debugging on Android"
+msgstr ""
+
+#: ../../source/troubleshooting.rst:35
+msgid "When a python-for-android APK doesn't work, often the only indication that you get is that it closes. It is important to be able to find out what went wrong."
+msgstr ""
+
+#: ../../source/troubleshooting.rst:39
+msgid "python-for-android redirects Python's stdout and stderr to the Android logcat stream. You can see this by enabling developer mode on your Android device, enabling adb on the device, connecting it to your PC (you should see a notification that USB debugging is connected) and running ``adb logcat``. If adb is not in your PATH, you can find it at ``/path/to/Android/SDK/platform-tools/adb``, or access it through python-for-android with the shortcut::"
+msgstr ""
+
+#: ../../source/troubleshooting.rst:49
+msgid "or::"
+msgstr ""
+
+#: ../../source/troubleshooting.rst:53
+msgid "Running logcat command gives a lot of information about what Android is doing. You can usually see important lines by using logcat's built in functionality to see only lines with the ``python`` tag (or just grepping this)."
+msgstr ""
+
+#: ../../source/troubleshooting.rst:58
+msgid "When your app crashes, you'll see the normal Python traceback here, as well as the output of any print statements etc. that your app runs. Use these to diagnose the problem just as normal."
+msgstr ""
+
+#: ../../source/troubleshooting.rst:62
+msgid "The adb command passes its arguments straight to adb itself, so you can also do other debugging tasks such as ``python-for-android adb devices`` to get the list of connected devices."
+msgstr ""
+
+#: ../../source/troubleshooting.rst:66
+msgid "For further information, see the Android docs on `adb <http://developer.android.com/intl/zh-cn/tools/help/adb.html>`_, and on `logcat <http://developer.android.com/intl/zh-cn/tools/help/logcat.html>`_ in particular."
+msgstr ""
+
+#: ../../source/troubleshooting.rst:73
+msgid "Unpacking an APK"
+msgstr ""
+
+#: ../../source/troubleshooting.rst:75
+msgid "It is sometimes useful to unpack a pacakged APK to see what is inside, especially when debugging python-for-android itself."
+msgstr ""
+
+#: ../../source/troubleshooting.rst:78
+msgid "APKs are just zip files, so you can extract the contents easily::"
+msgstr ""
+
+#: ../../source/troubleshooting.rst:82
+msgid "At the top level, this will always contain the same set of files::"
+msgstr ""
+
+#: ../../source/troubleshooting.rst:88
+msgid "The Python distribution is in the assets folder::"
+msgstr ""
+
+#: ../../source/troubleshooting.rst:94
+msgid "``private.mp3`` is actually a tarball containing all your packaged data, and the Python distribution. Extract it::"
+msgstr ""
+
+#: ../../source/troubleshooting.rst:99
+msgid "This will reveal all the Python-related files::"
+msgstr ""
+
+#: ../../source/troubleshooting.rst:107
+msgid "Most of these files have been included by the user (in this case, they come from one of my own apps), the rest relate to the python distribution."
+msgstr ""
+
+#: ../../source/troubleshooting.rst:111
+msgid "With Python 2, the Python installation can mostly be found in the ``lib`` folder. With Python 3 (using the ``python3crystax`` recipe), the Python installation can be found in a folder named ``crystax_python``."
+msgstr ""
+
+#: ../../source/troubleshooting.rst:118
+msgid "Common errors"
+msgstr ""
+
+#: ../../source/troubleshooting.rst:120
+msgid "The following are common problems and resolutions that users have reported."
+msgstr ""
+
+#: ../../source/troubleshooting.rst:124
+msgid "AttributeError: 'AnsiCodes' object has no attribute 'LIGHTBLUE_EX'"
+msgstr ""
+
+#: ../../source/troubleshooting.rst:126
+msgid "This occurs if your version of colorama is too low, install version 0.3.3 or higher."
+msgstr ""
+
+#: ../../source/troubleshooting.rst:129
+msgid "If you install python-for-android with pip or via setup.py, this dependency should be taken care of automatically."
+msgstr ""
+
+#: ../../source/troubleshooting.rst:133
+msgid "AttributeError: 'Context' object has no attribute 'hostpython'"
+msgstr ""
+
+#: ../../source/troubleshooting.rst:135
+msgid "This is a known bug in some releases. To work around it, add your python requirement explicitly, e.g. :code:`--requirements=python2,kivy`. This also applies when using buildozer, in which case add python2 to your buildozer.spec requirements."
+msgstr ""
+
+#: ../../source/troubleshooting.rst:141
+msgid "linkname too long"
+msgstr ""
+
+#: ../../source/troubleshooting.rst:143
+msgid "This can happen when you try to include a very long filename, which doesn't normally happen but can occur accidentally if the p4a directory contains a .buildozer directory that is not excluded from the build (e.g. if buildozer was previously used). Removing this directory should fix the problem, and is desirable anyway since you don't want it in the APK."
+msgstr ""
+
+#: ../../source/troubleshooting.rst:151
+msgid "Exception in thread \"main\" java.lang.UnsupportedClassVersionError: com/android/dx/command/Main : Unsupported major.minor version 52.0"
+msgstr ""
+
+#: ../../source/troubleshooting.rst:153
+msgid "This occurs due to a java version mismatch, it should be fixed by installing Java 8 (e.g. the openjdk-8-jdk package on Ubuntu)."
+msgstr ""
+
+#: ../../source/troubleshooting.rst:157
+msgid "JNI DETECTED ERROR IN APPLICATION: static jfieldID 0x0000000 not valid for class java.lang.Class<org.renpy.android.PythonActivity>"
+msgstr ""
+
+#: ../../source/troubleshooting.rst:159
+msgid "This error appears in the logcat log if you try to access ``org.renpy.android.PythonActivity`` from within the new toolchain. To fix it, change your code to reference ``org.kivy.android.PythonActivity`` instead."
+msgstr ""
+
+#: ../../source/troubleshooting.rst:165
+msgid "websocket-client: if you see errors relating to 'SSL not available'"
+msgstr ""
+
+#: ../../source/troubleshooting.rst:166
+msgid "Ensure you have the package backports.ssl-match-hostname in the buildozer requirements, since Kivy targets python 2.7.x"
+msgstr ""
+
+#: ../../source/troubleshooting.rst:168
+msgid "You may also need sslopt={\"cert_reqs\": ssl.CERT_NONE} as a parameter to ws.run_forever() if you get an error relating to host verification"
+msgstr ""
+

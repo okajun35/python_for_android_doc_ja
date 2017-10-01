@@ -1,0 +1,342 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2015, Alexander Taylor
+# This file is distributed under the same license as the python-for-android package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: python-for-android 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-28 04:38+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/quickstart.rst:3
+msgid "Getting Started"
+msgstr "初めに"
+
+#: ../../source/quickstart.rst:5
+msgid "Getting up and running on python-for-android (p4a) is a simple process and should only take you a couple of minutes. We'll refer to Python for android as p4a in this documentation."
+msgstr ""
+
+#: ../../source/quickstart.rst:10
+msgid "Concepts"
+msgstr ""
+
+#: ../../source/quickstart.rst:12
+msgid "requirements: For p4a, your applications dependencies are requirements similar to the standard `requirements.txt`, but with one difference: p4a will search for a recipe first instead of installing requirements with pip."
+msgstr ""
+
+#: ../../source/quickstart.rst:17
+msgid "recipe: A recipe is a file that defines how to compile a requirement. Any libraries that have a Python extension *must* have a recipe in p4a, or compilation will fail. If there is no recipe for a requirement, it will be downloaded using pip."
+msgstr ""
+
+#: ../../source/quickstart.rst:22
+msgid "build: A build refers to a compiled recipe."
+msgstr ""
+
+#: ../../source/quickstart.rst:24
+msgid "distribution: A distribution is the final \"build\" of all your compiled requirements, as an Android project that can be turned directly into an APK. p4a can contain multiple distributions with different sets of requirements."
+msgstr ""
+
+#: ../../source/quickstart.rst:29
+msgid "bootstrap: A bootstrap is the app backend that will start your application. Your application could use SDL2 as a base, or Pygame, or a web backend like Flask with a WebView bootstrap. Different bootstraps can have different build options."
+msgstr ""
+
+#: ../../source/quickstart.rst:36
+msgid "Installation"
+msgstr ""
+
+#: ../../source/quickstart.rst:39
+msgid "Installing p4a"
+msgstr ""
+
+#: ../../source/quickstart.rst:41
+msgid "p4a is now available on on Pypi, so you can install it using pip::"
+msgstr ""
+
+#: ../../source/quickstart.rst:45
+msgid "You can also test the master branch from Github using::"
+msgstr ""
+
+#: ../../source/quickstart.rst:50
+msgid "Installing Dependencies"
+msgstr ""
+
+#: ../../source/quickstart.rst:52
+msgid "p4a has several dependencies that must be installed:"
+msgstr ""
+
+#: ../../source/quickstart.rst:54
+msgid "git"
+msgstr ""
+
+#: ../../source/quickstart.rst:55
+msgid "ant"
+msgstr ""
+
+#: ../../source/quickstart.rst:56
+msgid "python2"
+msgstr ""
+
+#: ../../source/quickstart.rst:57
+msgid "cython (can be installed via pip)"
+msgstr ""
+
+#: ../../source/quickstart.rst:58
+msgid "a Java JDK (e.g. openjdk-7)"
+msgstr ""
+
+#: ../../source/quickstart.rst:59
+msgid "zlib (including 32 bit)"
+msgstr ""
+
+#: ../../source/quickstart.rst:60
+msgid "libncurses (including 32 bit)"
+msgstr ""
+
+#: ../../source/quickstart.rst:61
+msgid "unzip"
+msgstr ""
+
+#: ../../source/quickstart.rst:62
+msgid "virtualenv (can be installed via pip)"
+msgstr ""
+
+#: ../../source/quickstart.rst:63
+msgid "ccache (optional)"
+msgstr ""
+
+#: ../../source/quickstart.rst:64
+msgid "autoconf (for ffpyplayer_codecs recipe)"
+msgstr ""
+
+#: ../../source/quickstart.rst:65
+msgid "libtool (for ffpyplayer_codecs recipe)"
+msgstr ""
+
+#: ../../source/quickstart.rst:67
+msgid "On recent versions of Ubuntu and its derivatives you may be able to install most of these with::"
+msgstr ""
+
+#: ../../source/quickstart.rst:74
+msgid "On Arch Linux (64 bit) you should be able to run the following to install most of the dependencies (note: this list may not be complete). gcc-multilib will conflict with (and replace) gcc if not already installed. If your installation is already 32-bit, install the same packages but without ``lib32-`` or ``-multilib``::"
+msgstr ""
+
+#: ../../source/quickstart.rst:83
+msgid "Installing Android SDK"
+msgstr ""
+
+#: ../../source/quickstart.rst:85
+msgid "You need to download and unpack the Android SDK and NDK to a directory (let's say $HOME/Documents/):"
+msgstr ""
+
+#: ../../source/quickstart.rst:87
+msgid "`Android SDK <https://developer.android.com/sdk/index.html#Other>`_"
+msgstr ""
+
+#: ../../source/quickstart.rst:88
+msgid "`Android NDK <https://developer.android.com/ndk/downloads/index.html>`_"
+msgstr ""
+
+#: ../../source/quickstart.rst:90
+msgid "Then, you can edit your ``~/.bashrc`` or other favorite shell to include new environment variables necessary for building on android::"
+msgstr ""
+
+#: ../../source/quickstart.rst:98
+msgid "You have the possibility to configure on any command the PATH to the SDK, NDK and Android API using:"
+msgstr ""
+
+#: ../../source/quickstart.rst:100
+msgid ":code:`--sdk_dir PATH` as an equivalent of `$ANDROIDSDK`"
+msgstr ""
+
+#: ../../source/quickstart.rst:101
+msgid ":code:`--ndk_dir PATH` as an equivalent of `$ANDROIDNDK`"
+msgstr ""
+
+#: ../../source/quickstart.rst:102
+msgid ":code:`--android_api VERSION` as an equivalent of `$ANDROIDAPI`"
+msgstr ""
+
+#: ../../source/quickstart.rst:103
+msgid ":code:`--ndk_ver PATH` as an equivalent of `$ANDROIDNDKVER`"
+msgstr ""
+
+#: ../../source/quickstart.rst:107
+msgid "Usage"
+msgstr ""
+
+#: ../../source/quickstart.rst:110
+msgid "Build a Kivy application"
+msgstr ""
+
+#: ../../source/quickstart.rst:112
+msgid "To build your application, you need to have a name, version, a package identifier, and explicitly write the bootstrap you want to use, as well as the requirements::"
+msgstr ""
+
+#: ../../source/quickstart.rst:118
+msgid "This will first build a distribution that contains `python2` and `kivy`, and using a SDL2 bootstrap. Python2 is here explicitely written as kivy can work with python2 or python3."
+msgstr ""
+
+#: ../../source/quickstart.rst:120
+msgid "You can also use ``--bootstrap=pygame``, but this bootstrap is deprecated for use with Kivy and SDL2 is preferred."
+msgstr ""
+
+#: ../../source/quickstart.rst:123
+msgid "Build a WebView application"
+msgstr ""
+
+#: ../../source/quickstart.rst:125
+msgid "To build your application, you need to have a name, version, a package identifier, and explicitly use the webview bootstrap, as well as the requirements::"
+msgstr ""
+
+#: ../../source/quickstart.rst:131
+msgid "You can also replace flask with another web framework."
+msgstr ""
+
+#: ../../source/quickstart.rst:133
+msgid "Replace ``--port=5000`` with the port on which your app will serve a website. The default for Flask is 5000."
+msgstr ""
+
+#: ../../source/quickstart.rst:137
+msgid "Build an SDL2 based application"
+msgstr ""
+
+#: ../../source/quickstart.rst:139
+msgid "This includes e.g. `PySDL2 <https://pysdl2.readthedocs.io/en/latest/>`__."
+msgstr ""
+
+#: ../../source/quickstart.rst:142
+msgid "To build your application, you need to have a name, version, a package identifier, and explicitly write the sdl2 bootstrap, as well as the requirements::"
+msgstr ""
+
+#: ../../source/quickstart.rst:148
+msgid "Add your required modules in place of ``your_requirements``, e.g. ``--requirements=pysdl2`` or ``--requirements=vispy``."
+msgstr ""
+
+#: ../../source/quickstart.rst:152
+msgid "Other options"
+msgstr ""
+
+#: ../../source/quickstart.rst:154
+msgid "You can pass other command line arguments to control app behaviours such as orientation, wakelock and app permissions. See :ref:`bootstrap_build_options`."
+msgstr ""
+
+#: ../../source/quickstart.rst:161
+msgid "Rebuild everything"
+msgstr ""
+
+#: ../../source/quickstart.rst:163
+msgid "If anything goes wrong and you want to clean the downloads and builds to retry everything, run::"
+msgstr ""
+
+#: ../../source/quickstart.rst:167
+msgid "If you just want to clean the builds to avoid redownloading dependencies, run::"
+msgstr ""
+
+#: ../../source/quickstart.rst:172
+msgid "Getting help"
+msgstr ""
+
+#: ../../source/quickstart.rst:174
+msgid "If something goes wrong and you don't know how to fix it, add the ``--debug`` option and post the output log to the `kivy-users Google group <https://groups.google.com/forum/#!forum/kivy-users>`__ or irc channel #kivy at irc.freenode.net ."
+msgstr ""
+
+#: ../../source/quickstart.rst:179
+msgid "See :doc:`troubleshooting` for more information."
+msgstr ""
+
+#: ../../source/quickstart.rst:183
+msgid "Advanced usage"
+msgstr ""
+
+#: ../../source/quickstart.rst:186
+msgid "Recipe management"
+msgstr ""
+
+#: ../../source/quickstart.rst:188
+msgid "You can see the list of the available recipes with::"
+msgstr ""
+
+#: ../../source/quickstart.rst:192
+msgid "If you are contributing to p4a and want to test a recipes again, you need to clean the build and rebuild your distribution::"
+msgstr ""
+
+#: ../../source/quickstart.rst:199
+msgid "You can write \"private\" recipes for your application, just create a ``p4a-recipes`` folder in your build directory, and place a recipe in it (edit the ``__init__.py``)::"
+msgstr ""
+
+#: ../../source/quickstart.rst:208
+msgid "Distribution management"
+msgstr ""
+
+#: ../../source/quickstart.rst:210
+msgid "Every time you start a new project, python-for-android will internally create a new distribution (an Android build project including Python and your other dependencies compiled for Android), according to the requirements you added on the command line. You can force the reuse of an existing distribution by adding::"
+msgstr ""
+
+#: ../../source/quickstart.rst:218
+msgid "This will ensure your distribution will always be built in the same directory, and avoids using more disk space every time you adjust a requirement."
+msgstr ""
+
+#: ../../source/quickstart.rst:222
+msgid "You can list the available distributions::"
+msgstr ""
+
+#: ../../source/quickstart.rst:226
+msgid "And clean all of them::"
+msgstr ""
+
+#: ../../source/quickstart.rst:231
+msgid "Configuration file"
+msgstr ""
+
+#: ../../source/quickstart.rst:233
+msgid "python-for-android checks in the current directory for a configuration file named ``.p4a``. If found, it adds all the lines as options to the command line. For example, you can add the options you would always include such as::"
+msgstr ""
+
+#: ../../source/quickstart.rst:244
+msgid "Going further"
+msgstr ""
+
+#: ../../source/quickstart.rst:246
+msgid "See the other pages of this doc for more information on specific topics:"
+msgstr ""
+
+#: ../../source/quickstart.rst:248
+msgid ":doc:`buildoptions`"
+msgstr ""
+
+#: ../../source/quickstart.rst:249
+msgid ":doc:`commands`"
+msgstr ""
+
+#: ../../source/quickstart.rst:250
+msgid ":doc:`recipes`"
+msgstr ""
+
+#: ../../source/quickstart.rst:251
+msgid ":doc:`bootstraps`"
+msgstr ""
+
+#: ../../source/quickstart.rst:252
+msgid ":doc:`apis`"
+msgstr ""
+
+#: ../../source/quickstart.rst:253
+msgid ":doc:`troubleshooting`"
+msgstr ""
+
+#: ../../source/quickstart.rst:254
+msgid ":doc:`launcher`"
+msgstr ""
+
+#: ../../source/quickstart.rst:255
+msgid ":doc:`contribute`"
+msgstr ""
+

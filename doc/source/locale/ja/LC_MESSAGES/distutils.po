@@ -1,0 +1,74 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2015, Alexander Taylor
+# This file is distributed under the same license as the python-for-android package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: python-for-android 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-28 04:38+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/distutils.rst:3
+msgid "distutils/setuptools integration"
+msgstr ""
+
+#: ../../source/distutils.rst:5
+msgid "Instead of running p4a via the command line, you can integrate with distutils and setup.py."
+msgstr ""
+
+#: ../../source/distutils.rst:8
+msgid "The base command is::"
+msgstr ""
+
+#: ../../source/distutils.rst:12
+msgid "The files included in the APK will be all those specified in the ``package_data`` argument to setup. For instance, the following example will include all .py and .png files in the ``testapp`` folder::"
+msgstr ""
+
+#: ../../source/distutils.rst:31
+msgid "The app name and version will also be read automatically from the setup.py."
+msgstr ""
+
+#: ../../source/distutils.rst:34
+msgid "The Android package name uses ``org.test.lowercaseappname`` if not set explicitly."
+msgstr ""
+
+#: ../../source/distutils.rst:37
+msgid "The ``--private`` argument is set automatically using the package_data, you should *not* set this manually."
+msgstr ""
+
+#: ../../source/distutils.rst:40
+msgid "The target architecture defaults to ``--armeabi``."
+msgstr ""
+
+#: ../../source/distutils.rst:42
+msgid "All of these automatic arguments can be overridden by passing them manually on the command line, e.g.::"
+msgstr ""
+
+#: ../../source/distutils.rst:47
+msgid "Adding p4a arguments in setup.py"
+msgstr ""
+
+#: ../../source/distutils.rst:49
+msgid "Instead of providing extra arguments on the command line, you can store them in setup.py by passing the ``options`` parameter to :code:`setup`. For instance::"
+msgstr ""
+
+#: ../../source/distutils.rst:77
+msgid "These options will be automatically included when you run ``python setup.py apk``. Any options passed on the command line will override these values."
+msgstr ""
+
+#: ../../source/distutils.rst:82
+msgid "Adding p4a arguments in setup.cfg"
+msgstr ""
+
+#: ../../source/distutils.rst:84
+msgid "You can also provide p4a arguments in the setup.cfg file, as normal for distutils. The syntax is::"
+msgstr ""
+

@@ -1,0 +1,186 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2015, Alexander Taylor
+# This file is distributed under the same license as the python-for-android package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: python-for-android 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-28 04:38+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/apis.rst:3
+msgid "Working on Android"
+msgstr ""
+
+#: ../../source/apis.rst:5
+msgid "This page gives details on accessing Android APIs and managing other interactions on Android."
+msgstr ""
+
+#: ../../source/apis.rst:10
+msgid "Accessing Android APIs"
+msgstr ""
+
+#: ../../source/apis.rst:12
+msgid "When writing an Android application you may want to access the normal Android Java APIs, in order to control your application's appearance (fullscreen, orientation etc.), interact with other apps or use hardware like vibration and sensors."
+msgstr ""
+
+#: ../../source/apis.rst:17
+msgid "You can access these with `Pyjnius <http://pyjnius.readthedocs.org/en/latest/>`_, a Python library for automatically wrapping Java and making it callable from Python code. Pyjnius is fairly simple to use, but not very Pythonic and it inherits Java's verbosity. For this reason the Kivy organisation also created `Plyer <https://plyer.readthedocs.org/en/latest/>`_, which further wraps specific APIs in a Pythonic and cross-platform way; you can call the same code in Python but have it do the right thing also on platforms other than Android."
+msgstr ""
+
+#: ../../source/apis.rst:27
+msgid "Pyjnius and Plyer are independent projects whose documentation is linked above.  See below for some simple introductory examples, and explanation of how to include these modules in your APKs."
+msgstr ""
+
+#: ../../source/apis.rst:31
+msgid "This page also documents the ``android`` module which you can include with p4a, but this is mostly replaced by Pyjnius and is not recommended for use in new applications."
+msgstr ""
+
+#: ../../source/apis.rst:37
+msgid "Using Pyjnius"
+msgstr ""
+
+#: ../../source/apis.rst:39
+msgid "Pyjnius lets you call the Android API directly from Python Pyjnius is works by dynamically wrapping Java classes, so you don't have to wait for any particular feature to be pre-supported."
+msgstr ""
+
+#: ../../source/apis.rst:43
+msgid "You can include Pyjnius in your APKs by adding `pyjnius` to your build requirements, e.g. :code:`--requirements=flask,pyjnius`. It is automatically included in any APK containing Kivy, in which case you don't need to specify it manually."
+msgstr ""
+
+#: ../../source/apis.rst:48
+msgid "The basic mechanism of Pyjnius is the `autoclass` command, which wraps a Java class. For instance, here is the code to vibrate your device::"
+msgstr ""
+
+#: ../../source/apis.rst:70
+msgid "Things to note here are:"
+msgstr ""
+
+#: ../../source/apis.rst:72
+msgid "The class that must be wrapped depends on the bootstrap. This is because Pyjnius is using the bootstrap's java source code to get a reference to the current activity, which both the Pygame and SDL2 bootstraps store in the ``mActivity`` static variable. This difference isn't always important, but it's important to know about."
+msgstr ""
+
+#: ../../source/apis.rst:77
+msgid "The code closely follows the Java API - this is exactly the same set of function calls that you'd use to achieve the same thing from Java code."
+msgstr ""
+
+#: ../../source/apis.rst:80
+msgid "This is quite verbose - it's a lot of lines to achieve a simple vibration!"
+msgstr ""
+
+#: ../../source/apis.rst:83
+msgid "These emphasise both the advantages and disadvantage of Pyjnius; you *can* achieve just about any API call with it (though the syntax is sometimes a little more involved, particularly if making Java classes from Python code), but it's not Pythonic and it's not short. These are problems that Plyer, explained below, attempts to address."
+msgstr ""
+
+#: ../../source/apis.rst:89
+msgid "You can check the `Pyjnius documentation <Pyjnius_>`_ for further details."
+msgstr ""
+
+#: ../../source/apis.rst:93
+msgid "Using Plyer"
+msgstr ""
+
+#: ../../source/apis.rst:95
+msgid "Plyer provides a much less verbose, Pythonic wrapper to platform-specific APIs. It supports Android as well as iOS and desktop operating systems, though plyer is a work in progress and not all platforms support all Plyer calls yet."
+msgstr ""
+
+#: ../../source/apis.rst:100
+msgid "Plyer does not support all APIs yet, but you can always Pyjnius to call anything that is currently missing."
+msgstr ""
+
+#: ../../source/apis.rst:103
+msgid "You can include Plyer in your APKs by adding the `Plyer` recipe to your build requirements, e.g. :code:`--requirements=plyer`."
+msgstr ""
+
+#: ../../source/apis.rst:106
+msgid "You should check the `Plyer documentation <Plyer_>`_ for details of all supported facades (platform APIs), but as an example the following is how you would achieve vibration as described in the Pyjnius section above::"
+msgstr ""
+
+#: ../../source/apis.rst:113
+msgid "This is obviously *much* less verbose than with Pyjnius!"
+msgstr ""
+
+#: ../../source/apis.rst:117
+msgid "Using ``android``"
+msgstr ""
+
+#: ../../source/apis.rst:119
+msgid "This Cython module was used for Android API interaction with Kivy's old interface, but is now mostly replaced by Pyjnius."
+msgstr ""
+
+#: ../../source/apis.rst:122
+msgid "The ``android`` Python module can be included by adding it to your requirements, e.g. :code:`--requirements=kivy,android`. It is not automatically included by Kivy unless you use the old (Pygame) bootstrap."
+msgstr ""
+
+#: ../../source/apis.rst:127
+msgid "This module is not separately documented. You can read the source `on Github <https://github.com/kivy/python-for-android/tree/master/pythonforandroid/recipes/android/src/android>`__."
+msgstr ""
+
+#: ../../source/apis.rst:131
+msgid "One useful facility of this module is to make :code:`webbrowser.open()` work on Android. You can replicate this effect without using the android module via the following code::"
+msgstr ""
+
+#: ../../source/apis.rst:160
+msgid "Working with the App lifecycle"
+msgstr ""
+
+#: ../../source/apis.rst:163
+msgid "Dismissing the splash screen"
+msgstr ""
+
+#: ../../source/apis.rst:165
+msgid "With the SDL2 bootstrap, the app's splash screen may not be dismissed immediately when your app has finished loading, due to a limitation with the way we check if the app has properly started. In this case, the splash screen overlaps the app gui for a short time."
+msgstr ""
+
+#: ../../source/apis.rst:170
+msgid "You can dismiss the splash screen as follows. Run this code from your app build method (or use ``kivy.clock.Clock.schedule_once`` to run it in the following frame)::"
+msgstr ""
+
+#: ../../source/apis.rst:178
+msgid "This problem does not affect the Pygame bootstrap, as it uses a different splash screen method."
+msgstr ""
+
+#: ../../source/apis.rst:183
+msgid "Handling the back button"
+msgstr ""
+
+#: ../../source/apis.rst:185
+msgid "Android phones always have a back button, which users expect to perform an appropriate in-app function. If you do not handle it, Kivy apps will actually shut down and appear to have crashed."
+msgstr ""
+
+#: ../../source/apis.rst:189
+msgid "In SDL2 bootstraps, the back button appears as the escape key (keycode 27, codepoint 270). You can handle this key to perform actions when it is pressed."
+msgstr ""
+
+#: ../../source/apis.rst:193
+msgid "For instance, in your App class in Kivy::"
+msgstr ""
+
+#: ../../source/apis.rst:211
+msgid "Pausing the App"
+msgstr ""
+
+#: ../../source/apis.rst:213
+msgid "When the user leaves an App, it is automatically paused by Android, although it gets a few seconds to store data etc. if necessary. Once paused, there is no guarantee that your app will run again."
+msgstr ""
+
+#: ../../source/apis.rst:217
+msgid "With Kivy, add an ``on_pause`` method to your App class, which returns True::"
+msgstr ""
+
+#: ../../source/apis.rst:222
+msgid "With the webview bootstrap, pausing should work automatically."
+msgstr ""
+
+#: ../../source/apis.rst:224
+msgid "Under SDL2, you can handle the `appropriate events <https://wiki.libsdl.org/SDL_EventType>`__ (see SDL_APP_WILLENTERBACKGROUND etc.)."
+msgstr ""
+

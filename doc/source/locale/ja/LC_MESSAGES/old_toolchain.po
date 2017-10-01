@@ -1,0 +1,1207 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2015, Alexander Taylor
+# This file is distributed under the same license as the python-for-android package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: python-for-android 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-28 04:38+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/old_toolchain/android.rst:2
+msgid "Python API"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:4
+msgid "The Python for Android project includes a Python module called ``android`` which consists of multiple parts that are mostly there to facilitate the use of the Java API."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:8
+msgid "This module is not designed to be comprehensive. Most of the Java API is also accessible with PyJNIus, so if you can't find what you need here you can try using the Java API directly instead."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:14
+msgid "Android (``android``)"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:20
+msgid "This should be called on a regular basis to check to see if Android expects the application to pause. If it returns true, the app should call :func:`android.wait_for_resume()`, after storing its state as necessary."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:26
+msgid "This function should be called after :func:`android.check_pause()` and returns true. It does not return until Android has resumed from the pause. While in this function, Android may kill the app without further notice."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:32
+msgid "This maps an android keycode to a python keysym. The android keycodes are available as constants in the android module."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:37
+msgid "Activity (``android.activity``)"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:41
+msgid "The default PythonActivity has a observer pattern for `onActivityResult <http://developer.android.com/reference/android/app/Activity.html#onActivityResult(int, int, android.content.Intent)>`_ and `onNewIntent <http://developer.android.com/reference/android/app/Activity.html#onNewIntent(android.content.Intent)>`_."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:45
+msgid "This allows you to bind a callback to an Android event: - ``on_new_intent`` is the event associated to the onNewIntent java call - ``on_activity_result`` is the event associated to the onActivityResult java call"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:51
+msgid "This method is not thread-safe. Call it in the mainthread of your app. (tips: use kivy.clock.mainthread decorator)"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:55
+msgid "Unregister a previously registered callback with :func:`bind`."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:57
+#: ../../source/old_toolchain/android.rst:189
+#: ../../source/old_toolchain/android.rst:275
+msgid "Example::"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:84
+msgid "Billing (``android.billing``)"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:88
+msgid "This billing module gives an access to the `In-App Billing <http://developer.android.com/guide/google/play/billing/billing_overview.html>`_:"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:90
+msgid "`Setup a test account <http://developer.android.com/guide/google/play/billing/billing_admin.html#billing-testing-setup>`_, and get your Public Key"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:91
+msgid "Export your public key::"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:95
+msgid "`Setup some In-App product <http://developer.android.com/guide/google/play/billing/billing_admin.html>`_ to buy. Let's say you've created a product with the id \"org.kivy.gopremium\""
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:97
+msgid "In your application, you can use the ``billing`` module like this::"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:132
+msgid "To initiate an in-app purchase, just call the ``buy()`` method::"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:143
+msgid "You'll receive all the notifications about the billing process in the callback."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:145
+msgid "Last step, create your application with ``--with-billing $BILLING_PUBKEY``::"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:151
+msgid "Broadcast (``android.broadcast``)"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:155
+msgid "Implementation of the android `BroadcastReceiver <http://developer.android.com/reference/android/content/BroadcastReceiver.html>`_. You can specify the callback that will receive the broadcast event, and actions or categories filters."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:164
+msgid "The callback will be called in another thread than the main thread. In that thread, be careful not to access OpenGL or something like that."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:169
+msgid "function or method that will receive the event. Will receive the context and intent as argument."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:171
+msgid "list of strings that represent an action."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:172
+msgid "list of strings that represent a category."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:174
+msgid "For actions and categories, the string must be in lower case, without the prefix::"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:181
+msgid "Register the receiver with all the actions and categories, and start handling events."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:186
+msgid "Unregister the receiver with all the actions and categories, and stop handling events."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:219
+msgid "Mixer (``android.mixer``)"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:223
+msgid "The `android.mixer` module contains a subset of the functionality in found in the `pygame.mixer <http://www.pygame.org/docs/ref/mixer.html>`_ module. It's intended to be imported as an alternative to pygame.mixer, using code like: ::"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:232
+msgid "Note that if you're using the `kivy.core.audio <http://kivy.org/docs/api-kivy.core.audio.html>`_ module, you don't have to do anything, it is all automatic."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:236
+msgid "The `android.mixer` module is a wrapper around the Android MediaPlayer class. This allows it to take advantage of any hardware acceleration present, and also eliminates the need to ship codecs as part of an application."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:241
+msgid "It has several differences with the pygame mixer:"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:243
+msgid "The init() and pre_init() methods work, but are ignored - Android chooses appropriate settings automatically."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:246
+msgid "Only filenames and true file objects can be used - file-like objects will probably not work."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:249
+msgid "Fadeout does not work - it causes a stop to occur."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:251
+msgid "Looping is all or nothing, there is no way to choose the number of loops that occur. For looping to work, the :func:`android.mixer.periodic` function should be called on a regular basis."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:256
+msgid "Volume control is ignored."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:258
+msgid "End events are not implemented."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:260
+msgid "The mixer.music object is a class (with static methods on it), rather than a module. Calling methods like :func:`mixer.music.play` should work."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:266
+msgid "Runnable (``android.runnable``)"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:270
+msgid ":class:`Runnable` is a wrapper around the Java `Runnable <http://developer.android.com/reference/java/lang/Runnable.html>`_ class. This class can be used to schedule a call of a Python function into the `PythonActivity` thread."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:284
+msgid "Or use our decorator::"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:295
+msgid "This can be used to prevent errors like:"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:297
+msgid "W/System.err( 9514): java.lang.RuntimeException: Can't create handler inside thread that has not called Looper.prepare()"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:299
+msgid "NullPointerException in ActivityThread.currentActivityThread()"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:303
+msgid "Because the python function is called from the PythonActivity thread, you need to be careful about your own calls."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:309
+msgid "Service (``android.service``)"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:311
+msgid "Services of an application are controlled through the class :class:`AndroidService`."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:317
+msgid "Run ``service/main.py`` from the application directory as a service."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:319
+msgid "Notification title, default to 'Python service'"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:320
+msgid "Notification text, default to 'Kivy Python service started'"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:326
+msgid "Start the service."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:328
+msgid "Argument to pass to a service, through the environment variable ``PYTHON_SERVICE_ARGUMENT``. Defaults to ''"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:334
+msgid "Stop the service."
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:336
+msgid "Application activity part example, ``main.py``:"
+msgstr ""
+
+#: ../../source/old_toolchain/android.rst:355
+msgid "Application service part example, ``service/main.py``:"
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:2
+msgid "Contribute"
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:5
+msgid "Extending Python for android native support"
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:7
+msgid "So, you want to get into python-for-android and extend what's available to Python on Android ?"
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:10
+msgid "Turns out it's not very complicated, here is a little introduction on how to go about it. Without Pyjnius, the schema to access the Java API from Cython is::"
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:15
+msgid "Think about acceleration sensors: you want to get the acceleration values in Python, but nothing is available natively. Lukcily you have a Java API for that : the Google API is available here http://developer.android.com/reference/android/hardware/Sensor.html"
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:20
+msgid "You can't use it directly, you need to do your own API to use it in python, this is done in 3 steps"
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:24
+msgid "Step 1: write the java code to create very simple functions to use"
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:26
+msgid "like : accelerometer Enable/Reading In our project, this is done in the Hardware.java: https://github.com/kivy/python-for-android/blob/master/src/src/org/renpy/android/Hardware.java you can see how it's implemented"
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:32
+msgid "Step 2 : write a jni wrapper"
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:34
+msgid "This is a C file to be able to invoke/call Java functions from C, in our case, step 2 (and 3) are done in the android python module. The JNI part is done in the android_jni.c: https://github.com/kivy/python-for-android/blob/master/recipes/android/src/android_jni.c"
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:40
+msgid "Step 3 : you have the java part, that you can call from the C"
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:42
+msgid "You can now do the Python extension around it, all the android python part is done in https://github.com/kivy/python-for-android/blob/master/recipes/android/src/android.pyx"
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:46
+msgid "→ [python] android.accelerometer_reading ⇒ [C] android_accelerometer_reading ⇒ [Java] Hardware.accelerometer_reading()"
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:49
+msgid "The jni part is really a C api to call java methods. a little bit hard to get it with the syntax, but working with current example should be ok"
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:53
+msgid "Example with bluetooth"
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:54
+msgid "Start directly from a fork of https://github.com/kivy/python-for-android"
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:56
+msgid "The first step is to identify where and how they are doing it in sl4a, it's really easy, because everything is already done as a client/server client/consumer approach, for bluetooth, they have a \"Bluetooth facade\" in java."
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:61
+msgid "http://code.google.com/p/android-scripting/source/browse/android/BluetoothFacade/src/com/googlecode/android_scripting/facade/BluetoothFacade.java"
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:63
+msgid "You can learn from it, and see how is it's can be used as is, or if you can simplify / remove stuff you don't want."
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:66
+msgid "From this point, create a bluetooth file in python-for-android/tree/master/src/src/org/renpy/android in Java."
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:69
+msgid "Do a good API (enough simple to be able to write the jni in a very easy manner, like, don't pass any custom java object in argument)."
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:72
+msgid "Then write the JNI, and then the python part."
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:74
+msgid "3 steps, once you get it, the real difficult part is to write the java part :)"
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:77
+msgid "Jni gottchas"
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:79
+msgid "package must be org.renpy.android, don't change it."
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:83
+msgid "Create your own recipes"
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:85
+msgid "A recipe is a script that contains the \"definition\" of a module to compile. The directory layout of a recipe for a <modulename> is something like::"
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:92
+msgid "When building, all the recipe builds must go to::"
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:96
+msgid "For example, if you want to create a recipe for sdl, do::"
+msgstr ""
+
+#: ../../source/old_toolchain/contribute.rst:103
+msgid "Then, edit the sdl/recipe.sh to adjust other information (version, url) and complete the build function."
+msgstr ""
+
+#: ../../source/old_toolchain/customize.rst:2
+#: ../../source/old_toolchain/customize.rst:2
+msgid "Customize your distribution"
+msgstr ""
+
+#: ../../source/old_toolchain/customize.rst:4
+#: ../../source/old_toolchain/customize.rst:4
+msgid "The basic layout of a distribution is::"
+msgstr ""
+
+#: ../../source/old_toolchain/example_compass.rst:2
+#: ../../source/old_toolchain/example_compass.rst:2
+msgid "Compass"
+msgstr ""
+
+#: ../../source/old_toolchain/example_compass.rst:4
+#: ../../source/old_toolchain/example_compass.rst:4
+msgid "The following example is an extract from the Compass app as provided in the Kivy `examples/android/compass <https://github.com/kivy/kivy/tree/master/examples/android/compass/>`__ folder:"
+msgstr ""
+
+#: ../../source/old_toolchain/example_compass.rst:48
+#: ../../source/old_toolchain/example_compass.rst:48
+msgid "If you compile this app, you will get an APK which outputs the following screen:"
+msgstr ""
+
+#: ../../source/old_toolchain/example_compass.rst:57
+#: ../../source/old_toolchain/example_compass.rst:57
+msgid "Screenshot of the Kivy Compass App (Source of the Compass Windrose: `Wikipedia <http://en.wikipedia.org/wiki/Compass_rose>`__)"
+msgstr ""
+
+#: ../../source/old_toolchain/example_helloworld.rst:2
+#: ../../source/old_toolchain/example_helloworld.rst:2
+msgid "Hello world"
+msgstr ""
+
+#: ../../source/old_toolchain/example_helloworld.rst:4
+#: ../../source/old_toolchain/example_helloworld.rst:4
+msgid "If you don't know how to start with Python for Android, here is a simple tutorial for creating an UI using `Kivy <http://kivy.org/>`_, and make an APK with this project."
+msgstr ""
+
+#: ../../source/old_toolchain/example_helloworld.rst:10
+#: ../../source/old_toolchain/example_helloworld.rst:10
+msgid "Don't forget that Python for Android is not Kivy only, and you might want to use other toolkit libraries. When other toolkits will be available, this documentation will be enhanced."
+msgstr ""
+
+#: ../../source/old_toolchain/example_helloworld.rst:14
+#: ../../source/old_toolchain/example_helloworld.rst:14
+msgid "Let's create a simple Hello world application, with one Label and one Button."
+msgstr ""
+
+#: ../../source/old_toolchain/example_helloworld.rst:16
+#: ../../source/old_toolchain/example_helloworld.rst:16
+msgid "Ensure you've correctly installed and configured the project as said in the :doc:`prerequisites`"
+msgstr ""
+
+#: ../../source/old_toolchain/example_helloworld.rst:19
+#: ../../source/old_toolchain/example_helloworld.rst:19
+msgid "Create a directory named ``helloworld``::"
+msgstr ""
+
+#: ../../source/old_toolchain/example_helloworld.rst:24
+#: ../../source/old_toolchain/example_helloworld.rst:24
+msgid "Create a file named ``main.py``, with this content::"
+msgstr ""
+
+#: ../../source/old_toolchain/example_helloworld.rst:56
+#: ../../source/old_toolchain/example_helloworld.rst:56
+msgid "Go to the ``python-for-android`` directory"
+msgstr ""
+
+#: ../../source/old_toolchain/example_helloworld.rst:58
+#: ../../source/old_toolchain/example_helloworld.rst:58
+msgid "Create a distribution with kivy::"
+msgstr ""
+
+#: ../../source/old_toolchain/example_helloworld.rst:62
+#: ../../source/old_toolchain/example_helloworld.rst:62
+msgid "Go to the newly created ``default`` distribution::"
+msgstr ""
+
+#: ../../source/old_toolchain/example_helloworld.rst:66
+#: ../../source/old_toolchain/example_helloworld.rst:66
+msgid "Plug your android device, and ensure you can install development application"
+msgstr ""
+
+#: ../../source/old_toolchain/example_helloworld.rst:69
+#: ../../source/old_toolchain/example_helloworld.rst:69
+msgid "Build your hello world application in debug mode::"
+msgstr ""
+
+#: ../../source/old_toolchain/example_helloworld.rst:74
+#: ../../source/old_toolchain/example_helloworld.rst:74
+msgid "Take your device, and start the application!"
+msgstr ""
+
+#: ../../source/old_toolchain/example_helloworld.rst:76
+#: ../../source/old_toolchain/example_helloworld.rst:76
+msgid "If something goes wrong, open the logcat by doing::"
+msgstr ""
+
+#: ../../source/old_toolchain/example_helloworld.rst:80
+#: ../../source/old_toolchain/example_helloworld.rst:80
+msgid "The final debug APK will be located in ``bin/hello-world-1.0-debug.apk``."
+msgstr ""
+
+#: ../../source/old_toolchain/example_helloworld.rst:82
+#: ../../source/old_toolchain/example_helloworld.rst:82
+msgid "If you want to release your application instead of just making a debug APK, you must:"
+msgstr ""
+
+#: ../../source/old_toolchain/example_helloworld.rst:84
+#: ../../source/old_toolchain/example_helloworld.rst:84
+msgid "Generate a non-signed APK::"
+msgstr ""
+
+#: ../../source/old_toolchain/example_helloworld.rst:89
+#: ../../source/old_toolchain/example_helloworld.rst:89
+msgid "Continue by reading http://developer.android.com/guide/publishing/app-signing.html"
+msgstr ""
+
+#: ../../source/old_toolchain/example_helloworld.rst:94
+#: ../../source/old_toolchain/example_helloworld.rst:94
+msgid "`Kivy demos <https://github.com/kivy/kivy/tree/master/examples/demo>`_"
+msgstr ""
+
+#: ../../source/old_toolchain/example_helloworld.rst:95
+#: ../../source/old_toolchain/example_helloworld.rst:95
+msgid "You can use them for creating APK too."
+msgstr ""
+
+#: ../../source/old_toolchain/examples.rst:2
+msgid "Examples"
+msgstr ""
+
+#: ../../source/old_toolchain/examples.rst:5
+msgid "Prebuilt VirtualBox"
+msgstr ""
+
+#: ../../source/old_toolchain/examples.rst:7
+msgid "A good starting point to build an APK are prebuilt VirtualBox images, where the Android NDK, the Android SDK, and the Kivy Python-For-Android sources are prebuilt in an VirtualBox image. Please search the `Download Section <http://kivy.org/#download>`__ for such an image. You will also need to create a device filter for the Android USB device using the VirtualBox OS settings."
+msgstr ""
+
+#: ../../source/old_toolchain/faq.rst:2
+msgid "FAQ"
+msgstr ""
+
+#: ../../source/old_toolchain/faq.rst:5
+msgid "arm-linux-androideabi-gcc: Internal error: Killed (program cc1)"
+msgstr ""
+
+#: ../../source/old_toolchain/faq.rst:7
+msgid "This could happen if you are not using a validated SDK/NDK with Python for Android. Go to :doc:`prerequisites` to see which one are working."
+msgstr ""
+
+#: ../../source/old_toolchain/faq.rst:11
+msgid "_sqlite3.so not found"
+msgstr ""
+
+#: ../../source/old_toolchain/faq.rst:13
+msgid "We recently fixed sqlite3 compilation. In case of this error, you must:"
+msgstr ""
+
+#: ../../source/old_toolchain/faq.rst:16
+msgid "Install development headers for sqlite3 if they are not already installed. On Ubuntu:"
+msgstr ""
+
+#: ../../source/old_toolchain/faq.rst:19
+msgid "apt-get install libsqlite3-dev"
+msgstr ""
+
+#: ../../source/old_toolchain/faq.rst:21
+msgid "Compile the distribution with (sqlite3 must be the first argument)::"
+msgstr ""
+
+#: ../../source/old_toolchain/faq.rst:25
+msgid "Go into your distribution at `dist/default`"
+msgstr ""
+
+#: ../../source/old_toolchain/faq.rst:26
+msgid "Edit blacklist.txt, and remove all the lines concerning sqlite3::"
+msgstr ""
+
+#: ../../source/old_toolchain/faq.rst:31
+msgid "Then sqlite3 will be compiled and included in your APK."
+msgstr ""
+
+#: ../../source/old_toolchain/faq.rst:34
+msgid "Too many levels of symbolic links"
+msgstr ""
+
+#: ../../source/old_toolchain/faq.rst:36
+msgid "Python for Android does not work within a virtual enviroment. The Python for Android directory must be outside of the virtual enviroment prior to running"
+msgstr ""
+
+#: ../../source/old_toolchain/faq.rst:39
+msgid "./distribute.sh -m \"kivy\""
+msgstr ""
+
+#: ../../source/old_toolchain/faq.rst:41
+msgid "or else you may encounter OSError: [Errno 40] Too many levels of symbolic links."
+msgstr ""
+
+#: ../../source/old_toolchain/index.rst:3
+msgid "Old p4a toolchain doc"
+msgstr ""
+
+#: ../../source/old_toolchain/index.rst:5
+msgid "This is the documentation for the old python-for-android toolchain, using distribute.sh and build.py. This it entirely superseded by the new toolchain, you do not need to read it unless using this old method."
+msgstr ""
+
+#: ../../source/old_toolchain/index.rst:10
+msgid "Python for android is a project to create your own Python distribution including the modules you want, and create an apk including python, libs, and your application."
+msgstr ""
+
+#: ../../source/old_toolchain/index.rst:14
+msgid "Forum: https://groups.google.com/forum/#!forum/python-android"
+msgstr ""
+
+#: ../../source/old_toolchain/index.rst:15
+msgid "Mailing list: python-android@googlegroups.com"
+msgstr ""
+
+#: ../../source/old_toolchain/index.rst:29
+msgid "Indices and tables"
+msgstr ""
+
+#: ../../source/old_toolchain/index.rst:31
+msgid ":ref:`genindex`"
+msgstr ""
+
+#: ../../source/old_toolchain/index.rst:32
+msgid ":ref:`modindex`"
+msgstr ""
+
+#: ../../source/old_toolchain/index.rst:33
+msgid ":ref:`search`"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:2
+msgid "Java API (pyjnius)"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:4
+msgid "Using `PyJNIus <https://github.com/kivy/pyjnius>`__ to access the Android API restricts the usage to a simple call of the **autoclass** constructor function and a second call to instantiate this class."
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:8
+msgid "You can access through this method the entire Java Android API, e.g., the ``DisplayMetrics`` of an Android device could be fetched using the following piece of code:"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:19
+msgid "You can access all fields and methods as described in the `Java Android DisplayMetrics API <http://developer.android.com/reference/android/util/DisplayMetrics.html>`__ as shown here with the method `setToDefaults()` and the field `densityDpi`.  Before you use a view field, you should always call `setToDefaults` to initiate to the default values of the device."
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:26
+msgid "Currently only JavaMethod, JavaStaticMethod, JavaField, JavaStaticField and JavaMultipleMethod are built into PyJNIus, therefore such constructs like registerListener or something like this must still be coded in Java. For this the Android module described below is available to access some of the hardware on Android devices."
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:36
+msgid "Activity"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:38
+msgid "If you want the instance of the current Activity, use:"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:40
+msgid ":data:`PythonActivity.mActivity` if you are running an application"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:41
+msgid ":data:`PythonService.mService` if you are running a service"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:47
+msgid "Instance of an `ApplicationInfo <http://developer.android.com/reference/android/content/pm/ApplicationInfo.html>`_"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:52
+msgid "Instance of :class:`PythonActivity`."
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:56
+msgid "Register a new instance of :class:`NewIntentListener` to be called when `onNewIntent <http://developer.android.com/reference/android/app/Activity.html#onNewIntent(android.content.Intent)>`_ is called."
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:63
+msgid "Unregister a previously registered listener from :meth:`registerNewIntentListener`"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:68
+msgid "Register a new instance of :class:`ActivityResultListener` to be called when `onActivityResult <http://developer.android.com/reference/android/app/Activity.html#onActivityResult(int, int, android.content.Intent)>`_ is called."
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:75
+msgid "Unregister a previously registered listener from :meth:`PythonActivity.registerActivityResultListener`"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:82
+msgid "This class is a subclass of PythonActivity, so the notation will be ``PythonActivity$ActivityResultListener``"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:85
+msgid "Listener interface for onActivityResult. You need to implementing it, create an instance and use it with :meth:`PythonActivity.registerActivityResultListener`."
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:90
+#: ../../source/old_toolchain/javaapi.rst:104
+msgid "Method to implement"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:96
+msgid "This class is a subclass of PythonActivity, so the notation will be ``PythonActivity$NewIntentListener``"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:99
+msgid "Listener interface for onNewIntent. You need to implementing it, create an instance and use it with :meth:`registerNewIntentListener`."
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:108
+msgid "Action"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:112
+msgid "This module is built to deliver data to someone else."
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:116
+msgid "Deliver data to someone else. This method is a wrapper around `ACTION_SEND <http://developer.android.com/reference/android/content/Intent.html#ACTION_SEND>`_"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:120
+msgid "`mimetype`: str"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:121
+msgid "Must be a valid mimetype, that represent the content to sent."
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:122
+msgid "`filename`: str, default to None"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:123
+msgid "(optional) Name of the file to attach. Must be a absolute path."
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:124
+msgid "`subject`: str, default to None"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:125
+msgid "(optional) Default subject"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:126
+msgid "`text`: str, default to None"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:127
+msgid "(optional) Content to send."
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:129
+msgid "`chooser_title`: str, default to None"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:129
+msgid "(optional) Title of the android chooser window, default to 'Send email...'"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:131
+msgid "Sending a simple hello world text::"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:136
+msgid "Sharing an image file::"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:141
+msgid "Sharing an image with a default text too::"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:148
+msgid "Hardware"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:152
+msgid "This module is built for accessing hardware devices of an Android device. All the methods are static and public, you don't need an instance."
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:158
+msgid "Causes the phone to vibrate for `s` seconds. This requires that your application have the VIBRATE permission."
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:164
+msgid "Returns a string of all hardware sensors of an Android device where each line lists the informations about one sensor in the following format:"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:167
+msgid "Name=name,Vendor=vendor,Version=version,MaximumRange=maximumRange,MinDelay=minDelay,Power=power,Type=type"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:169
+msgid "For more information about this informations look into the original Java API for the `Sensors Class <http://developer.android.com/reference/android/hardware/Sensor.html>`__"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:175
+msgid "This variable links to a generic3AxisSensor instance and their functions to access the accelerometer sensor"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:180
+msgid "This variable links to a generic3AxisSensor instance and their functions to access the orientation sensor"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:186
+msgid "The following two instance methods of the generic3AxisSensor class should be used to enable/disable the sensor and to read the sensor"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:192
+msgid "Changes the status of the sensor, the status of the sensor is enabled, if `enable` is true or disabled, if `enable` is false."
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:197
+msgid "Returns an (x, y, z) tuple of floats that gives the sensor reading, the units depend on the sensor as shown on the Java API page for `SensorEvent <http://developer.android.com/reference/android/hardware/SensorEvent.html>`_. The sesnor must be enabled before this function is called. If the tuple contains three zero values, the accelerometer is not enabled, not available, defective, has not returned a reading, or the device is in free-fall."
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:208
+msgid "Returns the screen density in dots per inch."
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:212
+msgid "Shows the soft keyboard."
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:216
+msgid "Hides the soft keyboard."
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:220
+msgid "Enables wifi scanning."
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:224
+msgid "ACCESS_WIFI_STATE and CHANGE_WIFI_STATE permissions are required."
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:228
+msgid "Returns a String for each visible WiFi access point"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:230
+msgid "(SSID, BSSID, SignalLevel)"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:233
+msgid "Further Modules"
+msgstr ""
+
+#: ../../source/old_toolchain/javaapi.rst:235
+msgid "Some further modules are currently available but not yet documented. Please have a look into the code and you are very welcome to contribute to this documentation."
+msgstr ""
+
+#: ../../source/old_toolchain/prerequisites.rst:2
+#: ../../source/old_toolchain/prerequisites.rst:2
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/old_toolchain/prerequisites.rst:4
+#: ../../source/old_toolchain/prerequisites.rst:4
+msgid "There is a VirtualBox Image we provide with the prerequisites along with the Android SDK and NDK preinstalled to ease your installation woes. You can download it from `here <http://kivy.org/#download>`__."
+msgstr ""
+
+#: ../../source/old_toolchain/prerequisites.rst:11
+#: ../../source/old_toolchain/prerequisites.rst:11
+msgid "The current version is tested only on Ubuntu oneiric (11.10) and precise (12.04). If it doesn't work on other platforms, send us a patch, not a bug report. Python for Android works on Linux and Mac OS X, not Windows."
+msgstr ""
+
+#: ../../source/old_toolchain/prerequisites.rst:16
+#: ../../source/old_toolchain/prerequisites.rst:16
+msgid "You need the minimal environment for building python. Note that other libraries might need other tools (cython is used by some recipes, and ccache to speedup the build)::"
+msgstr ""
+
+#: ../../source/old_toolchain/prerequisites.rst:22
+#: ../../source/old_toolchain/prerequisites.rst:22
+msgid "If you are on a 64 bit distro, you should install these packages too ::"
+msgstr ""
+
+#: ../../source/old_toolchain/prerequisites.rst:26
+#: ../../source/old_toolchain/prerequisites.rst:26
+msgid "On debian Squeeze amd64, those packages were found to be necessary ::"
+msgstr ""
+
+#: ../../source/old_toolchain/prerequisites.rst:30
+#: ../../source/old_toolchain/prerequisites.rst:30
+msgid "Ensure you have the latest Cython version::"
+msgstr ""
+
+#: ../../source/old_toolchain/prerequisites.rst:34
+#: ../../source/old_toolchain/prerequisites.rst:34
+msgid "You must have android SDK and NDK. The SDK defines the Android functions you can use.  The NDK is used for compilation. Right now, it's preferred to use:"
+msgstr ""
+
+#: ../../source/old_toolchain/prerequisites.rst:38
+#: ../../source/old_toolchain/prerequisites.rst:38
+msgid "SDK API 8 or 14 (15 will only work with a newly released NDK)"
+msgstr ""
+
+#: ../../source/old_toolchain/prerequisites.rst:39
+#: ../../source/old_toolchain/prerequisites.rst:39
+msgid "NDK r5b or r7"
+msgstr ""
+
+#: ../../source/old_toolchain/prerequisites.rst:41
+#: ../../source/old_toolchain/prerequisites.rst:41
+msgid "You can download them at::"
+msgstr ""
+
+#: ../../source/old_toolchain/prerequisites.rst:47
+#: ../../source/old_toolchain/prerequisites.rst:47
+msgid "In general, Python for Android currently works with Android 2.3 to L."
+msgstr ""
+
+#: ../../source/old_toolchain/prerequisites.rst:49
+#: ../../source/old_toolchain/prerequisites.rst:49
+msgid "If it's your very first time using the Android SDK, don't forget to follow the documentation for recommended components at::"
+msgstr ""
+
+#: ../../source/old_toolchain/prerequisites.rst:62
+#: ../../source/old_toolchain/prerequisites.rst:62
+msgid "After installing them, export both installation paths, NDK version, and API to use::"
+msgstr ""
+
+#: ../../source/old_toolchain/prerequisites.rst:76
+#: ../../source/old_toolchain/prerequisites.rst:76
+msgid "Also, you must configure your PATH to add the ``android`` binary::"
+msgstr ""
+
+#: ../../source/old_toolchain/related.rst:2
+msgid "Related projects"
+msgstr ""
+
+#: ../../source/old_toolchain/related.rst:4
+msgid "PGS4A: http://pygame.renpy.org/ (thanks to Renpy to make it possible)"
+msgstr ""
+
+#: ../../source/old_toolchain/related.rst:5
+msgid "Android scripting: http://code.google.com/p/android-scripting/"
+msgstr ""
+
+#: ../../source/old_toolchain/related.rst:6
+msgid "Python on a chip: http://code.google.com/p/python-on-a-chip/"
+msgstr ""
+
+#: ../../source/old_toolchain/toolchain.rst:2
+msgid "Toolchain"
+msgstr ""
+
+#: ../../source/old_toolchain/toolchain.rst:5
+msgid "Introduction"
+msgstr ""
+
+#: ../../source/old_toolchain/toolchain.rst:7
+msgid "In terms of comparaison, you can check how Python for android can be useful compared to other projects."
+msgstr ""
+
+#: ../../source/old_toolchain/toolchain.rst:11
+msgid "Project"
+msgstr ""
+
+#: ../../source/old_toolchain/toolchain.rst:11
+msgid "Native Python"
+msgstr ""
+
+#: ../../source/old_toolchain/toolchain.rst:11
+msgid "GUI libraries"
+msgstr ""
+
+#: ../../source/old_toolchain/toolchain.rst:11
+msgid "APK generation"
+msgstr ""
+
+#: ../../source/old_toolchain/toolchain.rst:11
+msgid "Custom build"
+msgstr ""
+
+#: ../../source/old_toolchain/toolchain.rst:13
+msgid "Python for android"
+msgstr ""
+
+#: ../../source/old_toolchain/toolchain.rst:13
+#: ../../source/old_toolchain/toolchain.rst:13
+#: ../../source/old_toolchain/toolchain.rst:13
+#: ../../source/old_toolchain/toolchain.rst:13
+#: ../../source/old_toolchain/toolchain.rst:15
+#: ../../source/old_toolchain/toolchain.rst:15
+#: ../../source/old_toolchain/toolchain.rst:15
+msgid "Yes"
+msgstr ""
+
+#: ../../source/old_toolchain/toolchain.rst:15
+msgid "PGS4A"
+msgstr ""
+
+#: ../../source/old_toolchain/toolchain.rst:15
+#: ../../source/old_toolchain/toolchain.rst:17
+#: ../../source/old_toolchain/toolchain.rst:17
+#: ../../source/old_toolchain/toolchain.rst:17
+#: ../../source/old_toolchain/toolchain.rst:17
+#: ../../source/old_toolchain/toolchain.rst:19
+#: ../../source/old_toolchain/toolchain.rst:19
+#: ../../source/old_toolchain/toolchain.rst:19
+#: ../../source/old_toolchain/toolchain.rst:19
+msgid "No"
+msgstr ""
+
+#: ../../source/old_toolchain/toolchain.rst:17
+msgid "Android scripting"
+msgstr ""
+
+#: ../../source/old_toolchain/toolchain.rst:19
+msgid "Python on a chip"
+msgstr ""
+
+#: ../../source/old_toolchain/toolchain.rst:24
+msgid "For the moment, we are shipping only one \"java bootstrap\" (needed for decompressing your packaged zip file project, create an OpenGL ES 2.0 surface, handle touch input and manage an audio thread)."
+msgstr ""
+
+#: ../../source/old_toolchain/toolchain.rst:28
+msgid "If you want to use it without kivy module (an opengl es 2.0 ui toolkit), then you might want a lighter java bootstrap, that we don't have right now. Help is welcome :)"
+msgstr ""
+
+#: ../../source/old_toolchain/toolchain.rst:32
+msgid "So for the moment, Python for Android can only be used with the kivy GUI toolkit: http://kivy.org/#home"
+msgstr ""
+
+#: ../../source/old_toolchain/toolchain.rst:37
+msgid "How does it work ?"
+msgstr ""
+
+#: ../../source/old_toolchain/toolchain.rst:39
+msgid "To be able to run Python on android, you need to compile it for android. And you need to compile all the libraries you want for android too. Since Python is a language, not a toolkit, you cannot draw any user interface with it: you need to use a toolkit for it. Kivy can be one of them."
+msgstr ""
+
+#: ../../source/old_toolchain/toolchain.rst:44
+msgid "So for a simple ui project, the first step is to compile Python + Kivy + all others libraries. Then you'll have what we call a \"distribution\". A distribution is composed of:"
+msgstr ""
+
+#: ../../source/old_toolchain/toolchain.rst:48
+msgid "Python"
+msgstr ""
+
+#: ../../source/old_toolchain/toolchain.rst:49
+msgid "Python libraries"
+msgstr ""
+
+#: ../../source/old_toolchain/toolchain.rst:50
+msgid "All selected libraries (kivy, pygame, pil...)"
+msgstr ""
+
+#: ../../source/old_toolchain/toolchain.rst:51
+msgid "A java bootstrap"
+msgstr ""
+
+#: ../../source/old_toolchain/toolchain.rst:52
+msgid "A build script"
+msgstr ""
+
+#: ../../source/old_toolchain/toolchain.rst:54
+msgid "You'll use the build script for create an \"apk\": an android package."
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:2
+#: ../../source/old_toolchain/usage.rst:2
+msgid "Usage"
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:5
+#: ../../source/old_toolchain/usage.rst:5
+msgid "Step 1: compile the toolchain"
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:7
+#: ../../source/old_toolchain/usage.rst:7
+msgid "If you want to compile the toolchain with only the kivy module::"
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:12
+#: ../../source/old_toolchain/usage.rst:12
+msgid "Do not run the above command from `within a virtual enviroment <../faq/#too-many-levels-of-symbolic-links>`_."
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:14
+#: ../../source/old_toolchain/usage.rst:14
+msgid "After a long time, you'll get a \"dist/default\" directory containing all the compiled libraries and a build.py script to package your application using thoses libraries."
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:18
+#: ../../source/old_toolchain/usage.rst:18
+msgid "You can include other modules (or \"recipes\") to compile using `-m`::"
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:25
+#: ../../source/old_toolchain/usage.rst:25
+msgid "Recipes are instructions for compiling Python modules that require C extensions. The list of recipes we currently have is at: https://github.com/kivy/python-for-android/tree/master/recipes"
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:29
+#: ../../source/old_toolchain/usage.rst:29
+msgid "You can also specify a specific version for each package. Please note that the compilation might **break** if you don't use the default version. Most recipes have patches to fix Android issues, and might not apply if you specify a version. We also recommend to clean build before changing version.::"
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:37
+#: ../../source/old_toolchain/usage.rst:37
+msgid "Python modules that don't need C extensions don't need a recipe and can be included this way.  From python-for-android 1.1 on, you can now specify pure-python package into the distribution. It will use virtualenv and pip to install pure-python modules into the distribution. Please note that the compiler is deactivated, and will break any module which tries to compile something. If compilation is needed, write a recipe::"
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:49
+#: ../../source/old_toolchain/usage.rst:49
+msgid "Recipes download a defined version of their needed package from the internet, and build from it. If you know what you are doing, and want to override that, you can export the env variable `P4A_recipe_name_DIR` and this directory will be copied and used instead."
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:55
+#: ../../source/old_toolchain/usage.rst:55
+msgid "Available options to `distribute.sh`::"
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:65
+#: ../../source/old_toolchain/usage.rst:65
+msgid "Step 2: package your application"
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:67
+#: ../../source/old_toolchain/usage.rst:67
+msgid "Go to your custom Python distribution::"
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:71
+#: ../../source/old_toolchain/usage.rst:71
+msgid "Use the build.py for creating the APK::"
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:76
+#: ../../source/old_toolchain/usage.rst:76
+msgid "Then, the Android package (APK) will be generated at:"
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:78
+#: ../../source/old_toolchain/usage.rst:78
+msgid "bin/touchtracer-1.0-debug.apk"
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:82
+#: ../../source/old_toolchain/usage.rst:82
+msgid "Some files and modules for python are blacklisted by default to save a few megabytes on the final APK file. In case your applications doesn't find a standard python module, check the src/blacklist.txt file, remove the module you need from the list, and try again."
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:88
+#: ../../source/old_toolchain/usage.rst:88
+msgid "Available options to `build.py`::"
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:135
+#: ../../source/old_toolchain/usage.rst:135
+msgid "Meta-data"
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:139
+#: ../../source/old_toolchain/usage.rst:139
+msgid "You can extend the `AndroidManifest.xml` with application meta-data. If you are using external toolkits like Google Maps, you might want to set your API key in the meta-data. You could do it like this::"
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:145
+#: ../../source/old_toolchain/usage.rst:145
+msgid "Some meta-data can be used to interact with the behavior of our internal component."
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:152
+#: ../../source/old_toolchain/usage.rst:152
+msgid "Token"
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:153
+#: ../../source/old_toolchain/usage.rst:153
+msgid "Description"
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:154
+#: ../../source/old_toolchain/usage.rst:154
+msgid "`surface.transparent`"
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:155
+#: ../../source/old_toolchain/usage.rst:155
+msgid "If set to 1, the created surface will be transparent (can be used to add background Android widget in the background, or use accelerated widgets)"
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:158
+#: ../../source/old_toolchain/usage.rst:158
+msgid "`surface.depth`"
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:159
+#: ../../source/old_toolchain/usage.rst:159
+msgid "Size of the depth component, default to 0. 0 means automatic, but you can force it to a specific value. Be warned, some old phone might not support the depth you want."
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:162
+#: ../../source/old_toolchain/usage.rst:162
+msgid "`surface.stencil`"
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:163
+#: ../../source/old_toolchain/usage.rst:163
+msgid "Size of the stencil component, default to 8."
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:164
+#: ../../source/old_toolchain/usage.rst:164
+msgid "`android.background_color`"
+msgstr ""
+
+#: ../../source/old_toolchain/usage.rst:165
+#: ../../source/old_toolchain/usage.rst:165
+msgid "Color (32bits RGBA color), used for the background window. Usually, the background is covered by the OpenGL Background, unless `surface.transparent` is set."
+msgstr ""
+

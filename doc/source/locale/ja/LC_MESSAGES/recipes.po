@@ -1,0 +1,283 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2015, Alexander Taylor
+# This file is distributed under the same license as the python-for-android package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: python-for-android 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-28 04:38+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/recipes.rst:3
+msgid "Recipes"
+msgstr ""
+
+#: ../../source/recipes.rst:5
+msgid "This page describes how python-for-android (p4a) compilation recipes work, and how to build your own. If you just want to build an APK, ignore this and jump straight to the :doc:`quickstart`."
+msgstr ""
+
+#: ../../source/recipes.rst:9
+msgid "Recipes are special scripts for compiling and installing different programs (including Python modules) into a p4a distribution. They are necessary to take care of compilation for any compiled components, as these must be compiled for Android with the correct architecture."
+msgstr ""
+
+#: ../../source/recipes.rst:14
+msgid "python-for-android comes with many recipes for popular modules. No recipe is necessary to use of Python modules with no compiled components; these are installed automaticaly via pip."
+msgstr ""
+
+#: ../../source/recipes.rst:18
+msgid "If you are new to building recipes, it is recommended that you first read all of this page, at least up to the Recipe reference documentation. The different recipe sections include a number of examples of how recipes are built or overridden for specific purposes."
+msgstr ""
+
+#: ../../source/recipes.rst:25
+msgid "Creating your own Recipe"
+msgstr ""
+
+#: ../../source/recipes.rst:27
+msgid "The formal reference documentation of the Recipe class can be found in the `Recipe class <recipe_class_>`_ section and below."
+msgstr ""
+
+#: ../../source/recipes.rst:30
+msgid "Check the `recipe template section <recipe_template_>`_ for a template that combines all of these ideas, in which you can replace whichever components you like."
+msgstr ""
+
+#: ../../source/recipes.rst:34
+msgid "The basic declaration of a recipe is as follows::"
+msgstr ""
+
+#: ../../source/recipes.rst:49
+msgid "See the `Recipe class documentation <recipe_class_>`_ for full information about each parameter."
+msgstr ""
+
+#: ../../source/recipes.rst:52
+msgid "These core options are vital for all recipes, though the url may be omitted if the source is somehow loaded from elsewhere."
+msgstr ""
+
+#: ../../source/recipes.rst:55
+msgid "You must include ``recipe = YourRecipe()``. This variable is accessed when the recipe is imported."
+msgstr ""
+
+#: ../../source/recipes.rst:58
+msgid "The url includes the ``{version}`` tag. You should only access the url with the ``versioned_url`` property, which replaces this with the version attribute."
+msgstr ""
+
+#: ../../source/recipes.rst:62
+msgid "The actual build process takes place via three core methods::"
+msgstr ""
+
+#: ../../source/recipes.rst:76
+msgid "These methods are always run in the listed order; prebuild, then build, then postbuild."
+msgstr ""
+
+#: ../../source/recipes.rst:79
+msgid "If you defined an url for your recipe, you do *not* need to manually download it, this is handled automatically."
+msgstr ""
+
+#: ../../source/recipes.rst:82
+msgid "The recipe will automatically be built in a special isolated build directory, which you can access with :code:`self.get_build_dir(arch.arch)`. You should only work within this directory. It may be convenient to use the ``current_directory`` context manager defined in toolchain.py::"
+msgstr ""
+
+#: ../../source/recipes.rst:95
+msgid "The argument to each method, ``arch``, is an object relating to the architecture currently being built for. You can mostly ignore it, though may need to use the arch name ``arch.arch``."
+msgstr ""
+
+#: ../../source/recipes.rst:99
+msgid "You can also implement arch-specific versions of each method, which are called (if they exist) by the superclass, e.g. ``def prebuild_armeabi(self, arch)``."
+msgstr ""
+
+#: ../../source/recipes.rst:104
+msgid "This is the core of what's necessary to write a recipe, but has not covered any of the details of how one actually writes code to compile for android. This is covered in the next sections, including the `standard mechanisms <standard_mechanisms_>`_ used as part of the build, and the details of specific recipe classes for Python, Cython, and some generic compiled recipes. If your module is one of the latter, you should use these later classes rather than reimplementing the functionality from scratch."
+msgstr ""
+
+#: ../../source/recipes.rst:116
+msgid "Methods and tools to help with compilation"
+msgstr ""
+
+#: ../../source/recipes.rst:119
+msgid "Patching modules before installation"
+msgstr ""
+
+#: ../../source/recipes.rst:121
+msgid "You can easily apply patches to your recipes by adding them to the ``patches`` declaration, e.g.::"
+msgstr ""
+
+#: ../../source/recipes.rst:127
+msgid "The paths should be relative to the recipe file. Patches are automatically applied just once (i.e. not reapplied the second time python-for-android is run)."
+msgstr ""
+
+#: ../../source/recipes.rst:131
+msgid "You can also use the helper functions in ``pythonforandroid.patching`` to apply patches depending on certain conditions, e.g.::"
+msgstr ""
+
+#: ../../source/recipes.rst:145
+msgid "You can include your own conditions by passing any function as the second entry of the tuple. It will receive the ``arch`` (e.g. x86, armeabi) and ``recipe`` (i.e. the Recipe object) as kwargs. The patch will be applied only if the function returns True."
+msgstr ""
+
+#: ../../source/recipes.rst:152
+msgid "Installing libs"
+msgstr ""
+
+#: ../../source/recipes.rst:154
+msgid "Some recipes generate .so files that must be manually copied into the android project. You can use code like the following to accomplish this, copying to the correct lib cache dir::"
+msgstr ""
+
+#: ../../source/recipes.rst:165
+msgid "Any libs copied to this dir will automatically be included in the appropriate libs dir of the generated android project."
+msgstr ""
+
+#: ../../source/recipes.rst:169
+msgid "Compiling for the Android architecture"
+msgstr ""
+
+#: ../../source/recipes.rst:171
+msgid "When performing any compilation, it is vital to do so with appropriate environment variables set, ensuring that the Android libraries are properly linked and the compilation target is the correct architecture."
+msgstr ""
+
+#: ../../source/recipes.rst:176
+msgid "You can get a dictionary of appropriate environment variables with the ``get_recipe_env`` method. You should make sure to set this environment for any processes that you call. It is convenient to do this using the ``sh`` module as follows::"
+msgstr ""
+
+#: ../../source/recipes.rst:187
+msgid "You can also use the ``shprint`` helper function from the p4a toolchain module, which will print information about the process and its current status::"
+msgstr ""
+
+#: ../../source/recipes.rst:194
+msgid "You can also override the ``get_recipe_env`` method to add new env vars for the use of your recipe. For instance, the Kivy recipe does the following when compiling for SDL2, in order to tell Kivy what backend to use::"
+msgstr ""
+
+#: ../../source/recipes.rst:211
+msgid "When using the sh module like this the new env *completely replaces* the normal environment, so you must define any env vars you want to access."
+msgstr ""
+
+#: ../../source/recipes.rst:216
+msgid "Including files with your recipe"
+msgstr ""
+
+#: ../../source/recipes.rst:219
+msgid "The should_build method"
+msgstr ""
+
+#: ../../source/recipes.rst:221
+msgid "The Recipe class has a ``should_build`` method, which returns a boolean. This is called for each architecture before running ``build_arch``, and if it returns False then the build is skipped. This is useful to avoid building a recipe more than once for different dists."
+msgstr ""
+
+#: ../../source/recipes.rst:227
+msgid "By default, should_build returns True, but you can override it however you like. For instance, PythonRecipe and its subclasses all replace it with a check for whether the recipe is already installed in the Python distribution::"
+msgstr ""
+
+#: ../../source/recipes.rst:245
+msgid "Using a PythonRecipe"
+msgstr ""
+
+#: ../../source/recipes.rst:247
+msgid "If your recipe is to install a Python module without compiled components, you should use a PythonRecipe. This overrides ``build_arch`` to automatically call the normal ``python setup.py install`` with an appropriate environment."
+msgstr ""
+
+#: ../../source/recipes.rst:252
+msgid "For instance, the following is all that's necessary to create a recipe for the Vispy module::"
+msgstr ""
+
+#: ../../source/recipes.rst:266
+msgid "The ``site_packages_name`` is a new attribute that identifies the folder in which the module will be installed in the Python package. This is only essential to add if the name is different to the recipe name. It is used to check if the recipe installation can be skipped, which is the case if the folder is already present in the Python installation."
+msgstr ""
+
+#: ../../source/recipes.rst:273
+#: ../../source/recipes.rst:321
+msgid "For reference, the code that accomplishes this is the following::"
+msgstr ""
+
+#: ../../source/recipes.rst:292
+msgid "This combines techniques and tools from the above documentation to create a generic mechanism for all Python modules."
+msgstr ""
+
+#: ../../source/recipes.rst:295
+msgid "The hostpython is the path to the Python binary that should be used for any kind of installation. You *must* run Python in a similar way if you need to do so in any of your own recipes."
+msgstr ""
+
+#: ../../source/recipes.rst:302
+msgid "Using a CythonRecipe"
+msgstr ""
+
+#: ../../source/recipes.rst:304
+msgid "If your recipe is to install a Python module that uses Cython, you should use a CythonRecipe. This overrides ``build_arch`` to both build the cython components and to install the Python module just like a normal PythonRecipe."
+msgstr ""
+
+#: ../../source/recipes.rst:309
+msgid "For instance, the following is all that's necessary to make a recipe for Kivy (in this case, depending on Pygame rather than SDL2)::"
+msgstr ""
+
+#: ../../source/recipes.rst:353
+msgid "The failing build and manual cythonisation is necessary, first to make sure that any .pyx files have been generated by setup.py, and second because cython isn't installed in the hostpython build."
+msgstr ""
+
+#: ../../source/recipes.rst:357
+msgid "This may actually fail if the setup.py tries to import cython before making any pyx files (in which case it crashes too early), although this is probably not usually an issue. If this happens to you, try patching to remove this import or make it fail quietly."
+msgstr ""
+
+#: ../../source/recipes.rst:362
+msgid "Other than this, these methods follow the techniques in the above documentation to make a generic recipe for most cython based modules."
+msgstr ""
+
+#: ../../source/recipes.rst:366
+msgid "Using a CompiledComponentsPythonRecipe"
+msgstr ""
+
+#: ../../source/recipes.rst:368
+msgid "This is similar to a CythonRecipe but is intended for modules like numpy which include compiled but non-cython components. It uses a similar mechanism to compile with the right environment."
+msgstr ""
+
+#: ../../source/recipes.rst:372
+msgid "This isn't documented yet because it will probably be changed so that CythonRecipe inherits from it (to avoid code duplication)."
+msgstr ""
+
+#: ../../source/recipes.rst:377
+msgid "Using an NDKRecipe"
+msgstr ""
+
+#: ../../source/recipes.rst:379
+msgid "If you are writing a recipe not for a Python module but for something that would normall go in the JNI dir of an Android project (i.e. it has an ``Application.mk`` and ``Android.mk`` that the Android build system can use), you can use an NDKRecipe to automatically set it up. The NDKRecipe overrides the normal ``get_build_dir`` method to place things in the Android project."
+msgstr ""
+
+#: ../../source/recipes.rst:386
+msgid "The NDKRecipe does *not* currently actually call ndk-build, you must add this call (for your module) by manually making a build_arch method. This may be fixed later."
+msgstr ""
+
+#: ../../source/recipes.rst:391
+msgid "For instance, the following recipe is all that's necessary to place SDL2_ttf in the jni dir. This is built later by the SDL2 recipe, which calls ndk-build with this as a dependency::"
+msgstr ""
+
+#: ../../source/recipes.rst:402
+msgid "The dir_name argument is a new class attribute that tells the recipe what the jni dir folder name should be. If it is omitted, the recipe name is used. Be careful here, sometimes the folder name is important, especially if this folder is a dependency of something else."
+msgstr ""
+
+#: ../../source/recipes.rst:410
+msgid "A Recipe template"
+msgstr ""
+
+#: ../../source/recipes.rst:412
+msgid "The following template includes all the recipe sections you might use. None are compulsory, feel free to delete method overrides if you do not use them::"
+msgstr ""
+
+#: ../../source/recipes.rst:469
+msgid "Examples of recipes"
+msgstr ""
+
+#: ../../source/recipes.rst:471
+msgid "This documentation covers most of what is ever necessary to make a recipe work. For further examples, python-for-android includes many recipes for popular modules, which are an excellent resource to find out how to add your own. You can find these in the `python-for-android Github page <https://github.com/kivy/python-for-android/tree/master/pythonforandroid/recipes>`__."
+msgstr ""
+
+#: ../../source/recipes.rst:482
+msgid "The ``Recipe`` class"
+msgstr ""
+
+#: ../../source/recipes.rst:484
+msgid "The ``Recipe`` is the base class for all p4a recipes. The core documentation of this class is given below, followed by discussion of how to create your own Recipe subclass."
+msgstr ""
+
