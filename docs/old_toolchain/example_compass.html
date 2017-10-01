@@ -1,0 +1,298 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Compass &mdash; python-for-android 0.1 ドキュメント</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="python-for-android 0.1 ドキュメント" href="../index.html"/>
+        <link rel="up" title="Examples" href="examples.html"/>
+        <link rel="next" title="Python API" href="android.html"/>
+        <link rel="prev" title="Hello world" href="example_helloworld.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../index.html" class="fa fa-home"> python-for-android</a>
+        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">初めに</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#concepts">Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#advanced-usage">Advanced usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../buildoptions.html">Build options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../buildoptions.html#python-versions">Python versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildoptions.html#bootstrap-options">Bootstrap options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html">Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#commands-index">Commands index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#general-arguments">General arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#distribution-arguments">Distribution arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../distutils.html">distutils/setuptools integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../distutils.html#adding-p4a-arguments-in-setup-py">Adding p4a arguments in setup.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distutils.html#adding-p4a-arguments-in-setup-cfg">Adding p4a arguments in setup.cfg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../recipes.html">Recipes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#creating-your-own-recipe">Creating your own Recipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#methods-and-tools-to-help-with-compilation">Methods and tools to help with compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#using-a-pythonrecipe">Using a PythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#using-a-cythonrecipe">Using a CythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#using-a-compiledcomponentspythonrecipe">Using a CompiledComponentsPythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#using-an-ndkrecipe">Using an NDKRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#a-recipe-template">A Recipe template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#examples-of-recipes">Examples of recipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#the-recipe-class">The <code class="docutils literal"><span class="pre">Recipe</span></code> class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bootstraps.html">Bootstraps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../bootstraps.html#creating-a-new-bootstrap">Creating a new bootstrap</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../services.html">Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../services.html#service-creation">Service creation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../apis.html">Working on Android</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../apis.html#accessing-android-apis">Accessing Android APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apis.html#working-with-the-app-lifecycle">Working with the App lifecycle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting.html#debug-output">Debug output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting.html#getting-help">Getting help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting.html#debugging-on-android">Debugging on Android</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting.html#unpacking-an-apk">Unpacking an APK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting.html#common-errors">Common errors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../launcher.html">Launcher</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../launcher.html#building">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../launcher.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../launcher.html#release-on-the-market">Release on the market</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../launcher.html#source-code">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contributing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Old p4a toolchain doc</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="toolchain.html">Toolchain</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="android.html">Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="javaapi.html">Java API (pyjnius)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html">Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="related.html">Related projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html">FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">python-for-android</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Old p4a toolchain doc</a> &raquo;</li>
+      
+          <li><a href="examples.html">Examples</a> &raquo;</li>
+      
+    <li>Compass</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/old_toolchain/example_compass.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="compass">
+<h1>Compass<a class="headerlink" href="#compass" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>The following example is an extract from the Compass app as provided in the Kivy
+<a class="reference external" href="https://github.com/kivy/kivy/tree/master/examples/android/compass/">examples/android/compass</a>
+folder:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># ... imports</span>
+<span class="n">Hardware</span> <span class="o">=</span> <span class="n">autoclass</span><span class="p">(</span><span class="s1">&#39;org.renpy.android.Hardware&#39;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">CompassApp</span><span class="p">(</span><span class="n">App</span><span class="p">):</span>
+
+    <span class="n">needle_angle</span> <span class="o">=</span> <span class="n">NumericProperty</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_anim</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="n">Hardware</span><span class="o">.</span><span class="n">magneticFieldSensorEnable</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">Clock</span><span class="o">.</span><span class="n">schedule_interval</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update_compass</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mf">10.</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update_compass</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="c1"># read the magnetic sensor from the Hardware class</span>
+        <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="o">=</span> <span class="n">Hardware</span><span class="o">.</span><span class="n">magneticFieldSensorReading</span><span class="p">()</span>
+
+        <span class="c1"># calculate the angle</span>
+        <span class="n">needle_angle</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">(</span><span class="n">x</span> <span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">angle</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="mf">90.</span>
+
+        <span class="c1"># animate the needle</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_anim</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_anim</span><span class="o">.</span><span class="n">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_anim</span> <span class="o">=</span> <span class="n">Animation</span><span class="p">(</span><span class="n">needle_angle</span><span class="o">=</span><span class="n">needle_angle</span><span class="p">,</span> <span class="n">d</span><span class="o">=.</span><span class="mi">2</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="s1">&#39;out_quad&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_anim</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">on_pause</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># when you are going on pause, don&#39;t forget to stop the sensor</span>
+        <span class="n">Hardware</span><span class="o">.</span><span class="n">magneticFieldSensorEnable</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">True</span>
+
+    <span class="k">def</span> <span class="nf">on_resume</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># reactivate the sensor when you are back to the app</span>
+        <span class="n">Hardware</span><span class="o">.</span><span class="n">magneticFieldSensorEnable</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">CompassApp</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>If you compile this app, you will get an APK which outputs the following
+screen:</p>
+<div class="figure" id="id1" style="width: 80%">
+<a class="reference internal image-reference" href="../_images/Screenshot_Kivy_Kompass.png"><img alt="Screenshot Kivy Compass" src="../_images/Screenshot_Kivy_Kompass.png" style="width: 60.0%; height: 480.0px;" /></a>
+<p class="caption"><span class="caption-text">Screenshot of the Kivy Compass App
+(Source of the Compass Windrose: <a class="reference external" href="http://en.wikipedia.org/wiki/Compass_rose">Wikipedia</a>)</span></p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="android.html" class="btn btn-neutral float-right" title="Python API">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="example_helloworld.html" class="btn btn-neutral" title="Hello world"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Alexander Taylor.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

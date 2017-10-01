@@ -1,0 +1,691 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Recipes &mdash; python-for-android 0.1 ドキュメント</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="genindex.html"/>
+        <link rel="search" title="検索" href="search.html"/>
+    <link rel="top" title="python-for-android 0.1 ドキュメント" href="index.html"/>
+        <link rel="next" title="Bootstraps" href="bootstraps.html"/>
+        <link rel="prev" title="distutils/setuptools integration" href="distutils.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> python-for-android</a>
+        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">初めに</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#concepts">Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#advanced-usage">Advanced usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="buildoptions.html">Build options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="buildoptions.html#python-versions">Python versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildoptions.html#bootstrap-options">Bootstrap options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands.html">Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#commands-index">Commands index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#general-arguments">General arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#distribution-arguments">Distribution arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="distutils.html">distutils/setuptools integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="distutils.html#adding-p4a-arguments-in-setup-py">Adding p4a arguments in setup.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distutils.html#adding-p4a-arguments-in-setup-cfg">Adding p4a arguments in setup.cfg</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Recipes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creating-your-own-recipe">Creating your own Recipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#methods-and-tools-to-help-with-compilation">Methods and tools to help with compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-a-pythonrecipe">Using a PythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-a-cythonrecipe">Using a CythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-a-compiledcomponentspythonrecipe">Using a CompiledComponentsPythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-an-ndkrecipe">Using an NDKRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-recipe-template">A Recipe template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples-of-recipes">Examples of recipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-recipe-class">The <code class="docutils literal"><span class="pre">Recipe</span></code> class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bootstraps.html">Bootstraps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bootstraps.html#creating-a-new-bootstrap">Creating a new bootstrap</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="services.html#service-creation">Service creation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apis.html">Working on Android</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apis.html#accessing-android-apis">Accessing Android APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apis.html#working-with-the-app-lifecycle">Working with the App lifecycle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#debug-output">Debug output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#getting-help">Getting help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#debugging-on-android">Debugging on Android</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#unpacking-an-apk">Unpacking an APK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#common-errors">Common errors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Launcher</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#building">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#release-on-the-market">Release on the market</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#source-code">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="old_toolchain/index.html">Old p4a toolchain doc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/toolchain.html">Toolchain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/android.html">Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/javaapi.html">Java API (pyjnius)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/contribute.html">Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/related.html">Related projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/faq.html">FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="old_toolchain/index.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">python-for-android</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Recipes</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/recipes.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="recipes">
+<h1>Recipes<a class="headerlink" href="#recipes" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>This page describes how python-for-android (p4a) compilation recipes
+work, and how to build your own. If you just want to build an APK,
+ignore this and jump straight to the <a class="reference internal" href="quickstart.html"><span class="doc">初めに</span></a>.</p>
+<p>Recipes are special scripts for compiling and installing different programs
+(including Python modules) into a p4a distribution. They are necessary
+to take care of compilation for any compiled components, as these must
+be compiled for Android with the correct architecture.</p>
+<p>python-for-android comes with many recipes for popular modules. No
+recipe is necessary to use of Python modules with no
+compiled components; these are installed automaticaly via pip.</p>
+<p>If you are new to building recipes, it is recommended that you first
+read all of this page, at least up to the Recipe reference
+documentation. The different recipe sections include a number of
+examples of how recipes are built or overridden for specific purposes.</p>
+<div class="section" id="creating-your-own-recipe">
+<h2>Creating your own Recipe<a class="headerlink" href="#creating-your-own-recipe" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>The formal reference documentation of the Recipe
+class can be found in the <a class="reference internal" href="#recipe-class">Recipe class</a> section and below.</p>
+<p>Check the <a class="reference internal" href="#recipe-template">recipe template section</a> for a template
+that combines all of these ideas, in which you can replace whichever
+components you like.</p>
+<p>The basic declaration of a recipe is as follows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">YourRecipe</span><span class="p">(</span><span class="n">Recipe</span><span class="p">):</span>
+
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://example.com/example-</span><span class="si">{version}</span><span class="s1">.tar.gz&#39;</span>
+    <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;2.0.3&#39;</span>
+    <span class="n">md5sum</span> <span class="o">=</span> <span class="s1">&#39;4f3dc9a9d857734a488bcbefd9cd64ed&#39;</span>
+
+    <span class="n">patches</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;some_fix.patch&#39;</span><span class="p">]</span>  <span class="c1"># Paths relative to the recipe dir</span>
+
+    <span class="n">depends</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;kivy&#39;</span><span class="p">,</span> <span class="s1">&#39;sdl2&#39;</span><span class="p">]</span>  <span class="c1"># These are just examples</span>
+    <span class="n">conflicts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pygame&#39;</span><span class="p">]</span>
+
+<span class="n">recipe</span> <span class="o">=</span> <span class="n">YourRecipe</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>See the <a class="reference internal" href="#recipe-class">Recipe class documentation</a> for full
+information about each parameter.</p>
+<p>These core options are vital for all recipes, though the url may be
+omitted if the source is somehow loaded from elsewhere.</p>
+<p>You must include <code class="docutils literal"><span class="pre">recipe</span> <span class="pre">=</span> <span class="pre">YourRecipe()</span></code>. This variable is accessed
+when the recipe is imported.</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">The url includes the <code class="docutils literal"><span class="pre">{version}</span></code> tag. You should only
+access the url with the <code class="docutils literal"><span class="pre">versioned_url</span></code> property, which
+replaces this with the version attribute.</p>
+</div>
+<p>The actual build process takes place via three core methods:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prebuild_arch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arch</span><span class="p">):</span>
+    <span class="nb">super</span><span class="p">(</span><span class="n">YourRecipe</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">prebuild_arch</span><span class="p">(</span><span class="n">arch</span><span class="p">)</span>
+    <span class="c1"># Do any pre-initialisation</span>
+
+<span class="k">def</span> <span class="nf">build_arch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arch</span><span class="p">):</span>
+    <span class="nb">super</span><span class="p">(</span><span class="n">YourRecipe</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">build_arch</span><span class="p">(</span><span class="n">arch</span><span class="p">)</span>
+    <span class="c1"># Do the main recipe build</span>
+
+<span class="k">def</span> <span class="nf">postbuild_arch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arch</span><span class="p">):</span>
+    <span class="nb">super</span><span class="p">(</span><span class="n">YourRecipe</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">build_arch</span><span class="p">(</span><span class="n">arch</span><span class="p">)</span>
+    <span class="c1"># Do any clearing up</span>
+</pre></div>
+</div>
+<p>These methods are always run in the listed order; prebuild, then
+build, then postbuild.</p>
+<p>If you defined an url for your recipe, you do <em>not</em> need to manually
+download it, this is handled automatically.</p>
+<p>The recipe will automatically be built in a special isolated build
+directory, which you can access with
+<code class="code docutils literal"><span class="pre">self.get_build_dir(arch.arch)</span></code>. You should only work within
+this directory. It may be convenient to use the <code class="docutils literal"><span class="pre">current_directory</span></code>
+context manager defined in toolchain.py:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythonforandroid.toolchain</span> <span class="k">import</span> <span class="n">current_directory</span>
+<span class="k">def</span> <span class="nf">build_arch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arch</span><span class="p">):</span>
+    <span class="nb">super</span><span class="p">(</span><span class="n">YourRecipe</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">build_arch</span><span class="p">(</span><span class="n">arch</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">current_directory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_build_dir</span><span class="p">(</span><span class="n">arch</span><span class="o">.</span><span class="n">arch</span><span class="p">)):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;example_file.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">):</span>
+            <span class="n">fileh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;This is written to a file within the build dir&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The argument to each method, <code class="docutils literal"><span class="pre">arch</span></code>, is an object relating to the
+architecture currently being built for. You can mostly ignore it,
+though may need to use the arch name <code class="docutils literal"><span class="pre">arch.arch</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">You can also implement arch-specific versions of each
+method, which are called (if they exist) by the superclass,
+e.g. <code class="docutils literal"><span class="pre">def</span> <span class="pre">prebuild_armeabi(self,</span> <span class="pre">arch)</span></code>.</p>
+</div>
+<p>This is the core of what&#8217;s necessary to write a recipe, but has not
+covered any of the details of how one actually writes code to compile
+for android. This is covered in the next sections, including the
+<a class="reference internal" href="#standard-mechanisms">standard mechanisms</a> used as part of the
+build, and the details of specific recipe classes for Python, Cython,
+and some generic compiled recipes. If your module is one of the
+latter, you should use these later classes rather than reimplementing
+the functionality from scratch.</p>
+</div>
+<div class="section" id="methods-and-tools-to-help-with-compilation">
+<span id="standard-mechanisms"></span><h2>Methods and tools to help with compilation<a class="headerlink" href="#methods-and-tools-to-help-with-compilation" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="patching-modules-before-installation">
+<h3>Patching modules before installation<a class="headerlink" href="#patching-modules-before-installation" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>You can easily apply patches to your recipes by adding them to the
+<code class="docutils literal"><span class="pre">patches</span></code> declaration, e.g.:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">patches</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;some_fix.patch&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;another_fix.patch&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The paths should be relative to the recipe file. Patches are
+automatically applied just once (i.e. not reapplied the second time
+python-for-android is run).</p>
+<p>You can also use the helper functions in <code class="docutils literal"><span class="pre">pythonforandroid.patching</span></code>
+to apply patches depending on certain conditions, e.g.:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythonforandroid.patching</span> <span class="k">import</span> <span class="n">will_build</span><span class="p">,</span> <span class="n">is_arch</span>
+
+<span class="o">...</span>
+
+<span class="k">class</span> <span class="nc">YourRecipe</span><span class="p">(</span><span class="n">Recipe</span><span class="p">):</span>
+
+    <span class="n">patches</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;x86_patch.patch&#39;</span><span class="p">,</span> <span class="n">is_arch</span><span class="p">(</span><span class="s1">&#39;x86&#39;</span><span class="p">)),</span>
+               <span class="p">(</span><span class="s1">&#39;sdl2_compatibility.patch&#39;</span><span class="p">,</span> <span class="n">will_build</span><span class="p">(</span><span class="s1">&#39;sdl2&#39;</span><span class="p">))]</span>
+
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>You can include your own conditions by passing any function as the
+second entry of the tuple. It will receive the <code class="docutils literal"><span class="pre">arch</span></code> (e.g. x86,
+armeabi) and <code class="docutils literal"><span class="pre">recipe</span></code> (i.e. the Recipe object) as kwargs. The patch
+will be applied only if the function returns True.</p>
+</div>
+<div class="section" id="installing-libs">
+<h3>Installing libs<a class="headerlink" href="#installing-libs" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Some recipes generate .so files that must be manually copied into the
+android project. You can use code like the following to accomplish
+this, copying to the correct lib cache dir:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_arch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arch</span><span class="p">):</span>
+    <span class="n">do_the_build</span><span class="p">()</span>  <span class="c1"># e.g. running ./configure and make</span>
+
+    <span class="kn">import</span> <span class="nn">shutil</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="s1">&#39;a_generated_binary.so&#39;</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">get_libs_dir</span><span class="p">(</span><span class="n">arch</span><span class="o">.</span><span class="n">arch</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Any libs copied to this dir will automatically be included in the
+appropriate libs dir of the generated android project.</p>
+</div>
+<div class="section" id="compiling-for-the-android-architecture">
+<h3>Compiling for the Android architecture<a class="headerlink" href="#compiling-for-the-android-architecture" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>When performing any compilation, it is vital to do so with appropriate
+environment variables set, ensuring that the Android libraries are
+properly linked and the compilation target is the correct
+architecture.</p>
+<p>You can get a dictionary of appropriate environment variables with the
+<code class="docutils literal"><span class="pre">get_recipe_env</span></code> method. You should make sure to set this
+environment for any processes that you call. It is convenient to do
+this using the <code class="docutils literal"><span class="pre">sh</span></code> module as follows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_arch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arch</span><span class="p">):</span>
+    <span class="nb">super</span><span class="p">(</span><span class="n">YourRecipe</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">build_arch</span><span class="p">(</span><span class="n">arch</span><span class="p">)</span>
+    <span class="n">env</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_recipe_env</span><span class="p">(</span><span class="n">arch</span><span class="p">)</span>
+    <span class="n">sh</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s1">&#39;$PATH&#39;</span><span class="p">,</span> <span class="n">_env</span><span class="o">=</span><span class="n">env</span><span class="p">)</span>  <span class="c1"># Will print the PATH entry from the</span>
+                                <span class="c1"># env dict</span>
+</pre></div>
+</div>
+<p>You can also use the <code class="docutils literal"><span class="pre">shprint</span></code> helper function from the p4a
+toolchain module, which will print information about the process and
+its current status:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythonforandroid.toolchain</span> <span class="k">import</span> <span class="n">shprint</span>
+<span class="n">shprint</span><span class="p">(</span><span class="n">sh</span><span class="o">.</span><span class="n">echo</span><span class="p">,</span> <span class="s1">&#39;$PATH&#39;</span><span class="p">,</span> <span class="n">_env</span><span class="o">=</span><span class="n">env</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can also override the <code class="docutils literal"><span class="pre">get_recipe_env</span></code> method to add new env
+vars for the use of your recipe. For instance, the Kivy recipe does
+the following when compiling for SDL2, in order to tell Kivy what
+backend to use:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_recipe_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arch</span><span class="p">):</span>
+    <span class="n">env</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">KivySDL2Recipe</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_recipe_env</span><span class="p">(</span><span class="n">arch</span><span class="p">)</span>
+    <span class="n">env</span><span class="p">[</span><span class="s1">&#39;USE_SDL2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span>
+
+    <span class="n">env</span><span class="p">[</span><span class="s1">&#39;KIVY_SDL2_PATH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;:&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+        <span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">build_dir</span><span class="p">,</span> <span class="s1">&#39;jni&#39;</span><span class="p">,</span> <span class="s1">&#39;SDL&#39;</span><span class="p">,</span> <span class="s1">&#39;include&#39;</span><span class="p">),</span>
+        <span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">build_dir</span><span class="p">,</span> <span class="s1">&#39;jni&#39;</span><span class="p">,</span> <span class="s1">&#39;SDL2_image&#39;</span><span class="p">),</span>
+        <span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">build_dir</span><span class="p">,</span> <span class="s1">&#39;jni&#39;</span><span class="p">,</span> <span class="s1">&#39;SDL2_mixer&#39;</span><span class="p">),</span>
+        <span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">build_dir</span><span class="p">,</span> <span class="s1">&#39;jni&#39;</span><span class="p">,</span> <span class="s1">&#39;SDL2_ttf&#39;</span><span class="p">),</span>
+        <span class="p">])</span>
+    <span class="k">return</span> <span class="n">env</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">When using the sh module like this the new env <em>completely
+replaces</em> the normal environment, so you must define any env
+vars you want to access.</p>
+</div>
+</div>
+<div class="section" id="including-files-with-your-recipe">
+<h3>Including files with your recipe<a class="headerlink" href="#including-files-with-your-recipe" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="the-should-build-method">
+<h3>The should_build method<a class="headerlink" href="#the-should-build-method" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>The Recipe class has a <code class="docutils literal"><span class="pre">should_build</span></code> method, which returns a
+boolean. This is called for each architecture before running
+<code class="docutils literal"><span class="pre">build_arch</span></code>, and if it returns False then the build is
+skipped. This is useful to avoid building a recipe more than once for
+different dists.</p>
+<p>By default, should_build returns True, but you can override it however
+you like. For instance, PythonRecipe and its subclasses all replace it
+with a check for whether the recipe is already installed in the Python
+distribution:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">should_build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arch</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">site_packages_name</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">has_package</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+        <span class="n">info</span><span class="p">(</span><span class="s1">&#39;Python package already exists in site-packages&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> apparently isn</span><span class="se">\&#39;</span><span class="s1">t already in site-packages&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+    <span class="k">return</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="using-a-pythonrecipe">
+<h2>Using a PythonRecipe<a class="headerlink" href="#using-a-pythonrecipe" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>If your recipe is to install a Python module without compiled
+components, you should use a PythonRecipe. This overrides
+<code class="docutils literal"><span class="pre">build_arch</span></code> to automatically call the normal <code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span>
+<span class="pre">install</span></code> with an appropriate environment.</p>
+<p>For instance, the following is all that&#8217;s necessary to create a recipe
+for the Vispy module:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythonforandroid.toolchain</span> <span class="k">import</span> <span class="n">PythonRecipe</span>
+<span class="k">class</span> <span class="nc">VispyRecipe</span><span class="p">(</span><span class="n">PythonRecipe</span><span class="p">):</span>
+    <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;master&#39;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/vispy/vispy/archive/</span><span class="si">{version}</span><span class="s1">.zip&#39;</span>
+
+    <span class="n">depends</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;python2&#39;</span><span class="p">,</span> <span class="s1">&#39;numpy&#39;</span><span class="p">]</span>
+
+    <span class="n">site_packages_name</span> <span class="o">=</span> <span class="s1">&#39;vispy&#39;</span>
+
+<span class="n">recipe</span> <span class="o">=</span> <span class="n">VispyRecipe</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">site_packages_name</span></code> is a new attribute that identifies the
+folder in which the module will be installed in the Python
+package. This is only essential to add if the name is different to the
+recipe name. It is used to check if the recipe installation can be
+skipped, which is the case if the folder is already present in the
+Python installation.</p>
+<p>For reference, the code that accomplishes this is the following:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_arch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arch</span><span class="p">):</span>
+    <span class="nb">super</span><span class="p">(</span><span class="n">PythonRecipe</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">build_arch</span><span class="p">(</span><span class="n">arch</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">install_python_package</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">install_python_package</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Automate the installation of a Python package (or a cython</span>
+<span class="sd">    package where the cython components are pre-built).&#39;&#39;&#39;</span>
+    <span class="n">arch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filtered_archs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">env</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_recipe_env</span><span class="p">(</span><span class="n">arch</span><span class="p">)</span>
+
+    <span class="n">info</span><span class="p">(</span><span class="s1">&#39;Installing </span><span class="si">{}</span><span class="s1"> into site-packages&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+
+    <span class="k">with</span> <span class="n">current_directory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_build_dir</span><span class="p">(</span><span class="n">arch</span><span class="o">.</span><span class="n">arch</span><span class="p">)):</span>
+        <span class="n">hostpython</span> <span class="o">=</span> <span class="n">sh</span><span class="o">.</span><span class="n">Command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">hostpython</span><span class="p">)</span>
+
+        <span class="n">shprint</span><span class="p">(</span><span class="n">hostpython</span><span class="p">,</span> <span class="s1">&#39;setup.py&#39;</span><span class="p">,</span> <span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="s1">&#39;-O2&#39;</span><span class="p">,</span> <span class="n">_env</span><span class="o">=</span><span class="n">env</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This combines techniques and tools from the above documentation to
+create a generic mechanism for all Python modules.</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">The hostpython is the path to the Python binary that should
+be used for any kind of installation. You <em>must</em> run Python
+in a similar way if you need to do so in any of your own
+recipes.</p>
+</div>
+</div>
+<div class="section" id="using-a-cythonrecipe">
+<h2>Using a CythonRecipe<a class="headerlink" href="#using-a-cythonrecipe" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>If your recipe is to install a Python module that uses Cython, you
+should use a CythonRecipe. This overrides <code class="docutils literal"><span class="pre">build_arch</span></code> to both build
+the cython components and to install the Python module just like a
+normal PythonRecipe.</p>
+<p>For instance, the following is all that&#8217;s necessary to make a recipe
+for Kivy (in this case, depending on Pygame rather than SDL2):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">KivyRecipe</span><span class="p">(</span><span class="n">CythonRecipe</span><span class="p">):</span>
+     <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;stable&#39;</span>
+     <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/kivy/kivy/archive/</span><span class="si">{version}</span><span class="s1">.zip&#39;</span>
+     <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;kivy&#39;</span>
+
+     <span class="n">depends</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pygame&#39;</span><span class="p">,</span> <span class="s1">&#39;pyjnius&#39;</span><span class="p">,</span> <span class="s1">&#39;android&#39;</span><span class="p">]</span>
+
+<span class="n">recipe</span> <span class="o">=</span> <span class="n">KivyRecipe</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>For reference, the code that accomplishes this is the following:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_arch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arch</span><span class="p">):</span>
+    <span class="n">Recipe</span><span class="o">.</span><span class="n">build_arch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arch</span><span class="p">)</span>  <span class="c1"># a hack to avoid calling</span>
+                                   <span class="c1"># PythonRecipe.build_arch</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">build_cython_components</span><span class="p">(</span><span class="n">arch</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">install_python_package</span><span class="p">()</span>  <span class="c1"># this is the same as in a PythonRecipe</span>
+
+<span class="k">def</span> <span class="nf">build_cython_components</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arch</span><span class="p">):</span>
+    <span class="n">env</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_recipe_env</span><span class="p">(</span><span class="n">arch</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">current_directory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_build_dir</span><span class="p">(</span><span class="n">arch</span><span class="o">.</span><span class="n">arch</span><span class="p">)):</span>
+        <span class="n">hostpython</span> <span class="o">=</span> <span class="n">sh</span><span class="o">.</span><span class="n">Command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">hostpython</span><span class="p">)</span>
+
+        <span class="c1"># This first attempt *will* fail, because cython isn&#39;t</span>
+        <span class="c1"># installed in the hostpython</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">shprint</span><span class="p">(</span><span class="n">hostpython</span><span class="p">,</span> <span class="s1">&#39;setup.py&#39;</span><span class="p">,</span> <span class="s1">&#39;build_ext&#39;</span><span class="p">,</span> <span class="n">_env</span><span class="o">=</span><span class="n">env</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">sh</span><span class="o">.</span><span class="n">ErrorReturnCode_1</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+        <span class="c1"># ...so we manually run cython from the user&#39;s system</span>
+        <span class="n">shprint</span><span class="p">(</span><span class="n">sh</span><span class="o">.</span><span class="n">find</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_build_dir</span><span class="p">(</span><span class="s1">&#39;armeabi&#39;</span><span class="p">),</span> <span class="s1">&#39;-iname&#39;</span><span class="p">,</span> <span class="s1">&#39;*.pyx&#39;</span><span class="p">,</span> <span class="s1">&#39;-exec&#39;</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">cython</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">_env</span><span class="o">=</span><span class="n">env</span><span class="p">)</span>
+
+        <span class="c1"># now cython has already been run so the build works</span>
+        <span class="n">shprint</span><span class="p">(</span><span class="n">hostpython</span><span class="p">,</span> <span class="s1">&#39;setup.py&#39;</span><span class="p">,</span> <span class="s1">&#39;build_ext&#39;</span><span class="p">,</span> <span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="n">_env</span><span class="o">=</span><span class="n">env</span><span class="p">)</span>
+
+        <span class="c1"># stripping debug symbols lowers the file size a lot</span>
+        <span class="n">build_lib</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;./build/lib*&#39;</span><span class="p">)</span>
+        <span class="n">shprint</span><span class="p">(</span><span class="n">sh</span><span class="o">.</span><span class="n">find</span><span class="p">,</span> <span class="n">build_lib</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;-name&#39;</span><span class="p">,</span> <span class="s1">&#39;*.o&#39;</span><span class="p">,</span> <span class="s1">&#39;-exec&#39;</span><span class="p">,</span>
+                <span class="n">env</span><span class="p">[</span><span class="s1">&#39;STRIP&#39;</span><span class="p">],</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">_env</span><span class="o">=</span><span class="n">env</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The failing build and manual cythonisation is necessary, first to
+make sure that any .pyx files have been generated by setup.py, and
+second because cython isn&#8217;t installed in the hostpython build.</p>
+<p>This may actually fail if the setup.py tries to import cython before
+making any pyx files (in which case it crashes too early), although
+this is probably not usually an issue. If this happens to you, try
+patching to remove this import or make it fail quietly.</p>
+<p>Other than this, these methods follow the techniques in the above
+documentation to make a generic recipe for most cython based modules.</p>
+</div>
+<div class="section" id="using-a-compiledcomponentspythonrecipe">
+<h2>Using a CompiledComponentsPythonRecipe<a class="headerlink" href="#using-a-compiledcomponentspythonrecipe" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>This is similar to a CythonRecipe but is intended for modules like
+numpy which include compiled but non-cython components. It uses a
+similar mechanism to compile with the right environment.</p>
+<p>This isn&#8217;t documented yet because it will probably be changed so that
+CythonRecipe inherits from it (to avoid code duplication).</p>
+</div>
+<div class="section" id="using-an-ndkrecipe">
+<h2>Using an NDKRecipe<a class="headerlink" href="#using-an-ndkrecipe" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>If you are writing a recipe not for a Python module but for something
+that would normall go in the JNI dir of an Android project (i.e. it
+has an <code class="docutils literal"><span class="pre">Application.mk</span></code> and <code class="docutils literal"><span class="pre">Android.mk</span></code> that the Android build
+system can use), you can use an NDKRecipe to automatically set it
+up. The NDKRecipe overrides the normal <code class="docutils literal"><span class="pre">get_build_dir</span></code> method to
+place things in the Android project.</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">The NDKRecipe does <em>not</em> currently actually call
+ndk-build, you must add this call (for your module) by
+manually making a build_arch method. This may be fixed
+later.</p>
+</div>
+<p>For instance, the following recipe is all that&#8217;s necessary to place
+SDL2_ttf in the jni dir. This is built later by the SDL2 recipe, which
+calls ndk-build with this as a dependency:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LibSDL2TTF</span><span class="p">(</span><span class="n">NDKRecipe</span><span class="p">):</span>
+    <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;2.0.12&#39;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-</span><span class="si">{version}</span><span class="s1">.tar.gz&#39;</span>
+    <span class="n">dir_name</span> <span class="o">=</span> <span class="s1">&#39;SDL2_ttf&#39;</span>
+
+<span class="n">recipe</span> <span class="o">=</span> <span class="n">LibSDL2TTF</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The dir_name argument is a new class attribute that tells the recipe
+what the jni dir folder name should be. If it is omitted, the recipe
+name is used. Be careful here, sometimes the folder name is important,
+especially if this folder is a dependency of something else.</p>
+</div>
+<div class="section" id="a-recipe-template">
+<span id="recipe-template"></span><h2>A Recipe template<a class="headerlink" href="#a-recipe-template" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>The following template includes all the recipe sections you might
+use. None are compulsory, feel free to delete method
+overrides if you do not use them:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythonforandroid.toolchain</span> <span class="k">import</span> <span class="n">Recipe</span><span class="p">,</span> <span class="n">shprint</span><span class="p">,</span> <span class="n">current_directory</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">exists</span><span class="p">,</span> <span class="n">join</span>
+<span class="kn">import</span> <span class="nn">sh</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+
+
+<span class="k">class</span> <span class="nc">YourRecipe</span><span class="p">(</span><span class="n">Recipe</span><span class="p">):</span>
+    <span class="c1"># This could also inherit from PythonRecipe etc. if you want to</span>
+    <span class="c1"># use their pre-written build processes</span>
+
+    <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;some_version_string&#39;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://example.com/example-</span><span class="si">{version}</span><span class="s1">.tar.gz&#39;</span>
+    <span class="c1"># {version} will be replaced with self.version when downloading</span>
+
+    <span class="n">depends</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;python2&#39;</span><span class="p">,</span> <span class="s1">&#39;numpy&#39;</span><span class="p">]</span>  <span class="c1"># A list of any other recipe names</span>
+                                    <span class="c1"># that must be built before this</span>
+                                    <span class="c1"># one</span>
+
+    <span class="n">conflicts</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># A list of any recipe names that cannot be built</span>
+                    <span class="c1"># alongside this one</span>
+
+    <span class="k">def</span> <span class="nf">get_recipe_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arch</span><span class="p">):</span>
+        <span class="n">env</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">YourRecipe</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_recipe_env</span><span class="p">()</span>
+        <span class="c1"># Manipulate the env here if you want</span>
+        <span class="k">return</span> <span class="n">env</span>
+
+    <span class="k">def</span> <span class="nf">should_build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Add a check for whether the recipe is already built if you</span>
+        <span class="c1"># want, and return False if it is.</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">prebuild_arch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arch</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">YourRecipe</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">prebuild_arch</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="c1"># Do any extra prebuilding you want, e.g.:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">apply_patch</span><span class="p">(</span><span class="s1">&#39;path/to/patch.patch&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">build_arch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arch</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">YourRecipe</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">build_arch</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="c1"># Build the code. Make sure to use the right build dir, e.g.</span>
+        <span class="k">with</span> <span class="n">current_directory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_build_dir</span><span class="p">(</span><span class="n">arch</span><span class="o">.</span><span class="n">arch</span><span class="p">)):</span>
+            <span class="n">sh</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="s1">&#39;-lathr&#39;</span><span class="p">)</span>  <span class="c1"># Or run some commands that actually do</span>
+                             <span class="c1"># something</span>
+
+    <span class="k">def</span> <span class="nf">postbuild_arch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arch</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">YourRecipe</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">prebuild_arch</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="c1"># Do anything you want after the build, e.g. deleting</span>
+        <span class="c1"># unnecessary files such as documentation</span>
+
+
+<span class="n">recipe</span> <span class="o">=</span> <span class="n">YourRecipe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="examples-of-recipes">
+<h2>Examples of recipes<a class="headerlink" href="#examples-of-recipes" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>This documentation covers most of what is ever necessary to make a
+recipe work. For further examples, python-for-android includes many
+recipes for popular modules, which are an excellent resource to find
+out how to add your own. You can find these in the <a class="reference external" href="https://github.com/kivy/python-for-android/tree/master/pythonforandroid/recipes">python-for-android
+Github page</a>.</p>
+</div>
+<div class="section" id="the-recipe-class">
+<span id="recipe-class"></span><h2>The <code class="docutils literal"><span class="pre">Recipe</span></code> class<a class="headerlink" href="#the-recipe-class" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>The <code class="docutils literal"><span class="pre">Recipe</span></code> is the base class for all p4a recipes. The core
+documentation of this class is given below, followed by discussion of
+how to create your own Recipe subclass.</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="bootstraps.html" class="btn btn-neutral float-right" title="Bootstraps">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="distutils.html" class="btn btn-neutral" title="distutils/setuptools integration"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Alexander Taylor.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

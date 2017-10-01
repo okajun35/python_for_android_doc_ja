@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>distutils/setuptools integration &mdash; python-for-android 0.1 ドキュメント</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="genindex.html"/>
+        <link rel="search" title="検索" href="search.html"/>
+    <link rel="top" title="python-for-android 0.1 ドキュメント" href="index.html"/>
+        <link rel="next" title="Recipes" href="recipes.html"/>
+        <link rel="prev" title="Commands" href="commands.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> python-for-android</a>
+        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">初めに</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#concepts">Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#advanced-usage">Advanced usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="buildoptions.html">Build options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="buildoptions.html#python-versions">Python versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildoptions.html#bootstrap-options">Bootstrap options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands.html">Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#commands-index">Commands index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#general-arguments">General arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#distribution-arguments">Distribution arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">distutils/setuptools integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#adding-p4a-arguments-in-setup-py">Adding p4a arguments in setup.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-p4a-arguments-in-setup-cfg">Adding p4a arguments in setup.cfg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="recipes.html">Recipes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#creating-your-own-recipe">Creating your own Recipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#methods-and-tools-to-help-with-compilation">Methods and tools to help with compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-pythonrecipe">Using a PythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-cythonrecipe">Using a CythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-compiledcomponentspythonrecipe">Using a CompiledComponentsPythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-an-ndkrecipe">Using an NDKRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#a-recipe-template">A Recipe template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#examples-of-recipes">Examples of recipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#the-recipe-class">The <code class="docutils literal"><span class="pre">Recipe</span></code> class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bootstraps.html">Bootstraps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bootstraps.html#creating-a-new-bootstrap">Creating a new bootstrap</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="services.html#service-creation">Service creation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apis.html">Working on Android</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apis.html#accessing-android-apis">Accessing Android APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apis.html#working-with-the-app-lifecycle">Working with the App lifecycle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#debug-output">Debug output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#getting-help">Getting help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#debugging-on-android">Debugging on Android</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#unpacking-an-apk">Unpacking an APK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#common-errors">Common errors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Launcher</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#building">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#release-on-the-market">Release on the market</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#source-code">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="old_toolchain/index.html">Old p4a toolchain doc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/toolchain.html">Toolchain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/android.html">Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/javaapi.html">Java API (pyjnius)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/contribute.html">Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/related.html">Related projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/faq.html">FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="old_toolchain/index.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">python-for-android</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>distutils/setuptools integration</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/distutils.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="distutils-setuptools-integration">
+<h1>distutils/setuptools integration<a class="headerlink" href="#distutils-setuptools-integration" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Instead of running p4a via the command line, you can integrate with
+distutils and setup.py.</p>
+<p>The base command is:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">apk</span>
+</pre></div>
+</div>
+<p>The files included in the APK will be all those specified in the
+<code class="docutils literal"><span class="pre">package_data</span></code> argument to setup. For instance, the following
+example will include all .py and .png files in the <code class="docutils literal"><span class="pre">testapp</span></code>
+folder:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">distutils.core</span> <span class="k">import</span> <span class="n">setup</span>
+<span class="kn">from</span> <span class="nn">setup</span>
+
+<span class="n">setup</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;testapp_setup&#39;</span><span class="p">,</span>
+    <span class="n">version</span><span class="o">=</span><span class="s1">&#39;1.1&#39;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;p4a setup.py example&#39;</span><span class="p">,</span>
+    <span class="n">author</span><span class="o">=</span><span class="s1">&#39;Your Name&#39;</span><span class="p">,</span>
+    <span class="n">author_email</span><span class="o">=</span><span class="s1">&#39;youremail@address.com&#39;</span><span class="p">,</span>
+    <span class="n">packages</span><span class="o">=</span><span class="n">find_packages</span><span class="p">(),</span>
+    <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">,</span>
+    <span class="n">package_data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;testapp&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;*.py&#39;</span><span class="p">,</span> <span class="s1">&#39;*.png&#39;</span><span class="p">]}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The app name and version will also be read automatically from the
+setup.py.</p>
+<p>The Android package name uses <code class="docutils literal"><span class="pre">org.test.lowercaseappname</span></code>
+if not set explicitly.</p>
+<p>The <code class="docutils literal"><span class="pre">--private</span></code> argument is set automatically using the
+package_data, you should <em>not</em> set this manually.</p>
+<p>The target architecture defaults to <code class="docutils literal"><span class="pre">--armeabi</span></code>.</p>
+<p>All of these automatic arguments can be overridden by passing them manually on the command line, e.g.:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">apk</span> <span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Testapp Setup&quot;</span> <span class="o">--</span><span class="n">version</span><span class="o">=</span><span class="mf">2.5</span>
+</pre></div>
+</div>
+<div class="section" id="adding-p4a-arguments-in-setup-py">
+<h2>Adding p4a arguments in setup.py<a class="headerlink" href="#adding-p4a-arguments-in-setup-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Instead of providing extra arguments on the command line, you can
+store them in setup.py by passing the <code class="docutils literal"><span class="pre">options</span></code> parameter to
+<code class="code docutils literal"><span class="pre">setup</span></code>. For instance:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">distutils.core</span> <span class="k">import</span> <span class="n">setup</span>
+<span class="kn">from</span> <span class="nn">setuptools</span> <span class="k">import</span> <span class="n">find_packages</span>
+
+<span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;apk&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;debug&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># use None for arguments that don&#39;t pass a value</span>
+                   <span class="s1">&#39;requirements&#39;</span><span class="p">:</span> <span class="s1">&#39;sdl2,pyjnius,kivy,python2&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;android-api&#39;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span>
+                   <span class="s1">&#39;ndk-dir&#39;</span><span class="p">:</span> <span class="s1">&#39;/path/to/ndk&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;dist-name&#39;</span><span class="p">:</span> <span class="s1">&#39;bdisttest&#39;</span><span class="p">,</span>
+                   <span class="p">}}</span>
+
+<span class="n">packages</span> <span class="o">=</span> <span class="n">find_packages</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;packages are&#39;</span><span class="p">,</span> <span class="n">packages</span><span class="p">)</span>
+
+<span class="n">setup</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;testapp_setup&#39;</span><span class="p">,</span>
+    <span class="n">version</span><span class="o">=</span><span class="s1">&#39;1.1&#39;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;p4a setup.py example&#39;</span><span class="p">,</span>
+    <span class="n">author</span><span class="o">=</span><span class="s1">&#39;Your Name&#39;</span><span class="p">,</span>
+    <span class="n">author_email</span><span class="o">=</span><span class="s1">&#39;youremail@address.com&#39;</span><span class="p">,</span>
+    <span class="n">packages</span><span class="o">=</span><span class="n">find_packages</span><span class="p">(),</span>
+    <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">,</span>
+    <span class="n">package_data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;testapp&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;*.py&#39;</span><span class="p">,</span> <span class="s1">&#39;*.png&#39;</span><span class="p">]}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>These options will be automatically included when you run <code class="docutils literal"><span class="pre">python</span>
+<span class="pre">setup.py</span> <span class="pre">apk</span></code>. Any options passed on the command line will override
+these values.</p>
+</div>
+<div class="section" id="adding-p4a-arguments-in-setup-cfg">
+<h2>Adding p4a arguments in setup.cfg<a class="headerlink" href="#adding-p4a-arguments-in-setup-cfg" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>You can also provide p4a arguments in the setup.cfg file, as normal
+for distutils. The syntax is:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">apk</span><span class="p">]</span>
+
+<span class="n">argument</span><span class="o">=</span><span class="n">value</span>
+
+<span class="n">requirements</span><span class="o">=</span><span class="n">sdl2</span><span class="p">,</span><span class="n">kivy</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="recipes.html" class="btn btn-neutral float-right" title="Recipes">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="commands.html" class="btn btn-neutral" title="Commands"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Alexander Taylor.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

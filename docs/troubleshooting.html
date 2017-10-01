@@ -1,0 +1,382 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Troubleshooting &mdash; python-for-android 0.1 ドキュメント</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="genindex.html"/>
+        <link rel="search" title="検索" href="search.html"/>
+    <link rel="top" title="python-for-android 0.1 ドキュメント" href="index.html"/>
+        <link rel="next" title="Launcher" href="launcher.html"/>
+        <link rel="prev" title="Working on Android" href="apis.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> python-for-android</a>
+        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">初めに</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#concepts">Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#advanced-usage">Advanced usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="buildoptions.html">Build options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="buildoptions.html#python-versions">Python versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildoptions.html#bootstrap-options">Bootstrap options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands.html">Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#commands-index">Commands index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#general-arguments">General arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#distribution-arguments">Distribution arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="distutils.html">distutils/setuptools integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="distutils.html#adding-p4a-arguments-in-setup-py">Adding p4a arguments in setup.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distutils.html#adding-p4a-arguments-in-setup-cfg">Adding p4a arguments in setup.cfg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="recipes.html">Recipes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#creating-your-own-recipe">Creating your own Recipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#methods-and-tools-to-help-with-compilation">Methods and tools to help with compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-pythonrecipe">Using a PythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-cythonrecipe">Using a CythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-compiledcomponentspythonrecipe">Using a CompiledComponentsPythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-an-ndkrecipe">Using an NDKRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#a-recipe-template">A Recipe template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#examples-of-recipes">Examples of recipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#the-recipe-class">The <code class="docutils literal"><span class="pre">Recipe</span></code> class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bootstraps.html">Bootstraps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bootstraps.html#creating-a-new-bootstrap">Creating a new bootstrap</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="services.html#service-creation">Service creation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apis.html">Working on Android</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apis.html#accessing-android-apis">Accessing Android APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apis.html#working-with-the-app-lifecycle">Working with the App lifecycle</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#debug-output">Debug output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-help">Getting help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#debugging-on-android">Debugging on Android</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unpacking-an-apk">Unpacking an APK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#common-errors">Common errors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Launcher</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#building">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#release-on-the-market">Release on the market</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#source-code">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="old_toolchain/index.html">Old p4a toolchain doc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/toolchain.html">Toolchain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/android.html">Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/javaapi.html">Java API (pyjnius)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/contribute.html">Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/related.html">Related projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/faq.html">FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="old_toolchain/index.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">python-for-android</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Troubleshooting</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/troubleshooting.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="troubleshooting">
+<span id="id1"></span><h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="debug-output">
+<h2>Debug output<a class="headerlink" href="#debug-output" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Add the <code class="docutils literal"><span class="pre">--debug</span></code> option to any python-for-android command to see
+full debug output including the output of all the external tools used
+in the compilation and packaging steps.</p>
+<p>If reporting a problem by email or irc, it is usually helpful to
+include this full log, via e.g. a <a class="reference external" href="http://paste.ubuntu.com/">pastebin</a> or <a class="reference external" href="https://gist.github.com/">Github gist</a>.</p>
+</div>
+<div class="section" id="getting-help">
+<h2>Getting help<a class="headerlink" href="#getting-help" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>python-for-android is managed by the Kivy Organisation, and you can
+get help with any problems using the same channels as Kivy itself:</p>
+<ul class="simple">
+<li>by email to the <a class="reference external" href="https://groups.google.com/forum/#!forum/kivy-users">kivy-users Google group</a></li>
+<li>by irc in the #kivy room at irc.freenode.net</li>
+</ul>
+<p>If you find a bug, you can also post an issue on the
+<a class="reference external" href="https://github.com/kivy/python-for-android">python-for-android Github page</a>.</p>
+</div>
+<div class="section" id="debugging-on-android">
+<h2>Debugging on Android<a class="headerlink" href="#debugging-on-android" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>When a python-for-android APK doesn&#8217;t work, often the only indication
+that you get is that it closes. It is important to be able to find out
+what went wrong.</p>
+<p>python-for-android redirects Python&#8217;s stdout and stderr to the Android
+logcat stream. You can see this by enabling developer mode on your
+Android device, enabling adb on the device, connecting it to your PC
+(you should see a notification that USB debugging is connected) and
+running <code class="docutils literal"><span class="pre">adb</span> <span class="pre">logcat</span></code>. If adb is not in your PATH, you can find it at
+<code class="docutils literal"><span class="pre">/path/to/Android/SDK/platform-tools/adb</span></code>, or access it through
+python-for-android with the shortcut:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">android</span> <span class="n">logcat</span>
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">android</span> <span class="n">adb</span> <span class="n">logcat</span>
+</pre></div>
+</div>
+<p>Running logcat command gives a lot of information about what Android is
+doing. You can usually see important lines by using logcat&#8217;s built in
+functionality to see only lines with the <code class="docutils literal"><span class="pre">python</span></code> tag (or just
+grepping this).</p>
+<p>When your app crashes, you&#8217;ll see the normal Python traceback here, as
+well as the output of any print statements etc. that your app
+runs. Use these to diagnose the problem just as normal.</p>
+<p>The adb command passes its arguments straight to adb itself, so you
+can also do other debugging tasks such as <code class="docutils literal"><span class="pre">python-for-android</span> <span class="pre">adb</span>
+<span class="pre">devices</span></code> to get the list of connected devices.</p>
+<p>For further information, see the Android docs on <a class="reference external" href="http://developer.android.com/intl/zh-cn/tools/help/adb.html">adb</a>, and
+on <a class="reference external" href="http://developer.android.com/intl/zh-cn/tools/help/logcat.html">logcat</a> in
+particular.</p>
+</div>
+<div class="section" id="unpacking-an-apk">
+<h2>Unpacking an APK<a class="headerlink" href="#unpacking-an-apk" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>It is sometimes useful to unpack a pacakged APK to see what is inside,
+especially when debugging python-for-android itself.</p>
+<p>APKs are just zip files, so you can extract the contents easily:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">unzip</span> <span class="n">YourApk</span><span class="o">.</span><span class="n">apk</span>
+</pre></div>
+</div>
+<p>At the top level, this will always contain the same set of files:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ ls
+AndroidManifest.xml  classes.dex  META-INF     res
+assets               lib          YourApk.apk  resources.arsc
+</pre></div>
+</div>
+<p>The Python distribution is in the assets folder:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cd assets
+$ ls
+private.mp3
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">private.mp3</span></code> is actually a tarball containing all your packaged
+data, and the Python distribution. Extract it:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ tar xf private.mp3
+</pre></div>
+</div>
+<p>This will reveal all the Python-related files:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ ls
+android_runnable.pyo  include          interpreter_subprocess  main.kv   pipinterface.kv   settings.pyo
+assets                __init__.pyo     interpreterwrapper.pyo  main.pyo  pipinterface.pyo  utils.pyo
+editor.kv             interpreter.kv   lib                     menu.kv   private.mp3       widgets.pyo
+editor.pyo            interpreter.pyo  libpymodules.so         menu.pyo  settings.kv
+</pre></div>
+</div>
+<p>Most of these files have been included by the user (in this case, they
+come from one of my own apps), the rest relate to the python
+distribution.</p>
+<p>With Python 2, the Python installation can mostly be found in the
+<code class="docutils literal"><span class="pre">lib</span></code> folder. With Python 3 (using the <code class="docutils literal"><span class="pre">python3crystax</span></code> recipe),
+the Python installation can be found in a folder named
+<code class="docutils literal"><span class="pre">crystax_python</span></code>.</p>
+</div>
+<div class="section" id="common-errors">
+<h2>Common errors<a class="headerlink" href="#common-errors" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>The following are common problems and resolutions that users have reported.</p>
+<div class="section" id="attributeerror-ansicodes-object-has-no-attribute-lightblue-ex">
+<h3>AttributeError: &#8216;AnsiCodes&#8217; object has no attribute &#8216;LIGHTBLUE_EX&#8217;<a class="headerlink" href="#attributeerror-ansicodes-object-has-no-attribute-lightblue-ex" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>This occurs if your version of colorama is too low, install version
+0.3.3 or higher.</p>
+<p>If you install python-for-android with pip or via setup.py, this
+dependency should be taken care of automatically.</p>
+</div>
+<div class="section" id="attributeerror-context-object-has-no-attribute-hostpython">
+<h3>AttributeError: &#8216;Context&#8217; object has no attribute &#8216;hostpython&#8217;<a class="headerlink" href="#attributeerror-context-object-has-no-attribute-hostpython" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>This is a known bug in some releases. To work around it, add your
+python requirement explicitly,
+e.g. <code class="code docutils literal"><span class="pre">--requirements=python2,kivy</span></code>. This also applies when using
+buildozer, in which case add python2 to your buildozer.spec requirements.</p>
+</div>
+<div class="section" id="linkname-too-long">
+<h3>linkname too long<a class="headerlink" href="#linkname-too-long" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>This can happen when you try to include a very long filename, which
+doesn&#8217;t normally happen but can occur accidentally if the p4a
+directory contains a .buildozer directory that is not excluded from
+the build (e.g. if buildozer was previously used). Removing this
+directory should fix the problem, and is desirable anyway since you
+don&#8217;t want it in the APK.</p>
+</div>
+<div class="section" id="exception-in-thread-main-java-lang-unsupportedclassversionerror-com-android-dx-command-main-unsupported-major-minor-version-52-0">
+<h3>Exception in thread &#8220;main&#8221; java.lang.UnsupportedClassVersionError: com/android/dx/command/Main : Unsupported major.minor version 52.0<a class="headerlink" href="#exception-in-thread-main-java-lang-unsupportedclassversionerror-com-android-dx-command-main-unsupported-major-minor-version-52-0" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>This occurs due to a java version mismatch, it should be fixed by
+installing Java 8 (e.g. the openjdk-8-jdk package on Ubuntu).</p>
+</div>
+<div class="section" id="jni-detected-error-in-application-static-jfieldid-0x0000000-not-valid-for-class-java-lang-class-org-renpy-android-pythonactivity">
+<h3>JNI DETECTED ERROR IN APPLICATION: static jfieldID 0x0000000 not valid for class java.lang.Class&lt;org.renpy.android.PythonActivity&gt;<a class="headerlink" href="#jni-detected-error-in-application-static-jfieldid-0x0000000-not-valid-for-class-java-lang-class-org-renpy-android-pythonactivity" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>This error appears in the logcat log if you try to access
+<code class="docutils literal"><span class="pre">org.renpy.android.PythonActivity</span></code> from within the new toolchain. To
+fix it, change your code to reference
+<code class="docutils literal"><span class="pre">org.kivy.android.PythonActivity</span></code> instead.</p>
+</div>
+<div class="section" id="websocket-client-if-you-see-errors-relating-to-ssl-not-available">
+<h3>websocket-client: if you see errors relating to &#8216;SSL not available&#8217;<a class="headerlink" href="#websocket-client-if-you-see-errors-relating-to-ssl-not-available" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Ensure you have the package backports.ssl-match-hostname in the buildozer requirements, since Kivy targets python 2.7.x</p>
+<p>You may also need sslopt={&#8220;cert_reqs&#8221;: ssl.CERT_NONE} as a parameter to ws.run_forever() if you get an error relating to host verification</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="launcher.html" class="btn btn-neutral float-right" title="Launcher">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="apis.html" class="btn btn-neutral" title="Working on Android"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Alexander Taylor.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

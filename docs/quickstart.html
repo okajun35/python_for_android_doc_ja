@@ -1,0 +1,475 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>初めに &mdash; python-for-android 0.1 ドキュメント</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="genindex.html"/>
+        <link rel="search" title="検索" href="search.html"/>
+    <link rel="top" title="python-for-android 0.1 ドキュメント" href="index.html"/>
+        <link rel="next" title="Build options" href="buildoptions.html"/>
+        <link rel="prev" title="python-for-android" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> python-for-android</a>
+        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">初めに</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#concepts">Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-usage">Advanced usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="buildoptions.html">Build options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="buildoptions.html#python-versions">Python versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildoptions.html#bootstrap-options">Bootstrap options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands.html">Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#commands-index">Commands index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#general-arguments">General arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#distribution-arguments">Distribution arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="distutils.html">distutils/setuptools integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="distutils.html#adding-p4a-arguments-in-setup-py">Adding p4a arguments in setup.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distutils.html#adding-p4a-arguments-in-setup-cfg">Adding p4a arguments in setup.cfg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="recipes.html">Recipes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#creating-your-own-recipe">Creating your own Recipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#methods-and-tools-to-help-with-compilation">Methods and tools to help with compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-pythonrecipe">Using a PythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-cythonrecipe">Using a CythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-compiledcomponentspythonrecipe">Using a CompiledComponentsPythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-an-ndkrecipe">Using an NDKRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#a-recipe-template">A Recipe template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#examples-of-recipes">Examples of recipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#the-recipe-class">The <code class="docutils literal"><span class="pre">Recipe</span></code> class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bootstraps.html">Bootstraps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bootstraps.html#creating-a-new-bootstrap">Creating a new bootstrap</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="services.html#service-creation">Service creation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apis.html">Working on Android</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apis.html#accessing-android-apis">Accessing Android APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apis.html#working-with-the-app-lifecycle">Working with the App lifecycle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#debug-output">Debug output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#getting-help">Getting help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#debugging-on-android">Debugging on Android</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#unpacking-an-apk">Unpacking an APK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#common-errors">Common errors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Launcher</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#building">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#release-on-the-market">Release on the market</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#source-code">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="old_toolchain/index.html">Old p4a toolchain doc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/toolchain.html">Toolchain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/android.html">Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/javaapi.html">Java API (pyjnius)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/contribute.html">Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/related.html">Related projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/faq.html">FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="old_toolchain/index.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">python-for-android</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>初めに</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/quickstart.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="getting-started">
+<h1>初めに<a class="headerlink" href="#getting-started" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Getting up and running on python-for-android (p4a) is a simple process
+and should only take you a couple of minutes. We&#8217;ll refer to Python
+for android as p4a in this documentation.</p>
+<div class="section" id="concepts">
+<h2>Concepts<a class="headerlink" href="#concepts" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>requirements: For p4a, your applications dependencies are
+requirements similar to the standard <cite>requirements.txt</cite>, but with
+one difference: p4a will search for a recipe first instead of
+installing requirements with pip.</li>
+<li>recipe: A recipe is a file that defines how to compile a
+requirement. Any libraries that have a Python extension <em>must</em> have
+a recipe in p4a, or compilation will fail. If there is no recipe for
+a requirement, it will be downloaded using pip.</li>
+<li>build: A build refers to a compiled recipe.</li>
+<li>distribution: A distribution is the final &#8220;build&#8221; of all your
+compiled requirements, as an Android project that can be turned
+directly into an APK. p4a can contain multiple distributions with
+different sets of requirements.</li>
+<li>bootstrap: A bootstrap is the app backend that will start your
+application. Your application could use SDL2 as a base, or Pygame,
+or a web backend like Flask with a WebView bootstrap. Different
+bootstraps can have different build options.</li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="installing-p4a">
+<h3>Installing p4a<a class="headerlink" href="#installing-p4a" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>p4a is now available on on Pypi, so you can install it using pip:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">android</span>
+</pre></div>
+</div>
+<p>You can also test the master branch from Github using:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">kivy</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">android</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-dependencies">
+<h3>Installing Dependencies<a class="headerlink" href="#installing-dependencies" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>p4a has several dependencies that must be installed:</p>
+<ul class="simple">
+<li>git</li>
+<li>ant</li>
+<li>python2</li>
+<li>cython (can be installed via pip)</li>
+<li>a Java JDK (e.g. openjdk-7)</li>
+<li>zlib (including 32 bit)</li>
+<li>libncurses (including 32 bit)</li>
+<li>unzip</li>
+<li>virtualenv (can be installed via pip)</li>
+<li>ccache (optional)</li>
+<li>autoconf (for ffpyplayer_codecs recipe)</li>
+<li>libtool (for ffpyplayer_codecs recipe)</li>
+</ul>
+<p>On recent versions of Ubuntu and its derivatives you may be able to
+install most of these with:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dpkg</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">architecture</span> <span class="n">i386</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">ccache</span> <span class="n">git</span> <span class="n">zlib1g</span><span class="o">-</span><span class="n">dev</span> <span class="n">python2</span><span class="o">.</span><span class="mi">7</span> <span class="n">python2</span><span class="o">.</span><span class="mi">7</span><span class="o">-</span><span class="n">dev</span> <span class="n">libncurses5</span><span class="p">:</span><span class="n">i386</span> <span class="n">libstdc</span><span class="o">++</span><span class="mi">6</span><span class="p">:</span><span class="n">i386</span> <span class="n">zlib1g</span><span class="p">:</span><span class="n">i386</span> <span class="n">openjdk</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="n">jdk</span> <span class="n">unzip</span> <span class="n">ant</span> <span class="n">ccache</span> <span class="n">autoconf</span> <span class="n">libtool</span>
+</pre></div>
+</div>
+<p>On Arch Linux (64 bit) you should be able to run the following to
+install most of the dependencies (note: this list may not be
+complete). gcc-multilib will conflict with (and replace) gcc if not
+already installed. If your installation is already 32-bit, install the
+same packages but without <code class="docutils literal"><span class="pre">lib32-</span></code> or <code class="docutils literal"><span class="pre">-multilib</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">jdk7</span><span class="o">-</span><span class="n">openjdk</span> <span class="n">python2</span> <span class="n">python2</span><span class="o">-</span><span class="n">pip</span> <span class="n">python2</span><span class="o">-</span><span class="n">kivy</span> <span class="n">mesa</span><span class="o">-</span><span class="n">libgl</span> <span class="n">lib32</span><span class="o">-</span><span class="n">mesa</span><span class="o">-</span><span class="n">libgl</span> <span class="n">lib32</span><span class="o">-</span><span class="n">sdl2</span> <span class="n">lib32</span><span class="o">-</span><span class="n">sdl2_image</span> <span class="n">lib32</span><span class="o">-</span><span class="n">sdl2_mixer</span> <span class="n">sdl2_ttf</span> <span class="n">unzip</span> <span class="n">gcc</span><span class="o">-</span><span class="n">multilib</span> <span class="n">gcc</span><span class="o">-</span><span class="n">libs</span><span class="o">-</span><span class="n">multilib</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-android-sdk">
+<h3>Installing Android SDK<a class="headerlink" href="#installing-android-sdk" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>You need to download and unpack the Android SDK and NDK to a directory (let&#8217;s say $HOME/Documents/):</p>
+<ul class="simple">
+<li><a class="reference external" href="https://developer.android.com/sdk/index.html#Other">Android SDK</a></li>
+<li><a class="reference external" href="https://developer.android.com/ndk/downloads/index.html">Android NDK</a></li>
+</ul>
+<p>Then, you can edit your <code class="docutils literal"><span class="pre">~/.bashrc</span></code> or other favorite shell to include new environment variables necessary for building on android:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Adjust the paths!</span>
+<span class="n">export</span> <span class="n">ANDROIDSDK</span><span class="o">=</span><span class="s2">&quot;$HOME/Documents/android-sdk-21&quot;</span>
+<span class="n">export</span> <span class="n">ANDROIDNDK</span><span class="o">=</span><span class="s2">&quot;$HOME/Documents/android-ndk-r10e&quot;</span>
+<span class="n">export</span> <span class="n">ANDROIDAPI</span><span class="o">=</span><span class="s2">&quot;14&quot;</span>  <span class="c1"># Minimum API version your application require</span>
+<span class="n">export</span> <span class="n">ANDROIDNDKVER</span><span class="o">=</span><span class="s2">&quot;r10e&quot;</span>  <span class="c1"># Version of the NDK you installed</span>
+</pre></div>
+</div>
+<p>You have the possibility to configure on any command the PATH to the SDK, NDK and Android API using:</p>
+<ul class="simple">
+<li><code class="code docutils literal"><span class="pre">--sdk_dir</span> <span class="pre">PATH</span></code> as an equivalent of <cite>$ANDROIDSDK</cite></li>
+<li><code class="code docutils literal"><span class="pre">--ndk_dir</span> <span class="pre">PATH</span></code> as an equivalent of <cite>$ANDROIDNDK</cite></li>
+<li><code class="code docutils literal"><span class="pre">--android_api</span> <span class="pre">VERSION</span></code> as an equivalent of <cite>$ANDROIDAPI</cite></li>
+<li><code class="code docutils literal"><span class="pre">--ndk_ver</span> <span class="pre">PATH</span></code> as an equivalent of <cite>$ANDROIDNDKVER</cite></li>
+</ul>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="build-a-kivy-application">
+<h3>Build a Kivy application<a class="headerlink" href="#build-a-kivy-application" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>To build your application, you need to have a name, version, a package
+identifier, and explicitly write the bootstrap you want to use, as
+well as the requirements:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>p4a apk --private $HOME/code/myapp --package=org.example.myapp --name &quot;My application&quot; --version 0.1 --bootstrap=sdl2 --requirements=python2,kivy
+</pre></div>
+</div>
+<p>This will first build a distribution that contains <cite>python2</cite> and <cite>kivy</cite>, and using a SDL2 bootstrap. Python2 is here explicitely written as kivy can work with python2 or python3.</p>
+<p>You can also use <code class="docutils literal"><span class="pre">--bootstrap=pygame</span></code>, but this bootstrap is deprecated for use with Kivy and SDL2 is preferred.</p>
+</div>
+<div class="section" id="build-a-webview-application">
+<h3>Build a WebView application<a class="headerlink" href="#build-a-webview-application" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>To build your application, you need to have a name, version, a package
+identifier, and explicitly use the webview bootstrap, as
+well as the requirements:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>p4a apk --private $HOME/code/myapp --package=org.example.myapp --name &quot;My WebView Application&quot; --version 0.1 --bootstrap=webview --requirements=flask --port=5000
+</pre></div>
+</div>
+<p>You can also replace flask with another web framework.</p>
+<p>Replace <code class="docutils literal"><span class="pre">--port=5000</span></code> with the port on which your app will serve a
+website. The default for Flask is 5000.</p>
+</div>
+<div class="section" id="build-an-sdl2-based-application">
+<h3>Build an SDL2 based application<a class="headerlink" href="#build-an-sdl2-based-application" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>This includes e.g. <a class="reference external" href="https://pysdl2.readthedocs.io/en/latest/">PySDL2</a>.</p>
+<p>To build your application, you need to have a name, version, a package
+identifier, and explicitly write the sdl2 bootstrap, as well as the
+requirements:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>p4a apk --private $HOME/code/myapp --package=org.example.myapp --name &quot;My SDL2 application&quot; --version 0.1 --bootstrap=sdl2 --requirements=your_requirements
+</pre></div>
+</div>
+<p>Add your required modules in place of <code class="docutils literal"><span class="pre">your_requirements</span></code>,
+e.g. <code class="docutils literal"><span class="pre">--requirements=pysdl2</span></code> or <code class="docutils literal"><span class="pre">--requirements=vispy</span></code>.</p>
+</div>
+<div class="section" id="other-options">
+<h3>Other options<a class="headerlink" href="#other-options" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>You can pass other command line arguments to control app behaviours
+such as orientation, wakelock and app permissions. See
+<a class="reference internal" href="buildoptions.html#bootstrap-build-options"><span class="std std-ref">Bootstrap options</span></a>.</p>
+</div>
+<div class="section" id="rebuild-everything">
+<h3>Rebuild everything<a class="headerlink" href="#rebuild-everything" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>If anything goes wrong and you want to clean the downloads and builds to retry everything, run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">p4a</span> <span class="n">clean_all</span>
+</pre></div>
+</div>
+<p>If you just want to clean the builds to avoid redownloading dependencies, run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">p4a</span> <span class="n">clean_builds</span> <span class="o">&amp;&amp;</span> <span class="n">p4a</span> <span class="n">clean_dists</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getting-help">
+<h3>Getting help<a class="headerlink" href="#getting-help" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>If something goes wrong and you don&#8217;t know how to fix it, add the
+<code class="docutils literal"><span class="pre">--debug</span></code> option and post the output log to the <a class="reference external" href="https://groups.google.com/forum/#!forum/kivy-users">kivy-users Google
+group</a> or irc
+channel #kivy at irc.freenode.net .</p>
+<p>See <a class="reference internal" href="troubleshooting.html"><span class="doc">Troubleshooting</span></a> for more information.</p>
+</div>
+</div>
+<div class="section" id="advanced-usage">
+<h2>Advanced usage<a class="headerlink" href="#advanced-usage" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="recipe-management">
+<h3>Recipe management<a class="headerlink" href="#recipe-management" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>You can see the list of the available recipes with:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">p4a</span> <span class="n">recipes</span>
+</pre></div>
+</div>
+<p>If you are contributing to p4a and want to test a recipes again,
+you need to clean the build and rebuild your distribution:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">p4a</span> <span class="n">clean_recipe_build</span> <span class="n">RECIPENAME</span>
+<span class="n">p4a</span> <span class="n">clean_dists</span>
+<span class="c1"># then rebuild your distribution</span>
+</pre></div>
+</div>
+<p>You can write &#8220;private&#8221; recipes for your application, just create a
+<code class="docutils literal"><span class="pre">p4a-recipes</span></code> folder in your build directory, and place a recipe in
+it (edit the <code class="docutils literal"><span class="pre">__init__.py</span></code>):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="n">p4a</span><span class="o">-</span><span class="n">recipes</span><span class="o">/</span><span class="n">myrecipe</span>
+<span class="n">touch</span> <span class="n">p4a</span><span class="o">-</span><span class="n">recipes</span><span class="o">/</span><span class="n">myrecipe</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="distribution-management">
+<h3>Distribution management<a class="headerlink" href="#distribution-management" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Every time you start a new project, python-for-android will internally
+create a new distribution (an Android build project including Python
+and your other dependencies compiled for Android), according to the
+requirements you added on the command line. You can force the reuse of
+an existing distribution by adding:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">p4a</span> <span class="n">apk</span> <span class="o">--</span><span class="n">dist_name</span><span class="o">=</span><span class="n">myproject</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>This will ensure your distribution will always be built in the same
+directory, and avoids using more disk space every time you adjust a
+requirement.</p>
+<p>You can list the available distributions:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">p4a</span> <span class="n">distributions</span>
+</pre></div>
+</div>
+<p>And clean all of them:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">p4a</span> <span class="n">clean_dists</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration-file">
+<h3>Configuration file<a class="headerlink" href="#configuration-file" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>python-for-android checks in the current directory for a configuration
+file named <code class="docutils literal"><span class="pre">.p4a</span></code>. If found, it adds all the lines as options to the
+command line. For example, you can add the options you would always
+include such as:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">dist_name</span> <span class="n">my_example</span>
+<span class="o">--</span><span class="n">android_api</span> <span class="mi">19</span>
+<span class="o">--</span><span class="n">requirements</span> <span class="n">kivy</span><span class="p">,</span><span class="n">openssl</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="going-further">
+<h3>Going further<a class="headerlink" href="#going-further" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>See the other pages of this doc for more information on specific topics:</p>
+<ul class="simple">
+<li><a class="reference internal" href="buildoptions.html"><span class="doc">Build options</span></a></li>
+<li><a class="reference internal" href="commands.html"><span class="doc">Commands</span></a></li>
+<li><a class="reference internal" href="recipes.html"><span class="doc">Recipes</span></a></li>
+<li><a class="reference internal" href="bootstraps.html"><span class="doc">Bootstraps</span></a></li>
+<li><a class="reference internal" href="apis.html"><span class="doc">Working on Android</span></a></li>
+<li><a class="reference internal" href="troubleshooting.html"><span class="doc">Troubleshooting</span></a></li>
+<li><a class="reference internal" href="launcher.html"><span class="doc">Launcher</span></a></li>
+<li><a class="reference internal" href="contribute.html"><span class="doc">Contributing</span></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="buildoptions.html" class="btn btn-neutral float-right" title="Build options">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="python-for-android"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Alexander Taylor.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

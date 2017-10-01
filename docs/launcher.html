@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Launcher &mdash; python-for-android 0.1 ドキュメント</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="genindex.html"/>
+        <link rel="search" title="検索" href="search.html"/>
+    <link rel="top" title="python-for-android 0.1 ドキュメント" href="index.html"/>
+        <link rel="next" title="Contributing" href="contribute.html"/>
+        <link rel="prev" title="Troubleshooting" href="troubleshooting.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> python-for-android</a>
+        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">初めに</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#concepts">Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#advanced-usage">Advanced usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="buildoptions.html">Build options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="buildoptions.html#python-versions">Python versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildoptions.html#bootstrap-options">Bootstrap options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands.html">Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#commands-index">Commands index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#general-arguments">General arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#distribution-arguments">Distribution arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="distutils.html">distutils/setuptools integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="distutils.html#adding-p4a-arguments-in-setup-py">Adding p4a arguments in setup.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distutils.html#adding-p4a-arguments-in-setup-cfg">Adding p4a arguments in setup.cfg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="recipes.html">Recipes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#creating-your-own-recipe">Creating your own Recipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#methods-and-tools-to-help-with-compilation">Methods and tools to help with compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-pythonrecipe">Using a PythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-cythonrecipe">Using a CythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-compiledcomponentspythonrecipe">Using a CompiledComponentsPythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-an-ndkrecipe">Using an NDKRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#a-recipe-template">A Recipe template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#examples-of-recipes">Examples of recipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#the-recipe-class">The <code class="docutils literal"><span class="pre">Recipe</span></code> class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bootstraps.html">Bootstraps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bootstraps.html#creating-a-new-bootstrap">Creating a new bootstrap</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="services.html#service-creation">Service creation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apis.html">Working on Android</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apis.html#accessing-android-apis">Accessing Android APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apis.html#working-with-the-app-lifecycle">Working with the App lifecycle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#debug-output">Debug output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#getting-help">Getting help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#debugging-on-android">Debugging on Android</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#unpacking-an-apk">Unpacking an APK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#common-errors">Common errors</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Launcher</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#building">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#release-on-the-market">Release on the market</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#source-code">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="old_toolchain/index.html">Old p4a toolchain doc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/toolchain.html">Toolchain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/android.html">Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/javaapi.html">Java API (pyjnius)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/contribute.html">Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/related.html">Related projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/faq.html">FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="old_toolchain/index.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">python-for-android</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Launcher</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/launcher.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="launcher">
+<span id="id1"></span><h1>Launcher<a class="headerlink" href="#launcher" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>The Kivy Launcher is an Android application that can run any Kivy app
+stored in <cite>kivy</cite> folder on SD Card. You can download the latest stable
+version for your android device from the
+<a class="reference external" href="https://play.google.com/store/apps/details?id=org.kivy.pygame">Play Store</a>.</p>
+<p>The stable launcher comes with various Python packages and
+permissions, usually listed in the description in the store. Those
+aren&#8217;t always enough for an application to run or even launch if you
+work with other dependencies that are not packaged.</p>
+<p>The Kivy Launcher is intended for quick and simple testing, for
+anything more advanced we recommend building your own APK with
+python-for-android.</p>
+<div class="section" id="building">
+<h2>Building<a class="headerlink" href="#building" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>The Kivy Launcher is built using python-for-android. To get the most recent
+versions of packages you need to clean them first, so that the packager won&#8217;t
+grab an old (cached) package instead of fresh one.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>p4a clean_download_cache requirements
+p4a clean_dists &amp;&amp; p4a clean_builds
+p4a apk --requirements=requirements \
+        --permission PERMISSION \
+        --package=the.package.name \
+        --name=&quot;App name&quot; \
+        --version=x.y.z \
+        --android_api XY \
+        --bootstrap=pygame or sdl2 \
+        --launcher \
+        --minsdk 13
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last"><cite>&#8211;minsdk 13</cite> is necessary for the new toolchain, otherwise you&#8217;ll be able
+to run apps only in <cite>landscape</cite> orientation.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">Do not use any of <cite>&#8211;private</cite>, <cite>&#8211;public</cite>, <cite>&#8211;dir</cite> or other arguments for
+adding <cite>main.py</cite> or <cite>main.pyo</cite> to the app. The argument <cite>&#8211;launcher</cite> is
+above them and tells the p4a to build the launcher version of the APK.</p>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Once the launcher is installed, you need to create a folder in your
+external storage directory (e.g. <code class="docutils literal"><span class="pre">/storage/emulated/0</span></code> or
+<code class="docutils literal"><span class="pre">/sdcard</span></code>) - this is normally your &#8216;home&#8217; directory in a file
+browser. Each new folder inside <cite>kivy</cite> represents a
+separate application:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>/sdcard/kivy/&lt;yourapplication&gt;
+</pre></div>
+</div>
+<p>Each application folder must contain an
+<cite>android.txt</cite> file. The file has to contain three basic
+lines:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>title=&lt;Application Title&gt;
+author=&lt;Your Name&gt;
+orientation=&lt;portrait|landscape&gt;
+</pre></div>
+</div>
+<p>The file is editable so you can change for example orientation or
+name. These are the only options dynamically configurable here,
+although when the app runs you can call the Android API with PyJNIus
+to change other settings.</p>
+<p>After you set your <cite>android.txt</cite> file, you can now run the launcher
+and start any available app from the list.</p>
+<p>To differentiate between apps in <code class="docutils literal"><span class="pre">/sdcard/kivy</span></code> you can include an icon
+named <code class="docutils literal"><span class="pre">icon.png</span></code> to the folder. The icon should be a square.</p>
+</div>
+<div class="section" id="release-on-the-market">
+<h2>Release on the market<a class="headerlink" href="#release-on-the-market" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Launcher is released on Google Play with each new Kivy stable
+branch. The master branch is not suitable for a regular user because
+it changes quickly and needs testing.</p>
+</div>
+<div class="section" id="source-code">
+<h2>Source code<a class="headerlink" href="#source-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>If you feel confident, feel free to improve the launcher. You can find the
+source code at <a class="reference external" href="https://github.com/kivy/python-for-android/tree/master/pythonforandroid/bootstraps/pygame/build/src/org/renpy/android">pygame org.renpy.android</a> or at <a href="#id2"><span class="problematic" id="id3">|kivy|_</span></a>.</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="contribute.html" class="btn btn-neutral float-right" title="Contributing">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="troubleshooting.html" class="btn btn-neutral" title="Troubleshooting"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Alexander Taylor.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

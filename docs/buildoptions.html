@@ -1,0 +1,456 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Build options &mdash; python-for-android 0.1 ドキュメント</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="genindex.html"/>
+        <link rel="search" title="検索" href="search.html"/>
+    <link rel="top" title="python-for-android 0.1 ドキュメント" href="index.html"/>
+        <link rel="next" title="Commands" href="commands.html"/>
+        <link rel="prev" title="初めに" href="quickstart.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> python-for-android</a>
+        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">初めに</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#concepts">Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#advanced-usage">Advanced usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Build options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#python-versions">Python versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bootstrap-options">Bootstrap options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands.html">Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#commands-index">Commands index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#general-arguments">General arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#distribution-arguments">Distribution arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="distutils.html">distutils/setuptools integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="distutils.html#adding-p4a-arguments-in-setup-py">Adding p4a arguments in setup.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distutils.html#adding-p4a-arguments-in-setup-cfg">Adding p4a arguments in setup.cfg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="recipes.html">Recipes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#creating-your-own-recipe">Creating your own Recipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#methods-and-tools-to-help-with-compilation">Methods and tools to help with compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-pythonrecipe">Using a PythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-cythonrecipe">Using a CythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-compiledcomponentspythonrecipe">Using a CompiledComponentsPythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-an-ndkrecipe">Using an NDKRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#a-recipe-template">A Recipe template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#examples-of-recipes">Examples of recipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#the-recipe-class">The <code class="docutils literal"><span class="pre">Recipe</span></code> class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bootstraps.html">Bootstraps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bootstraps.html#creating-a-new-bootstrap">Creating a new bootstrap</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="services.html#service-creation">Service creation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apis.html">Working on Android</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apis.html#accessing-android-apis">Accessing Android APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apis.html#working-with-the-app-lifecycle">Working with the App lifecycle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#debug-output">Debug output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#getting-help">Getting help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#debugging-on-android">Debugging on Android</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#unpacking-an-apk">Unpacking an APK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#common-errors">Common errors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Launcher</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#building">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#release-on-the-market">Release on the market</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#source-code">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="old_toolchain/index.html">Old p4a toolchain doc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/toolchain.html">Toolchain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/android.html">Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/javaapi.html">Java API (pyjnius)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/contribute.html">Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/related.html">Related projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/faq.html">FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="old_toolchain/index.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">python-for-android</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Build options</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/buildoptions.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="build-options">
+<h1>Build options<a class="headerlink" href="#build-options" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>This page contains instructions for using different build options.</p>
+<div class="section" id="python-versions">
+<h2>Python versions<a class="headerlink" href="#python-versions" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="python2">
+<h3>python2<a class="headerlink" href="#python2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Select this by adding it in your requirements, e.g. <code class="docutils literal"><span class="pre">--requirements=python2</span></code>.</p>
+<p>This option builds Python 2.7.2 for your selected Android
+architecture. There are no special requirements, all the building is
+done locally.</p>
+<p>The python2 build is also the way python-for-android originally
+worked, even in the old toolchain.</p>
+</div>
+<div class="section" id="python3">
+<h3>python3<a class="headerlink" href="#python3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">Python3 support is experimental, and some of these details
+may change as it is improved and fully stabilised.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">You must manually download the <a class="reference external" href="https://www.crystax.net/android/ndk">CrystaX NDK</a> and tell
+python-for-android to use it with <code class="docutils literal"><span class="pre">--ndk-dir</span> <span class="pre">/path/to/NDK</span></code>.</p>
+</div>
+<p>Select this by adding the <code class="docutils literal"><span class="pre">python3crystax</span></code> recipe to your
+requirements, e.g. <code class="docutils literal"><span class="pre">--requirements=python3crystax</span></code>.</p>
+<p>This uses the prebuilt Python from the <a class="reference external" href="https://www.crystax.net/android/ndk">CrystaX NDK</a>, a drop-in replacement for
+Google&#8217;s official NDK which includes many improvements. You
+<em>must</em> use the CrystaX NDK 10.3.0 or higher when building with
+python3. You can get it <a class="reference external" href="https://www.crystax.net/en/download">here</a>.</p>
+<p>The python3crystax build is handled quite differently to python2 so
+there may be bugs or surprising behaviours. If you come across any,
+feel free to <a class="reference external" href="https://github.com/kivy/python-for-android">open an issue</a>.</p>
+</div>
+</div>
+<div class="section" id="bootstrap-options">
+<span id="bootstrap-build-options"></span><h2>Bootstrap options<a class="headerlink" href="#bootstrap-options" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>python-for-android supports multiple app backends with different types
+of interface. These are called <em>bootstraps</em>.</p>
+<p>Currently the following bootstraps are supported, but we hope that it
+should be easy to add others if your project has different
+requirements. <a class="reference external" href="https://groups.google.com/forum/#!forum/python-android">Let us know</a> if you&#8217;d
+like help adding a new one.</p>
+<div class="section" id="sdl2">
+<h3>sdl2<a class="headerlink" href="#sdl2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Use this with <code class="docutils literal"><span class="pre">--bootstrap=sdl2</span></code>, or just include the
+<code class="docutils literal"><span class="pre">sdl2</span></code> recipe, e.g. <code class="docutils literal"><span class="pre">--requirements=sdl2,python2</span></code>.</p>
+<p>SDL2 is a popular cross-platform depelopment library, particularly for
+games. It has its own Android project support, which
+python-for-android uses as a bootstrap, and to which it adds the
+Python build and JNI code to start it.</p>
+<p>From the point of view of a Python program, SDL2 should behave as
+normal. For instance, you can build apps with Kivy or PySDL2
+and have them work with this bootstrap. It should also be possible to
+use e.g. pygame_sdl2, but this would need a build recipe and doesn&#8217;t
+yet have one.</p>
+<div class="section" id="id1">
+<h4>Build options<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>The sdl2 bootstrap supports the following additional command line
+options (this list may not be exhaustive):</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">--private</span></code>: The directory containing your project files.</li>
+<li><code class="docutils literal"><span class="pre">--package</span></code>: The Java package name for your project. Choose e.g. <code class="docutils literal"><span class="pre">org.example.yourapp</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">--name</span></code>: The app name.</li>
+<li><code class="docutils literal"><span class="pre">--version</span></code>: The version number.</li>
+<li><code class="docutils literal"><span class="pre">--orientation</span></code>: Usually one of <code class="docutils literal"><span class="pre">portait</span></code>, <code class="docutils literal"><span class="pre">landscape</span></code>,
+<code class="docutils literal"><span class="pre">sensor</span></code> to automatically rotate according to the device
+orientation, or <code class="docutils literal"><span class="pre">user</span></code> to do the same but obeying the user&#8217;s
+settings. The full list of valid options is given under
+<code class="docutils literal"><span class="pre">android:screenOrientation</span></code> in the <a class="reference external" href="https://developer.android.com/guide/topics/manifest/activity-element.html">Android documentation</a>.</li>
+<li><code class="docutils literal"><span class="pre">--icon</span></code>: A path to the png file to use as the application icon.</li>
+<li><code class="docutils literal"><span class="pre">--permission</span></code>: A permission name for the app,
+e.g. <code class="docutils literal"><span class="pre">--permission</span> <span class="pre">VIBRATE</span></code>. For multiple permissions, add
+multiple <code class="docutils literal"><span class="pre">--permission</span></code> arguments.</li>
+<li><code class="docutils literal"><span class="pre">--meta-data</span></code>: Custom key=value pairs to add in the application metadata.</li>
+<li><code class="docutils literal"><span class="pre">--presplash</span></code>: A path to the image file to use as a screen while
+the application is loading.</li>
+<li><code class="docutils literal"><span class="pre">--presplash-color</span></code>: The presplash screen background color, of the
+form <code class="docutils literal"><span class="pre">#RRGGBB</span></code> or a color name <code class="docutils literal"><span class="pre">red</span></code>, <code class="docutils literal"><span class="pre">green</span></code>, <code class="docutils literal"><span class="pre">blue</span></code> etc.</li>
+<li><code class="docutils literal"><span class="pre">--wakelock</span></code>: If the argument is included, the application will
+prevent the device from sleeping.</li>
+<li><code class="docutils literal"><span class="pre">--window</span></code>: If the argument is included, the application will not
+cover the Android status bar.</li>
+<li><code class="docutils literal"><span class="pre">--blacklist</span></code>: The path to a file containing blacklisted patterns
+that will be excluded from the final APK. Defaults to <code class="docutils literal"><span class="pre">./blacklist.txt</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">--whitelist</span></code>: The path to a file containing whitelisted patterns
+that will be included in the APK even if also blacklisted.</li>
+<li><code class="docutils literal"><span class="pre">--add-jar</span></code>: The path to a .jar file to include in the APK. To
+include multiple jar files, pass this argument multiple times.</li>
+<li><code class="docutils literal"><span class="pre">--intent-filters</span></code>: A file path containing intent filter xml to be
+included in AndroidManifest.xml.</li>
+<li><code class="docutils literal"><span class="pre">--service</span></code>: A service name and the Python script it should
+run. See <a class="reference internal" href="services.html#arbitrary-scripts-services"><span class="std std-ref">Arbitrary service scripts</span></a>.</li>
+<li><code class="docutils literal"><span class="pre">--add-source</span></code>: Add a source directory to the app&#8217;s Java code.</li>
+<li><code class="docutils literal"><span class="pre">--no-compile-pyo</span></code>: Do not optimise .py files to .pyo.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="webview">
+<h3>webview<a class="headerlink" href="#webview" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>You can use this with <code class="docutils literal"><span class="pre">--bootstrap=webview</span></code>, or include the
+<code class="docutils literal"><span class="pre">webviewjni</span></code> recipe, e.g. <code class="docutils literal"><span class="pre">--requirements=webviewjni,python2</span></code>.</p>
+<p>The webview bootstrap gui is, per the name, a WebView displaying a
+webpage, but this page is hosted on the device via a Python
+webserver. For instance, your Python code can start a Flask
+application, and your app will display and allow the user to navigate
+this website.</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">Your Flask script must start the webserver <em>without</em>
+:code:<code class="docutils literal"><span class="pre">debug=True</span></code>. Debug mode doesn&#8217;t seem to work on
+Android due to use of a subprocess.</p>
+</div>
+<p>This bootstrap will automatically try to load a website on port 5000
+(the default for Flask), or you can specify a different option with
+the <cite>&#8211;port</cite> command line option. If the webserver is not immediately
+present (e.g. during the short Python loading time when first
+started), it will instead display a loading screen until the server is
+ready.</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">--private</span></code>: The directory containing your project files.</li>
+<li><code class="docutils literal"><span class="pre">--package</span></code>: The Java package name for your project. Choose e.g. <code class="docutils literal"><span class="pre">org.example.yourapp</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">--name</span></code>: The app name.</li>
+<li><code class="docutils literal"><span class="pre">--version</span></code>: The version number.</li>
+<li><code class="docutils literal"><span class="pre">--orientation</span></code>: Usually one of <code class="docutils literal"><span class="pre">portait</span></code>, <code class="docutils literal"><span class="pre">landscape</span></code>,
+<code class="docutils literal"><span class="pre">sensor</span></code> to automatically rotate according to the device
+orientation, or <code class="docutils literal"><span class="pre">user</span></code> to do the same but obeying the user&#8217;s
+settings. The full list of valid options is given under
+<code class="docutils literal"><span class="pre">android:screenOrientation</span></code> in the <a class="reference external" href="https://developer.android.com/guide/topics/manifest/activity-element.html">Android documentation</a>.</li>
+<li><code class="docutils literal"><span class="pre">--icon</span></code>: A path to the png file to use as the application icon.</li>
+<li><code class="docutils literal"><span class="pre">--</span> <span class="pre">permission</span></code>: A permission name for the app,
+e.g. <code class="docutils literal"><span class="pre">--permission</span> <span class="pre">VIBRATE</span></code>. For multiple permissions, add
+multiple <code class="docutils literal"><span class="pre">--permission</span></code> arguments.</li>
+<li><code class="docutils literal"><span class="pre">--meta-data</span></code>: Custom key=value pairs to add in the application metadata.</li>
+<li><code class="docutils literal"><span class="pre">--presplash</span></code>: A path to the image file to use as a screen while
+the application is loading.</li>
+<li><code class="docutils literal"><span class="pre">--presplash-color</span></code>: The presplash screen background color, of the
+form <code class="docutils literal"><span class="pre">#RRGGBB</span></code> or a color name <code class="docutils literal"><span class="pre">red</span></code>, <code class="docutils literal"><span class="pre">green</span></code>, <code class="docutils literal"><span class="pre">blue</span></code> etc.</li>
+<li><code class="docutils literal"><span class="pre">--wakelock</span></code>: If the argument is included, the application will
+prevent the device from sleeping.</li>
+<li><code class="docutils literal"><span class="pre">--window</span></code>: If the argument is included, the application will not
+cover the Android status bar.</li>
+<li><code class="docutils literal"><span class="pre">--blacklist</span></code>: The path to a file containing blacklisted patterns
+that will be excluded from the final APK. Defaults to <code class="docutils literal"><span class="pre">./blacklist.txt</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">--whitelist</span></code>: The path to a file containing whitelisted patterns
+that will be included in the APK even if also blacklisted.</li>
+<li><code class="docutils literal"><span class="pre">--add-jar</span></code>: The path to a .jar file to include in the APK. To
+include multiple jar files, pass this argument multiple times.</li>
+<li><code class="docutils literal"><span class="pre">--intent-filters</span></code>: A file path containing intent filter xml to be
+included in AndroidManifest.xml.</li>
+<li><code class="docutils literal"><span class="pre">--service</span></code>: A service name and the Python script it should
+run. See <a class="reference internal" href="services.html#arbitrary-scripts-services"><span class="std std-ref">Arbitrary service scripts</span></a>.</li>
+<li><code class="docutils literal"><span class="pre">add-source</span></code>: Add a source directory to the app&#8217;s Java code.</li>
+<li><code class="docutils literal"><span class="pre">--port</span></code>: The port on localhost that the WebView will
+access. Defaults to 5000.</li>
+</ul>
+</div>
+<div class="section" id="pygame">
+<h3>pygame<a class="headerlink" href="#pygame" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>You can use this with <code class="docutils literal"><span class="pre">--bootstrap=pygame</span></code>, or simply include the
+<code class="docutils literal"><span class="pre">pygame</span></code> recipe in your <code class="docutils literal"><span class="pre">--requirements</span></code>.</p>
+<p>The pygame bootstrap is the original backend used by Kivy, and still
+works fine for use with Kivy apps. It may also work for pure pygame
+apps, but hasn&#8217;t been developed with this in mind.</p>
+<p>This bootstrap will eventually be deprecated in favour of sdl2, but
+not before the sdl2 bootstrap includes all the features that would be
+lost.</p>
+<div class="section" id="id2">
+<h4>Build options<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>The pygame bootstrap supports the following additional command line
+options (this list may not be exhaustive):</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">--private</span></code>: The directory containing your project files.</li>
+<li><code class="docutils literal"><span class="pre">--dir</span></code>: The directory containing your project files if you want
+them to be unpacked to the external storage directory rather than
+the app private directory.</li>
+<li><code class="docutils literal"><span class="pre">--package</span></code>: The Java package name for your project. Choose e.g. <code class="docutils literal"><span class="pre">org.example.yourapp</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">--name</span></code>: The app name.</li>
+<li><code class="docutils literal"><span class="pre">--version</span></code>: The version number.</li>
+<li><code class="docutils literal"><span class="pre">--orientation</span></code>: One of <code class="docutils literal"><span class="pre">portait</span></code>, <code class="docutils literal"><span class="pre">landscape</span></code> or <code class="docutils literal"><span class="pre">sensor</span></code>
+to automatically rotate according to the device orientation.</li>
+<li><code class="docutils literal"><span class="pre">--icon</span></code>: A path to the png file to use as the application icon.</li>
+<li><code class="docutils literal"><span class="pre">--ignore-path</span></code>: A path to ignore when including the app
+files. Pass multiple times to ignore multiple paths.</li>
+<li><code class="docutils literal"><span class="pre">--</span> <span class="pre">permission</span></code>: A permission name for the app,
+e.g. <code class="docutils literal"><span class="pre">--permission</span> <span class="pre">VIBRATE</span></code>. For multiple permissions, add
+multiple <code class="docutils literal"><span class="pre">--permission</span></code> arguments.</li>
+<li><code class="docutils literal"><span class="pre">--meta-data</span></code>: Custom key=value pairs to add in the application metadata.</li>
+<li><code class="docutils literal"><span class="pre">--presplash</span></code>: A path to the image file to use as a screen while
+the application is loading.</li>
+<li><code class="docutils literal"><span class="pre">--wakelock</span></code>: If the argument is included, the application will
+prevent the device from sleeping.</li>
+<li><code class="docutils literal"><span class="pre">--window</span></code>: If the argument is included, the application will not
+cover the Android status bar.</li>
+<li><code class="docutils literal"><span class="pre">--blacklist</span></code>: The path to a file containing blacklisted patterns
+that will be excluded from the final APK. Defaults to <code class="docutils literal"><span class="pre">./blacklist.txt</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">--whitelist</span></code>: The path to a file containing whitelisted patterns
+that will be included in the APK even if also blacklisted.</li>
+<li><code class="docutils literal"><span class="pre">--add-jar</span></code>: The path to a .jar file to include in the APK. To
+include multiple jar files, pass this argument multiple times.</li>
+<li><code class="docutils literal"><span class="pre">--intent-filters</span></code>: A file path containing intent filter xml to be
+included in AndroidManifest.xml.</li>
+<li><code class="docutils literal"><span class="pre">--service</span></code>: A service name and the Python script it should
+run. See <a class="reference internal" href="services.html#arbitrary-scripts-services"><span class="std std-ref">Arbitrary service scripts</span></a>.</li>
+<li><code class="docutils literal"><span class="pre">add-source</span></code>: Add a source directory to the app&#8217;s Java code.</li>
+<li><code class="docutils literal"><span class="pre">--compile-pyo</span></code>: Optimise .py files to .pyo.</li>
+<li><code class="docutils literal"><span class="pre">--resource</span></code>: A key=value pair to add in the string.xml resource file.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="commands.html" class="btn btn-neutral float-right" title="Commands">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="quickstart.html" class="btn btn-neutral" title="初めに"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Alexander Taylor.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

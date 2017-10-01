@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Old p4a toolchain doc &mdash; python-for-android 0.1 ドキュメント</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="python-for-android 0.1 ドキュメント" href="../index.html"/>
+        <link rel="next" title="Toolchain" href="toolchain.html"/>
+        <link rel="prev" title="Contributing" href="../contribute.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../index.html" class="fa fa-home"> python-for-android</a>
+        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">初めに</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#concepts">Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#advanced-usage">Advanced usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../buildoptions.html">Build options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../buildoptions.html#python-versions">Python versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildoptions.html#bootstrap-options">Bootstrap options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html">Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#commands-index">Commands index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#general-arguments">General arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#distribution-arguments">Distribution arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../distutils.html">distutils/setuptools integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../distutils.html#adding-p4a-arguments-in-setup-py">Adding p4a arguments in setup.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distutils.html#adding-p4a-arguments-in-setup-cfg">Adding p4a arguments in setup.cfg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../recipes.html">Recipes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#creating-your-own-recipe">Creating your own Recipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#methods-and-tools-to-help-with-compilation">Methods and tools to help with compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#using-a-pythonrecipe">Using a PythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#using-a-cythonrecipe">Using a CythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#using-a-compiledcomponentspythonrecipe">Using a CompiledComponentsPythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#using-an-ndkrecipe">Using an NDKRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#a-recipe-template">A Recipe template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#examples-of-recipes">Examples of recipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#the-recipe-class">The <code class="docutils literal"><span class="pre">Recipe</span></code> class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bootstraps.html">Bootstraps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../bootstraps.html#creating-a-new-bootstrap">Creating a new bootstrap</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../services.html">Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../services.html#service-creation">Service creation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../apis.html">Working on Android</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../apis.html#accessing-android-apis">Accessing Android APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apis.html#working-with-the-app-lifecycle">Working with the App lifecycle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting.html#debug-output">Debug output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting.html#getting-help">Getting help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting.html#debugging-on-android">Debugging on Android</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting.html#unpacking-an-apk">Unpacking an APK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting.html#common-errors">Common errors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../launcher.html">Launcher</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../launcher.html#building">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../launcher.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../launcher.html#release-on-the-market">Release on the market</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../launcher.html#source-code">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contributing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Old p4a toolchain doc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="toolchain.html">Toolchain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="android.html">Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="javaapi.html">Java API (pyjnius)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html">Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="related.html">Related projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html">FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">python-for-android</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Old p4a toolchain doc</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/old_toolchain/index.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="old-p4a-toolchain-doc">
+<h1>Old p4a toolchain doc<a class="headerlink" href="#old-p4a-toolchain-doc" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>This is the documentation for the old python-for-android toolchain,
+using distribute.sh and build.py. This it entirely superseded by the
+new toolchain, you do not need to read it unless using this old
+method.</p>
+<p>Python for android is a project to create your own Python distribution
+including the modules you want, and create an apk including python, libs, and
+your application.</p>
+<ul class="simple">
+<li>Forum: <a class="reference external" href="https://groups.google.com/forum/#!forum/python-android">https://groups.google.com/forum/#!forum/python-android</a></li>
+<li>Mailing list: <a class="reference external" href="mailto:python-android&#37;&#52;&#48;googlegroups&#46;com">python-android<span>&#64;</span>googlegroups<span>&#46;</span>com</a></li>
+</ul>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="toolchain.html">Toolchain</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="toolchain.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolchain.html#how-does-it-work">How does it work ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolchain.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolchain.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolchain.html#meta-data">Meta-data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolchain.html#customize-your-distribution">Customize your distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#prebuilt-virtualbox">Prebuilt VirtualBox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#hello-world">Hello world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#compass">Compass</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Python API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="android.html#module-android">Android (<code class="docutils literal"><span class="pre">android</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="android.html#module-android.activity">Activity (<code class="docutils literal"><span class="pre">android.activity</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="android.html#module-android.billing">Billing (<code class="docutils literal"><span class="pre">android.billing</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="android.html#module-android.broadcast">Broadcast (<code class="docutils literal"><span class="pre">android.broadcast</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="android.html#module-android.mixer">Mixer (<code class="docutils literal"><span class="pre">android.mixer</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="android.html#module-android.runnable">Runnable (<code class="docutils literal"><span class="pre">android.runnable</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="android.html#service-android-service">Service (<code class="docutils literal"><span class="pre">android.service</span></code>)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="javaapi.html">Java API (pyjnius)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="javaapi.html#activity">Activity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="javaapi.html#action">Action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="javaapi.html#hardware">Hardware</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contribute</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html#extending-python-for-android-native-support">Extending Python for android native support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html#create-your-own-recipes">Create your own recipes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="related.html">Related projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#arm-linux-androideabi-gcc-internal-error-killed-program-cc1">arm-linux-androideabi-gcc: Internal error: Killed (program cc1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#sqlite3-so-not-found">_sqlite3.so not found</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#too-many-levels-of-symbolic-links">Too many levels of symbolic links</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="../genindex.html"><span class="std std-ref">索引</span></a></li>
+<li><a class="reference internal" href="../py-modindex.html"><span class="std std-ref">モジュール索引</span></a></li>
+<li><a class="reference internal" href="../search.html"><span class="std std-ref">検索ページ</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="toolchain.html" class="btn btn-neutral float-right" title="Toolchain">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../contribute.html" class="btn btn-neutral" title="Contributing"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Alexander Taylor.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

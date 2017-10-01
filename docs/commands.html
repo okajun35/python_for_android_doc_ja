@@ -1,0 +1,312 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Commands &mdash; python-for-android 0.1 ドキュメント</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="genindex.html"/>
+        <link rel="search" title="検索" href="search.html"/>
+    <link rel="top" title="python-for-android 0.1 ドキュメント" href="index.html"/>
+        <link rel="next" title="distutils/setuptools integration" href="distutils.html"/>
+        <link rel="prev" title="Build options" href="buildoptions.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> python-for-android</a>
+        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">初めに</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#concepts">Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#advanced-usage">Advanced usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="buildoptions.html">Build options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="buildoptions.html#python-versions">Python versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildoptions.html#bootstrap-options">Bootstrap options</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#commands-index">Commands index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#general-arguments">General arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#distribution-arguments">Distribution arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="distutils.html">distutils/setuptools integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="distutils.html#adding-p4a-arguments-in-setup-py">Adding p4a arguments in setup.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distutils.html#adding-p4a-arguments-in-setup-cfg">Adding p4a arguments in setup.cfg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="recipes.html">Recipes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#creating-your-own-recipe">Creating your own Recipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#methods-and-tools-to-help-with-compilation">Methods and tools to help with compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-pythonrecipe">Using a PythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-cythonrecipe">Using a CythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-compiledcomponentspythonrecipe">Using a CompiledComponentsPythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-an-ndkrecipe">Using an NDKRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#a-recipe-template">A Recipe template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#examples-of-recipes">Examples of recipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#the-recipe-class">The <code class="docutils literal"><span class="pre">Recipe</span></code> class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bootstraps.html">Bootstraps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bootstraps.html#creating-a-new-bootstrap">Creating a new bootstrap</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="services.html#service-creation">Service creation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apis.html">Working on Android</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apis.html#accessing-android-apis">Accessing Android APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apis.html#working-with-the-app-lifecycle">Working with the App lifecycle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#debug-output">Debug output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#getting-help">Getting help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#debugging-on-android">Debugging on Android</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#unpacking-an-apk">Unpacking an APK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#common-errors">Common errors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Launcher</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#building">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#release-on-the-market">Release on the market</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#source-code">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="old_toolchain/index.html">Old p4a toolchain doc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/toolchain.html">Toolchain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/android.html">Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/javaapi.html">Java API (pyjnius)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/contribute.html">Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/related.html">Related projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/faq.html">FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="old_toolchain/index.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">python-for-android</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Commands</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/commands.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="commands">
+<h1>Commands<a class="headerlink" href="#commands" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>This page documents all the commands and options that can be passed to
+toolchain.py.</p>
+<div class="section" id="commands-index">
+<h2>Commands index<a class="headerlink" href="#commands-index" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>The commands available are the methods of the ToolchainCL class,
+documented below. They may have options of their own, or you can
+always pass <a class="reference internal" href="#general-arguments">general arguments</a> or <a class="reference internal" href="#distribution-arguments">distribution arguments</a> to any
+command (though if irrelevant they may not have an effect).</p>
+</div>
+<div class="section" id="general-arguments">
+<h2>General arguments<a class="headerlink" href="#general-arguments" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>These arguments may be passed to any command in order to modify its
+behaviour, though not all commands make use of them.</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">--debug</span></code></dt>
+<dd>Print extra debug information about the build, including all compilation output.</dd>
+<dt><code class="docutils literal"><span class="pre">--sdk_dir</span></code></dt>
+<dd>The filepath where the Android SDK is installed. This can
+alternatively be set in several other ways.</dd>
+<dt><code class="docutils literal"><span class="pre">--android_api</span></code></dt>
+<dd>The Android API level to target; python-for-android will check if
+the platform tools for this level are installed.</dd>
+<dt><code class="docutils literal"><span class="pre">--ndk_dir</span></code></dt>
+<dd>The filepath where the Android NDK is installed. This can
+alternatively be set in several other ways.</dd>
+<dt><code class="docutils literal"><span class="pre">--ndk_version</span></code></dt>
+<dd>The version of the NDK installed, important because the internal
+filepaths to build tools depend on this. This can alternatively be
+set in several other ways, or if your NDK dir contains a RELEASE.TXT
+containing the version this is automatically checked so you don&#8217;t
+need to manually set it.</dd>
+</dl>
+</div>
+<div class="section" id="distribution-arguments">
+<h2>Distribution arguments<a class="headerlink" href="#distribution-arguments" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>p4a supports several arguments used for specifying which compiled
+Android distribution you want to use. You may pass any of these
+arguments to any command, and if a distribution is required they will
+be used to load, or compile, or download this as necessary.</p>
+<p>None of these options are essential, and in principle you need only
+supply those that you need.</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">--name</span> <span class="pre">NAME</span></code></dt>
+<dd>The name of the distribution. Only one distribution with a given name can be created.</dd>
+<dt><code class="docutils literal"><span class="pre">--requirements</span> <span class="pre">LIST,OF,REQUIREMENTS</span></code></dt>
+<dd>The recipes that your
+distribution must contain, as a comma separated list. These must be
+names of recipes or the pypi names of Python modules.</dd>
+<dt><code class="docutils literal"><span class="pre">--force_build</span> <span class="pre">BOOL</span></code></dt>
+<dd>Whether the distribution must be compiled from scratch.</dd>
+<dt><code class="docutils literal"><span class="pre">--arch</span></code></dt>
+<dd>The architecture to build for. Currently only one architecture can be
+targeted at a time, and a given distribution can only include one architecture.</dd>
+<dt><code class="docutils literal"><span class="pre">--bootstrap</span> <span class="pre">BOOTSTRAP</span></code></dt>
+<dd>The Java bootstrap to use for your application. You mostly don&#8217;t
+need to worry about this or set it manually, as an appropriate
+bootstrap will be chosen from your <code class="docutils literal"><span class="pre">--requirements</span></code>. Current
+choices are <code class="docutils literal"><span class="pre">sdl2</span></code> or <code class="docutils literal"><span class="pre">pygame</span></code>; <code class="docutils literal"><span class="pre">sdl2</span></code> is experimental but
+preferable where possible.</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">These options are preliminary. Others will include toggles
+for allowing downloads, and setting additional directories
+from which to load user dists.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="distutils.html" class="btn btn-neutral float-right" title="distutils/setuptools integration">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="buildoptions.html" class="btn btn-neutral" title="Build options"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Alexander Taylor.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

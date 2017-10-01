@@ -1,0 +1,434 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Working on Android &mdash; python-for-android 0.1 ドキュメント</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="genindex.html"/>
+        <link rel="search" title="検索" href="search.html"/>
+    <link rel="top" title="python-for-android 0.1 ドキュメント" href="index.html"/>
+        <link rel="next" title="Troubleshooting" href="troubleshooting.html"/>
+        <link rel="prev" title="Services" href="services.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> python-for-android</a>
+        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">初めに</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#concepts">Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#advanced-usage">Advanced usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="buildoptions.html">Build options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="buildoptions.html#python-versions">Python versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildoptions.html#bootstrap-options">Bootstrap options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands.html">Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#commands-index">Commands index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#general-arguments">General arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#distribution-arguments">Distribution arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="distutils.html">distutils/setuptools integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="distutils.html#adding-p4a-arguments-in-setup-py">Adding p4a arguments in setup.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distutils.html#adding-p4a-arguments-in-setup-cfg">Adding p4a arguments in setup.cfg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="recipes.html">Recipes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#creating-your-own-recipe">Creating your own Recipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#methods-and-tools-to-help-with-compilation">Methods and tools to help with compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-pythonrecipe">Using a PythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-cythonrecipe">Using a CythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-compiledcomponentspythonrecipe">Using a CompiledComponentsPythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-an-ndkrecipe">Using an NDKRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#a-recipe-template">A Recipe template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#examples-of-recipes">Examples of recipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#the-recipe-class">The <code class="docutils literal"><span class="pre">Recipe</span></code> class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bootstraps.html">Bootstraps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bootstraps.html#creating-a-new-bootstrap">Creating a new bootstrap</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="services.html#service-creation">Service creation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Working on Android</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#accessing-android-apis">Accessing Android APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-the-app-lifecycle">Working with the App lifecycle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#debug-output">Debug output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#getting-help">Getting help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#debugging-on-android">Debugging on Android</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#unpacking-an-apk">Unpacking an APK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#common-errors">Common errors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">Launcher</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#building">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#release-on-the-market">Release on the market</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#source-code">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="old_toolchain/index.html">Old p4a toolchain doc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/toolchain.html">Toolchain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/android.html">Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/javaapi.html">Java API (pyjnius)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/contribute.html">Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/related.html">Related projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_toolchain/faq.html">FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="old_toolchain/index.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">python-for-android</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Working on Android</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/apis.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="working-on-android">
+<h1>Working on Android<a class="headerlink" href="#working-on-android" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>This page gives details on accessing Android APIs and managing other
+interactions on Android.</p>
+<div class="section" id="accessing-android-apis">
+<h2>Accessing Android APIs<a class="headerlink" href="#accessing-android-apis" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>When writing an Android application you may want to access the normal
+Android Java APIs, in order to control your application&#8217;s appearance
+(fullscreen, orientation etc.), interact with other apps or use
+hardware like vibration and sensors.</p>
+<p>You can access these with <a class="reference external" href="http://pyjnius.readthedocs.org/en/latest/">Pyjnius</a>, a Python library for
+automatically wrapping Java and making it callable from Python
+code. Pyjnius is fairly simple to use, but not very Pythonic and it
+inherits Java&#8217;s verbosity. For this reason the Kivy organisation also
+created <a class="reference external" href="https://plyer.readthedocs.org/en/latest/">Plyer</a>, which
+further wraps specific APIs in a Pythonic and cross-platform way; you
+can call the same code in Python but have it do the right thing also
+on platforms other than Android.</p>
+<p>Pyjnius and Plyer are independent projects whose documentation is
+linked above.  See below for some simple introductory examples, and
+explanation of how to include these modules in your APKs.</p>
+<p>This page also documents the <code class="docutils literal"><span class="pre">android</span></code> module which you can include
+with p4a, but this is mostly replaced by Pyjnius and is not
+recommended for use in new applications.</p>
+<div class="section" id="using-pyjnius">
+<h3>Using Pyjnius<a class="headerlink" href="#using-pyjnius" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Pyjnius lets you call the Android API directly from Python Pyjnius is
+works by dynamically wrapping Java classes, so you don&#8217;t have to wait
+for any particular feature to be pre-supported.</p>
+<p>You can include Pyjnius in your APKs by adding <cite>pyjnius</cite> to your build
+requirements, e.g. <code class="code docutils literal"><span class="pre">--requirements=flask,pyjnius</span></code>. It is
+automatically included in any APK containing Kivy, in which case you
+don&#8217;t need to specify it manually.</p>
+<p>The basic mechanism of Pyjnius is the <cite>autoclass</cite> command, which wraps
+a Java class. For instance, here is the code to vibrate your device:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jnius</span> <span class="k">import</span> <span class="n">autoclass</span>
+
+<span class="c1"># We need a reference to the Java activity running the current</span>
+<span class="c1"># application, this reference is stored automatically by</span>
+<span class="c1"># Kivy&#39;s PythonActivity bootstrap</span>
+
+<span class="c1"># This one works with Pygame</span>
+<span class="c1"># PythonActivity = autoclass(&#39;org.renpy.android.PythonActivity&#39;)</span>
+
+<span class="c1"># This one works with SDL2</span>
+<span class="n">PythonActivity</span> <span class="o">=</span> <span class="n">autoclass</span><span class="p">(</span><span class="s1">&#39;org.kivy.android.PythonActivity&#39;</span><span class="p">)</span>
+
+<span class="n">activity</span> <span class="o">=</span> <span class="n">PythonActivity</span><span class="o">.</span><span class="n">mActivity</span>
+
+<span class="n">Context</span> <span class="o">=</span> <span class="n">autoclass</span><span class="p">(</span><span class="s1">&#39;android.content.Context&#39;</span><span class="p">)</span>
+<span class="n">vibrator</span> <span class="o">=</span> <span class="n">activity</span><span class="o">.</span><span class="n">getSystemService</span><span class="p">(</span><span class="n">Context</span><span class="o">.</span><span class="n">VIBRATOR_SERVICE</span><span class="p">)</span>
+
+<span class="n">vibrator</span><span class="o">.</span><span class="n">vibrate</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>  <span class="c1"># the argument is in milliseconds</span>
+</pre></div>
+</div>
+<p>Things to note here are:</p>
+<ul class="simple">
+<li>The class that must be wrapped depends on the bootstrap. This is
+because Pyjnius is using the bootstrap&#8217;s java source code to get a
+reference to the current activity, which both the Pygame and SDL2
+bootstraps store in the <code class="docutils literal"><span class="pre">mActivity</span></code> static variable. This
+difference isn&#8217;t always important, but it&#8217;s important to know about.</li>
+<li>The code closely follows the Java API - this is exactly the same set
+of function calls that you&#8217;d use to achieve the same thing from Java
+code.</li>
+<li>This is quite verbose - it&#8217;s a lot of lines to achieve a simple
+vibration!</li>
+</ul>
+<p>These emphasise both the advantages and disadvantage of Pyjnius; you
+<em>can</em> achieve just about any API call with it (though the syntax is
+sometimes a little more involved, particularly if making Java classes
+from Python code), but it&#8217;s not Pythonic and it&#8217;s not short. These are
+problems that Plyer, explained below, attempts to address.</p>
+<p>You can check the <a class="reference external" href="http://pyjnius.readthedocs.org/en/latest/">Pyjnius documentation</a> for further details.</p>
+</div>
+<div class="section" id="using-plyer">
+<h3>Using Plyer<a class="headerlink" href="#using-plyer" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Plyer provides a much less verbose, Pythonic wrapper to
+platform-specific APIs. It supports Android as well as iOS and desktop
+operating systems, though plyer is a work in progress and not all
+platforms support all Plyer calls yet.</p>
+<p>Plyer does not support all APIs yet, but you can always Pyjnius to
+call anything that is currently missing.</p>
+<p>You can include Plyer in your APKs by adding the <cite>Plyer</cite> recipe to
+your build requirements, e.g. <code class="code docutils literal"><span class="pre">--requirements=plyer</span></code>.</p>
+<p>You should check the <a class="reference external" href="https://plyer.readthedocs.org/en/latest/">Plyer documentation</a> for details of all supported
+facades (platform APIs), but as an example the following is how you
+would achieve vibration as described in the Pyjnius section above:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">plyer.vibrator</span> <span class="k">import</span> <span class="n">vibrate</span>
+<span class="n">vibrate</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># in Plyer, the argument is in seconds</span>
+</pre></div>
+</div>
+<p>This is obviously <em>much</em> less verbose than with Pyjnius!</p>
+</div>
+<div class="section" id="using-android">
+<h3>Using <code class="docutils literal"><span class="pre">android</span></code><a class="headerlink" href="#using-android" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>This Cython module was used for Android API interaction with Kivy&#8217;s old
+interface, but is now mostly replaced by Pyjnius.</p>
+<p>The <code class="docutils literal"><span class="pre">android</span></code> Python module can be included by adding it to your
+requirements, e.g. <code class="code docutils literal"><span class="pre">--requirements=kivy,android</span></code>. It is not
+automatically included by Kivy unless you use the old (Pygame)
+bootstrap.</p>
+<p>This module is not separately documented. You can read the source <a class="reference external" href="https://github.com/kivy/python-for-android/tree/master/pythonforandroid/recipes/android/src/android">on
+Github</a>.</p>
+<p>One useful facility of this module is to make
+<code class="code docutils literal"><span class="pre">webbrowser.open()</span></code> work on Android. You can replicate this
+effect without using the android module via the following
+code:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jnius</span> <span class="k">import</span> <span class="n">autoclass</span>
+
+<span class="k">def</span> <span class="nf">open_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<span class="n">Intent</span> <span class="o">=</span> <span class="n">autoclass</span><span class="p">(</span><span class="s1">&#39;android.content.Intent&#39;</span><span class="p">)</span>
+<span class="n">Uri</span> <span class="o">=</span> <span class="n">autoclass</span><span class="p">(</span><span class="s1">&#39;android.net.Uri&#39;</span><span class="p">)</span>
+<span class="n">browserIntent</span> <span class="o">=</span> <span class="n">Intent</span><span class="p">()</span>
+<span class="n">browserIntent</span><span class="o">.</span><span class="n">setAction</span><span class="p">(</span><span class="n">Intent</span><span class="o">.</span><span class="n">ACTION_VIEW</span><span class="p">)</span>
+<span class="n">browserIntent</span><span class="o">.</span><span class="n">setData</span><span class="p">(</span><span class="n">Uri</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
+<span class="n">currentActivity</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="s1">&#39;android.app.Activity&#39;</span><span class="p">,</span> <span class="n">mActivity</span><span class="p">)</span>
+<span class="n">currentActivity</span><span class="o">.</span><span class="n">startActivity</span><span class="p">(</span><span class="n">browserIntent</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">AndroidBrowser</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">open</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">new</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">autoraise</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">open_url</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">open_new</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+        <span class="n">open_url</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">open_new_tab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+        <span class="n">open_url</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">webbrowser</span>
+<span class="n">webbrowser</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;android&#39;</span><span class="p">,</span> <span class="n">AndroidBrowser</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="working-with-the-app-lifecycle">
+<h2>Working with the App lifecycle<a class="headerlink" href="#working-with-the-app-lifecycle" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="dismissing-the-splash-screen">
+<h3>Dismissing the splash screen<a class="headerlink" href="#dismissing-the-splash-screen" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>With the SDL2 bootstrap, the app&#8217;s splash screen may not be dismissed
+immediately when your app has finished loading, due to a limitation
+with the way we check if the app has properly started. In this case,
+the splash screen overlaps the app gui for a short time.</p>
+<p>You can dismiss the splash screen as follows. Run this code from your
+app build method (or use <code class="docutils literal"><span class="pre">kivy.clock.Clock.schedule_once</span></code> to run it
+in the following frame):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jnius</span> <span class="k">import</span> <span class="n">autoclass</span>
+<span class="n">activity</span> <span class="o">=</span> <span class="n">autoclass</span><span class="p">(</span><span class="s1">&#39;org.kivy.android.PythonActivity&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mActivity</span>
+<span class="n">activity</span><span class="o">.</span><span class="n">removeLoadingScreen</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This problem does not affect the Pygame bootstrap, as it uses a
+different splash screen method.</p>
+</div>
+<div class="section" id="handling-the-back-button">
+<h3>Handling the back button<a class="headerlink" href="#handling-the-back-button" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Android phones always have a back button, which users expect to
+perform an appropriate in-app function. If you do not handle it, Kivy
+apps will actually shut down and appear to have crashed.</p>
+<p>In SDL2 bootstraps, the back button appears as the escape key (keycode
+27, codepoint 270). You can handle this key to perform actions when it
+is pressed.</p>
+<p>For instance, in your App class in Kivy:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">kivy.core.window</span> <span class="k">import</span> <span class="n">Window</span>
+
+<span class="k">class</span> <span class="nc">YourApp</span><span class="p">(</span><span class="n">App</span><span class="p">):</span>
+
+   <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="n">Window</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">on_keyboard</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key_input</span><span class="p">)</span>
+      <span class="k">return</span> <span class="n">Widget</span><span class="p">()</span> <span class="c1"># your root widget here as normal</span>
+
+   <span class="k">def</span> <span class="nf">key_input</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">scancode</span><span class="p">,</span> <span class="n">codepoint</span><span class="p">,</span> <span class="n">modifier</span><span class="p">):</span>
+      <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="mi">27</span><span class="p">:</span>
+         <span class="k">return</span> <span class="kc">True</span>  <span class="c1"># override the default behaviour</span>
+      <span class="k">else</span><span class="p">:</span>           <span class="c1"># the key now does nothing</span>
+         <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pausing-the-app">
+<h3>Pausing the App<a class="headerlink" href="#pausing-the-app" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>When the user leaves an App, it is automatically paused by Android,
+although it gets a few seconds to store data etc. if necessary. Once
+paused, there is no guarantee that your app will run again.</p>
+<p>With Kivy, add an <code class="docutils literal"><span class="pre">on_pause</span></code> method to your App class, which returns True:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">on_pause</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>With the webview bootstrap, pausing should work automatically.</p>
+<p>Under SDL2, you can handle the <a class="reference external" href="https://wiki.libsdl.org/SDL_EventType">appropriate events</a> (see SDL_APP_WILLENTERBACKGROUND etc.).</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="troubleshooting.html" class="btn btn-neutral float-right" title="Troubleshooting">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="services.html" class="btn btn-neutral" title="Services"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Alexander Taylor.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

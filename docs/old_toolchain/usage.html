@@ -1,0 +1,424 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Usage &mdash; python-for-android 0.1 ドキュメント</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="python-for-android 0.1 ドキュメント" href="../index.html"/>
+        <link rel="up" title="Toolchain" href="toolchain.html"/>
+        <link rel="next" title="Customize your distribution" href="customize.html"/>
+        <link rel="prev" title="Prerequisites" href="prerequisites.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../index.html" class="fa fa-home"> python-for-android</a>
+        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">初めに</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#concepts">Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#advanced-usage">Advanced usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../buildoptions.html">Build options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../buildoptions.html#python-versions">Python versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildoptions.html#bootstrap-options">Bootstrap options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html">Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#commands-index">Commands index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#general-arguments">General arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#distribution-arguments">Distribution arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../distutils.html">distutils/setuptools integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../distutils.html#adding-p4a-arguments-in-setup-py">Adding p4a arguments in setup.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distutils.html#adding-p4a-arguments-in-setup-cfg">Adding p4a arguments in setup.cfg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../recipes.html">Recipes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#creating-your-own-recipe">Creating your own Recipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#methods-and-tools-to-help-with-compilation">Methods and tools to help with compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#using-a-pythonrecipe">Using a PythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#using-a-cythonrecipe">Using a CythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#using-a-compiledcomponentspythonrecipe">Using a CompiledComponentsPythonRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#using-an-ndkrecipe">Using an NDKRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#a-recipe-template">A Recipe template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#examples-of-recipes">Examples of recipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../recipes.html#the-recipe-class">The <code class="docutils literal"><span class="pre">Recipe</span></code> class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bootstraps.html">Bootstraps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../bootstraps.html#creating-a-new-bootstrap">Creating a new bootstrap</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../services.html">Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../services.html#service-creation">Service creation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../apis.html">Working on Android</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../apis.html#accessing-android-apis">Accessing Android APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apis.html#working-with-the-app-lifecycle">Working with the App lifecycle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting.html#debug-output">Debug output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting.html#getting-help">Getting help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting.html#debugging-on-android">Debugging on Android</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting.html#unpacking-an-apk">Unpacking an APK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting.html#common-errors">Common errors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../launcher.html">Launcher</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../launcher.html#building">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../launcher.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../launcher.html#release-on-the-market">Release on the market</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../launcher.html#source-code">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contributing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Old p4a toolchain doc</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="toolchain.html">Toolchain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="android.html">Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="javaapi.html">Java API (pyjnius)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html">Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="related.html">Related projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html">FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">python-for-android</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Old p4a toolchain doc</a> &raquo;</li>
+      
+          <li><a href="toolchain.html">Toolchain</a> &raquo;</li>
+      
+    <li>Usage</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/old_toolchain/usage.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="step-1-compile-the-toolchain">
+<h2>Step 1: compile the toolchain<a class="headerlink" href="#step-1-compile-the-toolchain" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>If you want to compile the toolchain with only the kivy module:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">distribute</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;kivy&quot;</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">Do not run the above command from <a class="reference external" href="../faq/#too-many-levels-of-symbolic-links">within a virtual enviroment</a>.</p>
+</div>
+<p>After a long time, you&#8217;ll get a &#8220;dist/default&#8221; directory containing
+all the compiled libraries and a build.py script to package your
+application using thoses libraries.</p>
+<p>You can include other modules (or &#8220;recipes&#8221;) to compile using <cite>-m</cite>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">distribute</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;openssl kivy&quot;</span>
+<span class="o">./</span><span class="n">distribute</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;pil ffmpeg kivy&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">Recipes are instructions for compiling Python modules that require C extensions.
+The list of recipes we currently have is at:
+<a class="reference external" href="https://github.com/kivy/python-for-android/tree/master/recipes">https://github.com/kivy/python-for-android/tree/master/recipes</a></p>
+</div>
+<p>You can also specify a specific version for each package. Please note
+that the compilation might <strong>break</strong> if you don&#8217;t use the default
+version. Most recipes have patches to fix Android issues, and might
+not apply if you specify a version. We also recommend to clean build
+before changing version.:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">distribute</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;openssl kivy==master&quot;</span>
+</pre></div>
+</div>
+<p>Python modules that don&#8217;t need C extensions don&#8217;t need a recipe and
+can be included this way.  From python-for-android 1.1 on, you can now
+specify pure-python package into the distribution. It will use
+virtualenv and pip to install pure-python modules into the
+distribution. Please note that the compiler is deactivated, and will
+break any module which tries to compile something. If compilation is
+needed, write a recipe:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">distribute</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;requests pygments kivy&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">Recipes download a defined version of their needed package from the
+internet, and build from it. If you know what you are doing, and
+want to override that, you can export the env variable
+<cite>P4A_recipe_name_DIR</cite> and this directory will be copied and used
+instead.</p>
+</div>
+<p>Available options to <cite>distribute.sh</cite>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">d</span> <span class="n">directory</span>           <span class="n">Name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">distribution</span> <span class="n">directory</span>
+<span class="o">-</span><span class="n">h</span>                     <span class="n">Show</span> <span class="n">this</span> <span class="n">help</span>
+<span class="o">-</span><span class="n">l</span>                     <span class="n">Show</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">available</span> <span class="n">modules</span>
+<span class="o">-</span><span class="n">m</span> <span class="s1">&#39;mod1 mod2&#39;</span>         <span class="n">Modules</span> <span class="n">to</span> <span class="n">include</span>
+<span class="o">-</span><span class="n">f</span>                     <span class="n">Restart</span> <span class="kn">from</span> <span class="nn">scratch</span> <span class="p">(</span><span class="n">remove</span> <span class="n">the</span> <span class="n">current</span> <span class="n">build</span><span class="p">)</span>
+<span class="o">-</span><span class="n">u</span> <span class="s1">&#39;mod1 mod2&#39;</span>         <span class="n">Modules</span> <span class="n">to</span> <span class="n">update</span> <span class="p">(</span><span class="k">if</span> <span class="n">already</span> <span class="n">compiled</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-2-package-your-application">
+<h2>Step 2: package your application<a class="headerlink" href="#step-2-package-your-application" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Go to your custom Python distribution:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">dist</span><span class="o">/</span><span class="n">default</span>
+</pre></div>
+</div>
+<p>Use the build.py for creating the APK:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">build</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">package</span> <span class="n">org</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">touchtracer</span> <span class="o">--</span><span class="n">name</span> <span class="n">touchtracer</span> \
+<span class="o">--</span><span class="n">version</span> <span class="mf">1.0</span> <span class="o">--</span><span class="nb">dir</span> <span class="o">~/</span><span class="n">code</span><span class="o">/</span><span class="n">kivy</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">demo</span><span class="o">/</span><span class="n">touchtracer</span> <span class="n">debug</span>
+</pre></div>
+</div>
+<p>Then, the Android package (APK) will be generated at:</p>
+<blockquote>
+<div>bin/touchtracer-1.0-debug.apk</div></blockquote>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">Some files and modules for python are blacklisted by default to
+save a few megabytes on the final APK file. In case your
+applications doesn&#8217;t find a standard python module, check the
+src/blacklist.txt file, remove the module you need from the list,
+and try again.</p>
+</div>
+<p>Available options to <cite>build.py</cite>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>            <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
+<span class="o">--</span><span class="n">package</span> <span class="n">PACKAGE</span>     <span class="n">The</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">java</span> <span class="n">package</span> <span class="n">the</span> <span class="n">project</span> <span class="n">will</span> <span class="n">be</span>
+                      <span class="n">packaged</span> <span class="n">under</span><span class="o">.</span>
+<span class="o">--</span><span class="n">name</span> <span class="n">NAME</span>           <span class="n">The</span> <span class="n">human</span><span class="o">-</span><span class="n">readable</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">project</span><span class="o">.</span>
+<span class="o">--</span><span class="n">version</span> <span class="n">VERSION</span>     <span class="n">The</span> <span class="n">version</span> <span class="n">number</span> <span class="n">of</span> <span class="n">the</span> <span class="n">project</span><span class="o">.</span> <span class="n">This</span> <span class="n">should</span> <span class="n">consist</span>
+                      <span class="n">of</span> <span class="n">numbers</span> <span class="ow">and</span> <span class="n">dots</span><span class="p">,</span> <span class="ow">and</span> <span class="n">should</span> <span class="n">have</span> <span class="n">the</span> <span class="n">same</span> <span class="n">number</span>
+                      <span class="n">of</span> <span class="n">groups</span> <span class="n">of</span> <span class="n">numbers</span> <span class="k">as</span> <span class="n">previous</span> <span class="n">versions</span><span class="o">.</span>
+<span class="o">--</span><span class="n">numeric</span><span class="o">-</span><span class="n">version</span> <span class="n">NUMERIC_VERSION</span>
+                      <span class="n">The</span> <span class="n">numeric</span> <span class="n">version</span> <span class="n">number</span> <span class="n">of</span> <span class="n">the</span> <span class="n">project</span><span class="o">.</span> <span class="n">If</span> <span class="ow">not</span>
+                      <span class="n">given</span><span class="p">,</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">automatically</span> <span class="n">computed</span> <span class="kn">from</span> <span class="nn">the</span>
+                      <span class="n">version</span><span class="o">.</span>
+<span class="o">--</span><span class="nb">dir</span> <span class="n">DIR</span>             <span class="n">The</span> <span class="n">directory</span> <span class="n">containing</span> <span class="n">public</span> <span class="n">files</span> <span class="k">for</span> <span class="n">the</span> <span class="n">project</span><span class="o">.</span>
+<span class="o">--</span><span class="n">private</span> <span class="n">PRIVATE</span>     <span class="n">The</span> <span class="n">directory</span> <span class="n">containing</span> <span class="n">additional</span> <span class="n">private</span> <span class="n">files</span> <span class="k">for</span>
+                      <span class="n">the</span> <span class="n">project</span><span class="o">.</span>
+<span class="o">--</span><span class="n">launcher</span>            <span class="n">Provide</span> <span class="n">this</span> <span class="n">argument</span> <span class="n">to</span> <span class="n">build</span> <span class="n">a</span> <span class="n">multi</span><span class="o">-</span><span class="n">app</span> <span class="n">launcher</span><span class="p">,</span>
+                      <span class="n">rather</span> <span class="n">than</span> <span class="n">a</span> <span class="n">single</span> <span class="n">app</span><span class="o">.</span>
+<span class="o">--</span><span class="n">icon</span><span class="o">-</span><span class="n">name</span> <span class="n">ICON_NAME</span>
+                      <span class="n">The</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">project</span><span class="s1">&#39;s launcher icon.</span>
+<span class="o">--</span><span class="n">orientation</span> <span class="n">ORIENTATION</span>
+                      <span class="n">The</span> <span class="n">orientation</span> <span class="n">that</span> <span class="n">the</span> <span class="n">game</span> <span class="n">will</span> <span class="n">display</span> <span class="ow">in</span><span class="o">.</span> <span class="n">Usually</span>
+                      <span class="n">one</span> <span class="n">of</span> <span class="s2">&quot;landscape&quot;</span><span class="p">,</span> <span class="s2">&quot;portrait&quot;</span> <span class="ow">or</span> <span class="s2">&quot;sensor&quot;</span><span class="o">.</span>
+<span class="o">--</span><span class="n">permission</span> <span class="n">PERMISSIONS</span>
+                      <span class="n">The</span> <span class="n">permissions</span> <span class="n">to</span> <span class="n">give</span> <span class="n">this</span> <span class="n">app</span><span class="o">.</span>
+<span class="o">--</span><span class="n">ignore</span><span class="o">-</span><span class="n">path</span> <span class="n">IGNORE_PATH</span>
+                      <span class="n">Ignore</span> <span class="n">path</span> <span class="n">when</span> <span class="n">building</span> <span class="n">the</span> <span class="n">app</span>
+<span class="o">--</span><span class="n">icon</span> <span class="n">ICON</span>           <span class="n">A</span> <span class="n">png</span> <span class="n">file</span> <span class="n">to</span> <span class="n">use</span> <span class="k">as</span> <span class="n">the</span> <span class="n">icon</span> <span class="k">for</span> <span class="n">the</span> <span class="n">application</span><span class="o">.</span>
+<span class="o">--</span><span class="n">presplash</span> <span class="n">PRESPLASH</span>
+                      <span class="n">A</span> <span class="n">jpeg</span> <span class="n">file</span> <span class="n">to</span> <span class="n">use</span> <span class="k">as</span> <span class="n">a</span> <span class="n">screen</span> <span class="k">while</span> <span class="n">the</span> <span class="n">application</span>
+                      <span class="ow">is</span> <span class="n">loading</span><span class="o">.</span>
+<span class="o">--</span><span class="n">install</span><span class="o">-</span><span class="n">location</span> <span class="n">INSTALL_LOCATION</span>
+                      <span class="n">The</span> <span class="n">default</span> <span class="n">install</span> <span class="n">location</span><span class="o">.</span> <span class="n">Should</span> <span class="n">be</span> <span class="s2">&quot;auto&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;preferExternal&quot;</span> <span class="ow">or</span> <span class="s2">&quot;internalOnly&quot;</span><span class="o">.</span>
+<span class="o">--</span><span class="nb">compile</span><span class="o">-</span><span class="n">pyo</span>         <span class="n">Compile</span> <span class="nb">all</span> <span class="o">.</span><span class="n">py</span> <span class="n">files</span> <span class="n">to</span> <span class="o">.</span><span class="n">pyo</span><span class="p">,</span> <span class="ow">and</span> <span class="n">only</span> <span class="n">distribute</span> <span class="n">the</span>
+                      <span class="n">compiled</span> <span class="n">bytecode</span><span class="o">.</span>
+<span class="o">--</span><span class="n">intent</span><span class="o">-</span><span class="n">filters</span> <span class="n">INTENT_FILTERS</span>
+                      <span class="n">Add</span> <span class="n">intent</span><span class="o">-</span><span class="n">filters</span> <span class="n">xml</span> <span class="n">rules</span> <span class="n">to</span> <span class="n">AndroidManifest</span><span class="o">.</span><span class="n">xml</span>
+<span class="o">--</span><span class="n">blacklist</span> <span class="n">BLACKLIST</span>
+                      <span class="n">Use</span> <span class="n">a</span> <span class="n">blacklist</span> <span class="n">file</span> <span class="n">to</span> <span class="n">match</span> <span class="n">unwanted</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">the</span>
+                      <span class="n">final</span> <span class="n">APK</span>
+<span class="o">--</span><span class="n">sdk</span> <span class="n">SDK_VERSION</span>     <span class="n">Android</span> <span class="n">SDK</span> <span class="n">version</span> <span class="n">to</span> <span class="n">use</span><span class="o">.</span> <span class="n">Default</span> <span class="n">to</span> <span class="mi">8</span>
+<span class="o">--</span><span class="n">minsdk</span> <span class="n">MIN_SDK_VERSION</span>
+                      <span class="n">Minimum</span> <span class="n">Android</span> <span class="n">SDK</span> <span class="n">version</span> <span class="n">to</span> <span class="n">use</span><span class="o">.</span> <span class="n">Default</span> <span class="n">to</span> <span class="mi">8</span>
+<span class="o">--</span><span class="n">window</span>              <span class="n">Indicate</span> <span class="k">if</span> <span class="n">the</span> <span class="n">application</span> <span class="n">will</span> <span class="n">be</span> <span class="n">windowed</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="meta-data">
+<h1>Meta-data<a class="headerlink" href="#meta-data" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="versionadded">
+<p><span class="versionmodified">バージョン 1.3 で追加.</span></p>
+</div>
+<p>You can extend the <cite>AndroidManifest.xml</cite> with application meta-data. If you are
+using external toolkits like Google Maps, you might want to set your API key in
+the meta-data. You could do it like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">build</span><span class="o">.</span><span class="n">py</span> <span class="o">...</span> <span class="o">--</span><span class="n">meta</span><span class="o">-</span><span class="n">data</span> <span class="n">com</span><span class="o">.</span><span class="n">google</span><span class="o">.</span><span class="n">android</span><span class="o">.</span><span class="n">maps</span><span class="o">.</span><span class="n">v2</span><span class="o">.</span><span class="n">API_KEY</span><span class="o">=</span><span class="n">YOURAPIKEY</span>
+</pre></div>
+</div>
+<p>Some meta-data can be used to interact with the behavior of our internal
+component.</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Token</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><cite>surface.transparent</cite></td>
+<td>If set to 1, the created surface will be transparent (can be used
+to add background Android widget in the background, or use accelerated
+widgets)</td>
+</tr>
+<tr class="row-odd"><td><cite>surface.depth</cite></td>
+<td>Size of the depth component, default to 0. 0 means automatic, but you
+can force it to a specific value. Be warned, some old phone might not
+support the depth you want.</td>
+</tr>
+<tr class="row-even"><td><cite>surface.stencil</cite></td>
+<td>Size of the stencil component, default to 8.</td>
+</tr>
+<tr class="row-odd"><td><cite>android.background_color</cite></td>
+<td>Color (32bits RGBA color), used for the background window. Usually, the
+background is covered by the OpenGL Background, unless
+<cite>surface.transparent</cite> is set.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="customize.html" class="btn btn-neutral float-right" title="Customize your distribution">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="prerequisites.html" class="btn btn-neutral" title="Prerequisites"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Alexander Taylor.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
