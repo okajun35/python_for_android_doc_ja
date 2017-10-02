@@ -1,4 +1,4 @@
-公開web:https://okajun35.github.io/python_for_android_doc_ja/quickstart.html#installation
+公開web:https://okajun35.github.io/python_for_android_doc_ja/quickstart.html
 
 2017/10/01 試験的にPython for androidの日本語翻訳を行っています
 
