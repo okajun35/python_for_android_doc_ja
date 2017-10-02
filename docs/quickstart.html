@@ -64,9 +64,9 @@
         
             <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">初めに</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#concepts">Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#concepts">コンセプト</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">使用方法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#advanced-usage">Advanced usage</a></li>
 </ul>
 </li>
@@ -174,85 +174,78 @@
             
   <div class="section" id="getting-started">
 <h1>初めに<a class="headerlink" href="#getting-started" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>Getting up and running on python-for-android (p4a) is a simple process
-and should only take you a couple of minutes. We&#8217;ll refer to Python
-for android as p4a in this documentation.</p>
+<p>Python-for-android（p4a）を起動して実行するのは簡単なプロセスでほんの2～3分かかるだけです。 このドキュメントではandroid用のPythonをp4aと呼んでいます。</p>
 <div class="section" id="concepts">
-<h2>Concepts<a class="headerlink" href="#concepts" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>コンセプト<a class="headerlink" href="#concepts" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li>requirements: For p4a, your applications dependencies are
-requirements similar to the standard <cite>requirements.txt</cite>, but with
-one difference: p4a will search for a recipe first instead of
-installing requirements with pip.</li>
-<li>recipe: A recipe is a file that defines how to compile a
-requirement. Any libraries that have a Python extension <em>must</em> have
-a recipe in p4a, or compilation will fail. If there is no recipe for
-a requirement, it will be downloaded using pip.</li>
-<li>build: A build refers to a compiled recipe.</li>
-<li>distribution: A distribution is the final &#8220;build&#8221; of all your
-compiled requirements, as an Android project that can be turned
-directly into an APK. p4a can contain multiple distributions with
-different sets of requirements.</li>
-<li>bootstrap: A bootstrap is the app backend that will start your
-application. Your application could use SDL2 as a base, or Pygame,
-or a web backend like Flask with a WebView bootstrap. Different
-bootstraps can have different build options.</li>
+<li><p class="first">要件：p4aの場合はアプリケーションの依存関係は標準の <cite>requirements.txt</cite> と似ていますがp4aはpipで要件をインストールする代わりにまずレシピを検索する違いがあります。</p>
+</li>
+<li><p class="first">レシピ：レシピは要件をコンパイルする方法を定義するファイルです。Python拡張機能を持つライブラリはp4aにレシピがある必要があります。そうでなければコンパイルは失敗します。 要件のレシピがない場合はpipを使用してダウンロードされます。</p>
+</li>
+<li><p class="first">ビルド：ビルドはコンパイルされたレシピを参照します。</p>
+</li>
+<li><p class="first">ディストリビューション：APKに直接変換できるAndroidプロジェクトとしてコンパイルされた、すべての要件の最終「ビルド」です。 p4aにはさまざまな要件のセットを含む複数のディストリビューションを含めることができます。</p>
+</li>
+<li><p class="first">bootstrap：ブートストラップはアプリケーションを起動するアプリケーションバックエンドです。 アプリケーションでSDL2をBase、Pygame、またはWebViewのブートストラップを持つFlaskのようなWebバックエンドとして使用できます。 異なるブートストラップは異なるビルドオプションを持つことができます</p>
+</li>
 </ul>
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="installing-p4a">
-<h3>Installing p4a<a class="headerlink" href="#installing-p4a" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>p4a is now available on on Pypi, so you can install it using pip:</p>
+<h3>p4aをインストールします<a class="headerlink" href="#installing-p4a" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>p4aはPypiにあるのでpipを使用してインストールできます:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">android</span>
 </pre></div>
 </div>
-<p>You can also test the master branch from Github using:</p>
+<p>Githubのマスターブランチのテストを使用するには</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">kivy</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">android</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="installing-dependencies">
-<h3>Installing Dependencies<a class="headerlink" href="#installing-dependencies" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>p4a has several dependencies that must be installed:</p>
+<h3>依存関係のインストール<a class="headerlink" href="#installing-dependencies" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>p4aにはいくつかの依存関係がインストールされていなければなりません:</p>
 <ul class="simple">
 <li>git</li>
 <li>ant</li>
 <li>python2</li>
-<li>cython (can be installed via pip)</li>
+<li><p class="first">cython(pipからインストールできます)</p>
+</li>
 <li>a Java JDK (e.g. openjdk-7)</li>
-<li>zlib (including 32 bit)</li>
-<li>libncurses (including 32 bit)</li>
+<li><p class="first">zlib(32bitを含む)</p>
+</li>
+<li><p class="first">libncurses (32 bitを含む)</p>
+</li>
 <li>unzip</li>
-<li>virtualenv (can be installed via pip)</li>
-<li>ccache (optional)</li>
-<li>autoconf (for ffpyplayer_codecs recipe)</li>
-<li>libtool (for ffpyplayer_codecs recipe)</li>
+<li><p class="first">virtualenv (pipからインストールできます)</p>
+</li>
+<li><p class="first">ccache (オプション)</p>
+</li>
+<li><p class="first">autoconf (ffplayerのコーデックレシピのため)</p>
+</li>
+<li><p class="first">libtool (ffplayerのコーデックレシピのため)</p>
+</li>
 </ul>
-<p>On recent versions of Ubuntu and its derivatives you may be able to
-install most of these with:</p>
+<p>最近のバージョンのUbuntuとその派生のOSでは、これらのほとんどを以下のように一緒にインストールできます:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dpkg</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">architecture</span> <span class="n">i386</span>
 <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
 <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">ccache</span> <span class="n">git</span> <span class="n">zlib1g</span><span class="o">-</span><span class="n">dev</span> <span class="n">python2</span><span class="o">.</span><span class="mi">7</span> <span class="n">python2</span><span class="o">.</span><span class="mi">7</span><span class="o">-</span><span class="n">dev</span> <span class="n">libncurses5</span><span class="p">:</span><span class="n">i386</span> <span class="n">libstdc</span><span class="o">++</span><span class="mi">6</span><span class="p">:</span><span class="n">i386</span> <span class="n">zlib1g</span><span class="p">:</span><span class="n">i386</span> <span class="n">openjdk</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="n">jdk</span> <span class="n">unzip</span> <span class="n">ant</span> <span class="n">ccache</span> <span class="n">autoconf</span> <span class="n">libtool</span>
 </pre></div>
 </div>
-<p>On Arch Linux (64 bit) you should be able to run the following to
-install most of the dependencies (note: this list may not be
-complete). gcc-multilib will conflict with (and replace) gcc if not
-already installed. If your installation is already 32-bit, install the
-same packages but without <code class="docutils literal"><span class="pre">lib32-</span></code> or <code class="docutils literal"><span class="pre">-multilib</span></code>:</p>
+<p>Arch Linux(64ビット)では以下を実行してほとんどの依存関係をインストールできるはずです（このリストは完全ではないかもしれません）。 gcc-multilibはインストールされていない場合はgccと衝突します（置き換えられます）。 インストールがすでに32ビットである場合は、「lib32-」または「-multilib」を使用せずに同じパッケージをインストールします。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">jdk7</span><span class="o">-</span><span class="n">openjdk</span> <span class="n">python2</span> <span class="n">python2</span><span class="o">-</span><span class="n">pip</span> <span class="n">python2</span><span class="o">-</span><span class="n">kivy</span> <span class="n">mesa</span><span class="o">-</span><span class="n">libgl</span> <span class="n">lib32</span><span class="o">-</span><span class="n">mesa</span><span class="o">-</span><span class="n">libgl</span> <span class="n">lib32</span><span class="o">-</span><span class="n">sdl2</span> <span class="n">lib32</span><span class="o">-</span><span class="n">sdl2_image</span> <span class="n">lib32</span><span class="o">-</span><span class="n">sdl2_mixer</span> <span class="n">sdl2_ttf</span> <span class="n">unzip</span> <span class="n">gcc</span><span class="o">-</span><span class="n">multilib</span> <span class="n">gcc</span><span class="o">-</span><span class="n">libs</span><span class="o">-</span><span class="n">multilib</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="installing-android-sdk">
-<h3>Installing Android SDK<a class="headerlink" href="#installing-android-sdk" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>You need to download and unpack the Android SDK and NDK to a directory (let&#8217;s say $HOME/Documents/):</p>
+<h3>Android SDKのインストール<a class="headerlink" href="#installing-android-sdk" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Android SDK と NDKをダウンロードしてディレクトリ(let&#8217;s say $HOME/Documents/)に解凍する必要があります:</p>
 <ul class="simple">
 <li><a class="reference external" href="https://developer.android.com/sdk/index.html#Other">Android SDK</a></li>
 <li><a class="reference external" href="https://developer.android.com/ndk/downloads/index.html">Android NDK</a></li>
 </ul>
-<p>Then, you can edit your <code class="docutils literal"><span class="pre">~/.bashrc</span></code> or other favorite shell to include new environment variables necessary for building on android:</p>
+<p>「~/.bashrc」や他のお気に入りのシェルを編集してandroid上に構築するために必要な新しい環境変数を含めることができます:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Adjust the paths!</span>
 <span class="n">export</span> <span class="n">ANDROIDSDK</span><span class="o">=</span><span class="s2">&quot;$HOME/Documents/android-sdk-21&quot;</span>
 <span class="n">export</span> <span class="n">ANDROIDNDK</span><span class="o">=</span><span class="s2">&quot;$HOME/Documents/android-ndk-r10e&quot;</span>
@@ -262,37 +255,36 @@ same packages but without <code class="docutils literal"><span class="pre">lib32
 </div>
 <p>You have the possibility to configure on any command the PATH to the SDK, NDK and Android API using:</p>
 <ul class="simple">
-<li><code class="code docutils literal"><span class="pre">--sdk_dir</span> <span class="pre">PATH</span></code> as an equivalent of <cite>$ANDROIDSDK</cite></li>
-<li><code class="code docutils literal"><span class="pre">--ndk_dir</span> <span class="pre">PATH</span></code> as an equivalent of <cite>$ANDROIDNDK</cite></li>
-<li><code class="code docutils literal"><span class="pre">--android_api</span> <span class="pre">VERSION</span></code> as an equivalent of <cite>$ANDROIDAPI</cite></li>
-<li><code class="code docutils literal"><span class="pre">--ndk_ver</span> <span class="pre">PATH</span></code> as an equivalent of <cite>$ANDROIDNDKVER</cite></li>
+<li><p class="first"><code class="code docutils literal"><span class="pre">--sdk_dir</span> <span class="pre">PATH</span></code> と同じ <cite>$ANDROIDSDK</cite></p>
+</li>
+<li><p class="first"><code class="code docutils literal"><span class="pre">--ndk_dir</span> <span class="pre">PATH</span></code> と同じ <cite>$ANDROIDNDK</cite></p>
+</li>
+<li><p class="first"><code class="code docutils literal"><span class="pre">--android_api</span> <span class="pre">VERSION</span></code> と同じ <cite>$ANDROIDAPI</cite></p>
+</li>
+<li><p class="first"><code class="code docutils literal"><span class="pre">--ndk_ver</span> <span class="pre">PATH</span></code> と同じ <cite>$ANDROIDNDKVER</cite></p>
+</li>
 </ul>
 </div>
 </div>
 <div class="section" id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>使用方法<a class="headerlink" href="#usage" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="build-a-kivy-application">
-<h3>Build a Kivy application<a class="headerlink" href="#build-a-kivy-application" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>To build your application, you need to have a name, version, a package
-identifier, and explicitly write the bootstrap you want to use, as
-well as the requirements:</p>
+<h3>Kivyアプリのビルド<a class="headerlink" href="#build-a-kivy-application" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>アプリケーションをビルドするには、名前、バージョン、パッケージ識別子が必要で、それに加えて使用するブートストラップと要件を明示的に記述する必要があります。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>p4a apk --private $HOME/code/myapp --package=org.example.myapp --name &quot;My application&quot; --version 0.1 --bootstrap=sdl2 --requirements=python2,kivy
 </pre></div>
 </div>
-<p>This will first build a distribution that contains <cite>python2</cite> and <cite>kivy</cite>, and using a SDL2 bootstrap. Python2 is here explicitely written as kivy can work with python2 or python3.</p>
-<p>You can also use <code class="docutils literal"><span class="pre">--bootstrap=pygame</span></code>, but this bootstrap is deprecated for use with Kivy and SDL2 is preferred.</p>
+<p>これは <cite>python2</cite> と <cite>kivy</cite> を含むディストリビューションをまず構築してからSDL2ブートストラップを使用します。 Python2は、kivyがpython2またはpython3で動作できるように明示的に書かれています。</p>
+<p><code class="docutils literal"><span class="pre">--bootstrap=pygame</span></code> も使用できますが、pygameのブートストラップはKivyで使用することは推奨されてなくてSDL2が推奨されています。</p>
 </div>
 <div class="section" id="build-a-webview-application">
-<h3>Build a WebView application<a class="headerlink" href="#build-a-webview-application" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>To build your application, you need to have a name, version, a package
-identifier, and explicitly use the webview bootstrap, as
-well as the requirements:</p>
+<h3>WebViewアプリのビルド<a class="headerlink" href="#build-a-webview-application" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>アプリケーションをビルドするには、名前、バージョン、パッケージ識別子が必要で、それに加えてWebビューのブートストラップと要件を明示的に使用する必要があります。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>p4a apk --private $HOME/code/myapp --package=org.example.myapp --name &quot;My WebView Application&quot; --version 0.1 --bootstrap=webview --requirements=flask --port=5000
 </pre></div>
 </div>
-<p>You can also replace flask with another web framework.</p>
-<p>Replace <code class="docutils literal"><span class="pre">--port=5000</span></code> with the port on which your app will serve a
-website. The default for Flask is 5000.</p>
+<p>flaskを別のWebフレームワークに置き換えることもできます。</p>
+<p><code class="docutils literal"><span class="pre">--port=5000</span></code> をアプリでウェブサイトを提供するポートに置き換えます。 Flaskのデフォルトは5000です。</p>
 </div>
 <div class="section" id="build-an-sdl2-based-application">
 <h3>Build an SDL2 based application<a class="headerlink" href="#build-an-sdl2-based-application" title="このヘッドラインへのパーマリンク">¶</a></h3>
