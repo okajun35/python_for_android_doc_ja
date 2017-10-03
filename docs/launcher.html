@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Launcher &mdash; python-for-android 0.1 ドキュメント</title>
+  <title>ランチャー &mdash; python-for-android 0.1 ドキュメント</title>
   
 
   
@@ -28,9 +28,6 @@
   
 
   
-        <link rel="index" title="索引"
-              href="genindex.html"/>
-        <link rel="search" title="検索" href="search.html"/>
     <link rel="top" title="python-for-android 0.1 ドキュメント" href="index.html"/>
         <link rel="next" title="Contributing" href="contribute.html"/>
         <link rel="prev" title="Troubleshooting" href="troubleshooting.html"/> 
@@ -119,11 +116,11 @@
 <li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#common-errors">Common errors</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Launcher</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#building">Building</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#release-on-the-market">Release on the market</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#source-code">Source code</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ランチャー</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#building">ビルド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">使用方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#release-on-the-market">マーケットへのリリース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#source-code">ソースコード</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contribute.html">Contributing</a></li>
@@ -161,7 +158,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Launcher</li>
+    <li>ランチャー</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="_sources/launcher.txt" rel="nofollow"> View page source</a>
@@ -173,23 +170,13 @@
           <div role="main" class="document">
             
   <div class="section" id="launcher">
-<span id="id1"></span><h1>Launcher<a class="headerlink" href="#launcher" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>The Kivy Launcher is an Android application that can run any Kivy app
-stored in <cite>kivy</cite> folder on SD Card. You can download the latest stable
-version for your android device from the
-<a class="reference external" href="https://play.google.com/store/apps/details?id=org.kivy.pygame">Play Store</a>.</p>
-<p>The stable launcher comes with various Python packages and
-permissions, usually listed in the description in the store. Those
-aren&#8217;t always enough for an application to run or even launch if you
-work with other dependencies that are not packaged.</p>
-<p>The Kivy Launcher is intended for quick and simple testing, for
-anything more advanced we recommend building your own APK with
-python-for-android.</p>
+<span id="id1"></span><h1>ランチャー<a class="headerlink" href="#launcher" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Kivy LauncherはSDカードの <cite>kivy</cite> フォルダに保存されているKivyアプリを実行できるAndroidアプリケーションです。 <a class="reference external" href="https://play.google.com/store/apps/details?id=org.kivy.pygame">Playストア</a> からAndroid搭載端末の最新の安定版をダウンロードできます</p>
+<p>安定版のランチャーにはさまざまなPythonのパッケージとアクセス許可が付属しています。通常はPlayストアの説明に記載されています。 パッケージ化されていない他の依存関係を扱う場合はアプリケーションの実行や起動に十分ではありません。</p>
+<p>Kivy Launcherは素早く簡単なテストを行うことが目的です。これより高度なものはPython-for-androidで独自のAPKを構築することをお勧めします。</p>
 <div class="section" id="building">
-<h2>Building<a class="headerlink" href="#building" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The Kivy Launcher is built using python-for-android. To get the most recent
-versions of packages you need to clean them first, so that the packager won&#8217;t
-grab an old (cached) package instead of fresh one.</p>
+<h2>ビルド<a class="headerlink" href="#building" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Kivy Launcherはpython-for-androidを使ってビルドされています。 最新のバージョンのパッケージを入手するにはまずパッケージをクリーンしてして、新しいパッケージが挿入されるまえに古い（キャッシュされた）パッケージを取り除く必要があります。</p>
 <div class="highlight-none"><div class="highlight"><pre><span></span>p4a clean_download_cache requirements
 p4a clean_dists &amp;&amp; p4a clean_builds
 p4a apk --requirements=requirements \
@@ -205,8 +192,7 @@ p4a apk --requirements=requirements \
 </div>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last"><cite>&#8211;minsdk 13</cite> is necessary for the new toolchain, otherwise you&#8217;ll be able
-to run apps only in <cite>landscape</cite> orientation.</p>
+<p class="last">新しいツールチェーンには <cite>&#8211;minsdk 13</cite> が必要です。そうしないとアプリを <cite>横向き</cite> にしか実行できなくなります。</p>
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
@@ -216,42 +202,28 @@ above them and tells the p4a to build the launcher version of the APK.</p>
 </div>
 </div>
 <div class="section" id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Once the launcher is installed, you need to create a folder in your
-external storage directory (e.g. <code class="docutils literal"><span class="pre">/storage/emulated/0</span></code> or
-<code class="docutils literal"><span class="pre">/sdcard</span></code>) - this is normally your &#8216;home&#8217; directory in a file
-browser. Each new folder inside <cite>kivy</cite> represents a
-separate application:</p>
+<h2>使用方法<a class="headerlink" href="#usage" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ランチャーがインストールされたら外部ストレージディレクトリ ( <code class="docutils literal"><span class="pre">/storage/emulated/0</span></code> や <code class="docutils literal"><span class="pre">/sdcard</span></code> など) にフォルダを作成する必要があります。これは、通常はファイルブラウザの「ホーム」ディレクトリです。  <cite>kivy</cite> 内の新しい各フォルダは別々のアプリケーションを表します:</p>
 <div class="highlight-none"><div class="highlight"><pre><span></span>/sdcard/kivy/&lt;yourapplication&gt;
 </pre></div>
 </div>
-<p>Each application folder must contain an
-<cite>android.txt</cite> file. The file has to contain three basic
-lines:</p>
+<p>各アプリケーションフォルダには <a href="#id1"><span class="problematic" id="id2">`</span></a>android.txt`ファイルが含まれている必要があります。 ファイルには基本的な3行が含まれていなければなりません:</p>
 <div class="highlight-none"><div class="highlight"><pre><span></span>title=&lt;Application Title&gt;
 author=&lt;Your Name&gt;
 orientation=&lt;portrait|landscape&gt;
 </pre></div>
 </div>
-<p>The file is editable so you can change for example orientation or
-name. These are the only options dynamically configurable here,
-although when the app runs you can call the Android API with PyJNIus
-to change other settings.</p>
-<p>After you set your <cite>android.txt</cite> file, you can now run the launcher
-and start any available app from the list.</p>
-<p>To differentiate between apps in <code class="docutils literal"><span class="pre">/sdcard/kivy</span></code> you can include an icon
-named <code class="docutils literal"><span class="pre">icon.png</span></code> to the folder. The icon should be a square.</p>
+<p>ファイルは編集可能なので例えば向きや名前を変更することができます。 これらはここで動的に設定できる唯一のオプションですが、アプリが実行されるとPyJNIusでAndroid APIを呼び出して他の設定を変更できます。</p>
+<p><cite>android.txt</cite> ファイルを設定したら、ランチャーを起動して利用可能なアプリをリストから開始できます。</p>
+<p><code class="docutils literal"><span class="pre">/sdcard/kivy</span></code> のアプリケーションを区別するために、 <code class="docutils literal"><span class="pre">icon.png</span></code> という名前のアイコンをフォルダに含めることができます。 アイコンは正方形でなければなりません。</p>
 </div>
 <div class="section" id="release-on-the-market">
-<h2>Release on the market<a class="headerlink" href="#release-on-the-market" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Launcher is released on Google Play with each new Kivy stable
-branch. The master branch is not suitable for a regular user because
-it changes quickly and needs testing.</p>
+<h2>マーケットへのリリース<a class="headerlink" href="#release-on-the-market" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Launcherは新しいKivyの安定版ブランチごとにGoogle Playでリリースされます。 マスターブランチは通常のユーザーには適していません。迅速に変更されておりテストが必要なためです。</p>
 </div>
 <div class="section" id="source-code">
-<h2>Source code<a class="headerlink" href="#source-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>If you feel confident, feel free to improve the launcher. You can find the
-source code at <a class="reference external" href="https://github.com/kivy/python-for-android/tree/master/pythonforandroid/bootstraps/pygame/build/src/org/renpy/android">pygame org.renpy.android</a> or at <a href="#id2"><span class="problematic" id="id3">|kivy|_</span></a>.</p>
+<h2>ソースコード<a class="headerlink" href="#source-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>自信がある場合はランチャーを自由に改良してください。 <a class="reference external" href="https://github.com/kivy/python-for-android/tree/master/ pythonforandroid/bootstraps/pygame/build/src/org/renpy/android">pygame org.renpy.android</a> または|kivy|_ でソースコードを見つけられます。</p>
 </div>
 </div>
 

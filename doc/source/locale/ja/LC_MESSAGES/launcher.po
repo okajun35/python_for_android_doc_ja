@@ -18,73 +18,86 @@ msgstr ""
 
 #: ../../source/launcher.rst:4
 msgid "Launcher"
-msgstr ""
+msgstr "ランチャー"
 
 #: ../../source/launcher.rst:6
 msgid "The Kivy Launcher is an Android application that can run any Kivy app stored in `kivy` folder on SD Card. You can download the latest stable version for your android device from the `Play Store <https://play.google.com/store/apps/details?id=org.kivy.pygame>`_."
 msgstr ""
+"Kivy LauncherはSDカードの `kivy` フォルダに保存されているKivyアプリを実行できるAndroidアプリケーションです。 `Playストア <https://play.google.com/store/apps/details?id=org.kivy.pygame>`_ からAndroid搭載端末の最新の安定版をダウンロードできます。
+"
 
 #: ../../source/launcher.rst:11
 msgid "The stable launcher comes with various Python packages and permissions, usually listed in the description in the store. Those aren't always enough for an application to run or even launch if you work with other dependencies that are not packaged."
 msgstr ""
+"安定版のランチャーにはさまざまなPythonのパッケージとアクセス許可が付属しています。通常はPlayストアの説明に記載されています。 パッケージ化されていない他の依存関係を扱う場合はアプリケーションの実行や起動に十分ではありません。"
 
 #: ../../source/launcher.rst:16
 msgid "The Kivy Launcher is intended for quick and simple testing, for anything more advanced we recommend building your own APK with python-for-android."
 msgstr ""
+"Kivy Launcherは素早く簡単なテストを行うことが目的です。これより高度なものはPython-for-androidで独自のAPKを構築することをお勧めします。"
 
 #: ../../source/launcher.rst:21
 msgid "Building"
-msgstr ""
+msgstr "ビルド"
 
 #: ../../source/launcher.rst:23
 msgid "The Kivy Launcher is built using python-for-android. To get the most recent versions of packages you need to clean them first, so that the packager won't grab an old (cached) package instead of fresh one."
 msgstr ""
+"Kivy Launcherはpython-for-androidを使ってビルドされています。 最新のバージョンのパッケージを入手するにはまずパッケージをクリーンしてして、新しいパッケージが挿入されるまえに古い（キャッシュされた）パッケージを取り除く必要があります。"
 
 #: ../../source/launcher.rst:45
 msgid "`--minsdk 13` is necessary for the new toolchain, otherwise you'll be able to run apps only in `landscape` orientation."
 msgstr ""
+"新しいツールチェーンには `--minsdk 13` が必要です。そうしないとアプリを `横向き` にしか実行できなくなります。"
 
 #: ../../source/launcher.rst:50
 msgid "Do not use any of `--private`, `--public`, `--dir` or other arguments for adding `main.py` or `main.pyo` to the app. The argument `--launcher` is above them and tells the p4a to build the launcher version of the APK."
 msgstr ""
+" `main.py` や `main.pyo` をアプリケーションに追加するために、`--private` 、 `--public` 、 `--dir` などの引数を使用しないでください。 `--launcher` 引数はそれらの上にありAPKのランチャバージョンを構築するようにp4aに指示します。"
 
 #: ../../source/launcher.rst:55
 msgid "Usage"
-msgstr ""
+msgstr "使用方法"
 
 #: ../../source/launcher.rst:57
 msgid "Once the launcher is installed, you need to create a folder in your external storage directory (e.g. ``/storage/emulated/0`` or ``/sdcard``) - this is normally your 'home' directory in a file browser. Each new folder inside `kivy` represents a separate application::"
 msgstr ""
+"ランチャーがインストールされたら外部ストレージディレクトリ ( ``/storage/emulated/0`` や ``/sdcard`` など) にフォルダを作成する必要があります。これは、通常はファイルブラウザの「ホーム」ディレクトリです。  `kivy` 内の新しい各フォルダは別々のアプリケーションを表します::"
 
 #: ../../source/launcher.rst:65
 msgid "Each application folder must contain an `android.txt` file. The file has to contain three basic lines::"
 msgstr ""
+"各アプリケーションフォルダには `android.txt`ファイルが含まれている必要があります。 ファイルには基本的な3行が含まれていなければなりません::"
 
 #: ../../source/launcher.rst:73
 msgid "The file is editable so you can change for example orientation or name. These are the only options dynamically configurable here, although when the app runs you can call the Android API with PyJNIus to change other settings."
 msgstr ""
+"ファイルは編集可能なので例えば向きや名前を変更することができます。 これらはここで動的に設定できる唯一のオプションですが、アプリが実行されるとPyJNIusでAndroid APIを呼び出して他の設定を変更できます。"
 
 #: ../../source/launcher.rst:78
 msgid "After you set your `android.txt` file, you can now run the launcher and start any available app from the list."
 msgstr ""
+"`android.txt` ファイルを設定したら、ランチャーを起動して利用可能なアプリをリストから開始できます。"
 
 #: ../../source/launcher.rst:81
 msgid "To differentiate between apps in ``/sdcard/kivy`` you can include an icon named ``icon.png`` to the folder. The icon should be a square."
 msgstr ""
+"``/sdcard/kivy`` のアプリケーションを区別するために、 ``icon.png`` という名前のアイコンをフォルダに含めることができます。 アイコンは正方形でなければなりません。"
 
 #: ../../source/launcher.rst:85
 msgid "Release on the market"
-msgstr ""
+msgstr "マーケットへのリリース"
 
 #: ../../source/launcher.rst:87
 msgid "Launcher is released on Google Play with each new Kivy stable branch. The master branch is not suitable for a regular user because it changes quickly and needs testing."
 msgstr ""
+"Launcherは新しいKivyの安定版ブランチごとにGoogle Playでリリースされます。 マスターブランチは通常のユーザーには適していません。迅速に変更されておりテストが必要なためです。"
 
 #: ../../source/launcher.rst:92
 msgid "Source code"
-msgstr ""
+msgstr "ソースコード"
 
 #: ../../source/launcher.rst:104
 msgid "If you feel confident, feel free to improve the launcher. You can find the source code at |renpy|_ or at |kivy|_."
 msgstr ""
-
+"自信がある場合はランチャーを自由に改良してください。 |renpy|_ または|kivy|_ でソースコードを見つけられます。"
