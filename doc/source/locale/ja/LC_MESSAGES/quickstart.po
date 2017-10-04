@@ -220,107 +220,115 @@ msgstr ""
 
 #: ../../source/quickstart.rst:137
 msgid "Build an SDL2 based application"
-msgstr ""
+msgstr "SDL2ベースのアプリケーションのビルド"
 
 #: ../../source/quickstart.rst:139
 msgid "This includes e.g. `PySDL2 <https://pysdl2.readthedocs.io/en/latest/>`__."
-msgstr ""
+msgstr "`例えばPySDL2 <https://pysdl2.readthedocs.io/en/latest/>`__ を含む場合 "
 
 #: ../../source/quickstart.rst:142
 msgid "To build your application, you need to have a name, version, a package identifier, and explicitly write the sdl2 bootstrap, as well as the requirements::"
 msgstr ""
+"アプリケーションをビルドするには名前、バージョン、パッケージID、sdl2ブートストラップを明示的に以下の要件で記述する必要があります。"
 
 #: ../../source/quickstart.rst:148
 msgid "Add your required modules in place of ``your_requirements``, e.g. ``--requirements=pysdl2`` or ``--requirements=vispy``."
-msgstr ""
+msgstr "``your_requirements`` の代わりに必要なモジュールを追加します。例えば ``--requirements=pysdl2`` や ``--requirements=vispy`` です。"
 
 #: ../../source/quickstart.rst:152
 msgid "Other options"
-msgstr ""
+msgstr "その他のオプション"
 
 #: ../../source/quickstart.rst:154
 msgid "You can pass other command line arguments to control app behaviours such as orientation, wakelock and app permissions. See :ref:`bootstrap_build_options`."
 msgstr ""
+"その他のコマンドライン引数を渡して、orientation（方向）、WakeLock、アプリの権限などのアプリの動作を制御できます。 :ref:`bootstrap_build_options` を参照してください。"
 
 #: ../../source/quickstart.rst:161
 msgid "Rebuild everything"
-msgstr ""
+msgstr "すべてをリビルドする"
 
 #: ../../source/quickstart.rst:163
 msgid "If anything goes wrong and you want to clean the downloads and builds to retry everything, run::"
-msgstr ""
+msgstr "何かうまくいかない場合にダウンロードとビルドのすべてをクリーンにして再実行したい場合は次のコマンドを実行します::"
 
 #: ../../source/quickstart.rst:167
 msgid "If you just want to clean the builds to avoid redownloading dependencies, run::"
-msgstr ""
+msgstr "依存関係の再ダウンロードを避けて、ビルドのクリーンアップのみしたい場合は次のコマンドを実行します::"
 
 #: ../../source/quickstart.rst:172
 msgid "Getting help"
-msgstr ""
+msgstr "ヘルプの利用"
 
 #: ../../source/quickstart.rst:174
 msgid "If something goes wrong and you don't know how to fix it, add the ``--debug`` option and post the output log to the `kivy-users Google group <https://groups.google.com/forum/#!forum/kivy-users>`__ or irc channel #kivy at irc.freenode.net ."
-msgstr ""
+msgstr "何かうまくいかなくて修正方法がわからない場合は、 ``--debug`` オプションを追加して出力ログを `kivy-users Google group <https://groups.google.com/forum/#!forum/kivy-users>`__ またはirc.freenode.netのirc channel #kivyに投稿してください。"
 
 #: ../../source/quickstart.rst:179
 msgid "See :doc:`troubleshooting` for more information."
-msgstr ""
+msgstr "詳細は :doc:`troubleshooting` を見てください。"
 
 #: ../../source/quickstart.rst:183
 msgid "Advanced usage"
-msgstr ""
+msgstr "高度な使い方"
 
 #: ../../source/quickstart.rst:186
 msgid "Recipe management"
-msgstr ""
+msgstr "レシピ管理"
 
 #: ../../source/quickstart.rst:188
 msgid "You can see the list of the available recipes with::"
-msgstr ""
+msgstr "利用可能なレシピのリストを見るには::"
 
 #: ../../source/quickstart.rst:192
 msgid "If you are contributing to p4a and want to test a recipes again, you need to clean the build and rebuild your distribution::"
 msgstr ""
+"p4aをコントリビュートしていて、レシピをもう一度テストしたい場合はビルドをクリーンしてディストリビューションを再ビルドする必要があります::"
 
 #: ../../source/quickstart.rst:199
 msgid "You can write \"private\" recipes for your application, just create a ``p4a-recipes`` folder in your build directory, and place a recipe in it (edit the ``__init__.py``)::"
 msgstr ""
+"アプリケーションの \"private\"　レシピを書けます。ビルドディレクトリに ``p4a-recipes`` フォルダを作成してレシピを配置します( ``__init__.py`` を編集)::"
 
 #: ../../source/quickstart.rst:208
 msgid "Distribution management"
-msgstr ""
+msgstr "出力の管理"
 
 #: ../../source/quickstart.rst:210
 msgid "Every time you start a new project, python-for-android will internally create a new distribution (an Android build project including Python and your other dependencies compiled for Android), according to the requirements you added on the command line. You can force the reuse of an existing distribution by adding::"
 msgstr ""
+"あなたが新しいプロジェクトを開始するたびにpython-for-androidは、コマンドラインで追加した要件に従って内部的に新しいディストリビューション（Pythonを含むAndroidビルドプロジェクトとAndroid用にコンパイルされた他の依存関係）を作成します。既存のディストリビューションを強制的に再利用するには次のものを追加します::"
 
 #: ../../source/quickstart.rst:218
 msgid "This will ensure your distribution will always be built in the same directory, and avoids using more disk space every time you adjust a requirement."
 msgstr ""
+"これによりディストリビューションが常に同じディレクトリに構築されて要件を調整するたびに多くのディスクスペースを使用する必要がなくなります。"
 
 #: ../../source/quickstart.rst:222
 msgid "You can list the available distributions::"
-msgstr ""
+msgstr "使用可能なディストリビューションをリスト化できます::"
 
 #: ../../source/quickstart.rst:226
 msgid "And clean all of them::"
-msgstr ""
+msgstr "すべてをクリーンします::"
 
 #: ../../source/quickstart.rst:231
 msgid "Configuration file"
-msgstr ""
+msgstr "設定ファイル"
 
 #: ../../source/quickstart.rst:233
 msgid "python-for-android checks in the current directory for a configuration file named ``.p4a``. If found, it adds all the lines as options to the command line. For example, you can add the options you would always include such as::"
 msgstr ""
+"python-for-androidは現在のディレクトリで ``.p4a`` という名前の設定ファイルをチェックします。見つかった場合はオプションとしてすべての行をコマンド行に追加します。例として次のように常に含めるオプションを追加できます::"
 
 #: ../../source/quickstart.rst:244
 msgid "Going further"
-msgstr ""
+msgstr "さらに進んで"
 
 #: ../../source/quickstart.rst:246
 msgid "See the other pages of this doc for more information on specific topics:"
 msgstr ""
+"特定のトピックの詳細についてはドキュメントの他のページを参照してください:"
 
 #: ../../source/quickstart.rst:248
 msgid ":doc:`buildoptions`"

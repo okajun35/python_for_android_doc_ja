@@ -64,7 +64,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#concepts">コンセプト</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#usage">使用方法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#advanced-usage">Advanced usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-usage">高度な使い方</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="buildoptions.html">Build options</a><ul>
@@ -284,94 +284,74 @@
 <p><code class="docutils literal"><span class="pre">--port=5000</span></code> をアプリでウェブサイトを提供するポートに置き換えます。 Flaskのデフォルトは5000です。</p>
 </div>
 <div class="section" id="build-an-sdl2-based-application">
-<h3>Build an SDL2 based application<a class="headerlink" href="#build-an-sdl2-based-application" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>This includes e.g. <a class="reference external" href="https://pysdl2.readthedocs.io/en/latest/">PySDL2</a>.</p>
-<p>To build your application, you need to have a name, version, a package
-identifier, and explicitly write the sdl2 bootstrap, as well as the
-requirements:</p>
+<h3>SDL2ベースのアプリケーションのビルド<a class="headerlink" href="#build-an-sdl2-based-application" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><a class="reference external" href="https://pysdl2.readthedocs.io/en/latest/">例えばPySDL2</a> を含む場合</p>
+<p>アプリケーションをビルドするには名前、バージョン、パッケージID、sdl2ブートストラップを明示的に以下の要件で記述する必要があります。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>p4a apk --private $HOME/code/myapp --package=org.example.myapp --name &quot;My SDL2 application&quot; --version 0.1 --bootstrap=sdl2 --requirements=your_requirements
 </pre></div>
 </div>
-<p>Add your required modules in place of <code class="docutils literal"><span class="pre">your_requirements</span></code>,
-e.g. <code class="docutils literal"><span class="pre">--requirements=pysdl2</span></code> or <code class="docutils literal"><span class="pre">--requirements=vispy</span></code>.</p>
+<p><code class="docutils literal"><span class="pre">your_requirements</span></code> の代わりに必要なモジュールを追加します。例えば <code class="docutils literal"><span class="pre">--requirements=pysdl2</span></code> や <code class="docutils literal"><span class="pre">--requirements=vispy</span></code> です。</p>
 </div>
 <div class="section" id="other-options">
-<h3>Other options<a class="headerlink" href="#other-options" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>You can pass other command line arguments to control app behaviours
-such as orientation, wakelock and app permissions. See
-<a class="reference internal" href="buildoptions.html#bootstrap-build-options"><span class="std std-ref">Bootstrap options</span></a>.</p>
+<h3>その他のオプション<a class="headerlink" href="#other-options" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>その他のコマンドライン引数を渡して、orientation（方向）、WakeLock、アプリの権限などのアプリの動作を制御できます。 <a class="reference internal" href="buildoptions.html#bootstrap-build-options"><span class="std std-ref">Bootstrap options</span></a> を参照してください。</p>
 </div>
 <div class="section" id="rebuild-everything">
-<h3>Rebuild everything<a class="headerlink" href="#rebuild-everything" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>If anything goes wrong and you want to clean the downloads and builds to retry everything, run:</p>
+<h3>すべてをリビルドする<a class="headerlink" href="#rebuild-everything" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>何かうまくいかない場合にダウンロードとビルドのすべてをクリーンにして再実行したい場合は次のコマンドを実行します:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">p4a</span> <span class="n">clean_all</span>
 </pre></div>
 </div>
-<p>If you just want to clean the builds to avoid redownloading dependencies, run:</p>
+<p>依存関係の再ダウンロードを避けて、ビルドのクリーンアップのみしたい場合は次のコマンドを実行します:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">p4a</span> <span class="n">clean_builds</span> <span class="o">&amp;&amp;</span> <span class="n">p4a</span> <span class="n">clean_dists</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="getting-help">
-<h3>Getting help<a class="headerlink" href="#getting-help" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>If something goes wrong and you don&#8217;t know how to fix it, add the
-<code class="docutils literal"><span class="pre">--debug</span></code> option and post the output log to the <a class="reference external" href="https://groups.google.com/forum/#!forum/kivy-users">kivy-users Google
-group</a> or irc
-channel #kivy at irc.freenode.net .</p>
-<p>See <a class="reference internal" href="troubleshooting.html"><span class="doc">Troubleshooting</span></a> for more information.</p>
+<h3>ヘルプの利用<a class="headerlink" href="#getting-help" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>何かうまくいかなくて修正方法がわからない場合は、 <code class="docutils literal"><span class="pre">--debug</span></code> オプションを追加して出力ログを <a class="reference external" href="https://groups.google.com/forum/#!forum/kivy-users">kivy-users Google group</a> またはirc.freenode.netのirc channel #kivyに投稿してください。</p>
+<p>詳細は <a class="reference internal" href="troubleshooting.html"><span class="doc">Troubleshooting</span></a> を見てください。</p>
 </div>
 </div>
 <div class="section" id="advanced-usage">
-<h2>Advanced usage<a class="headerlink" href="#advanced-usage" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>高度な使い方<a class="headerlink" href="#advanced-usage" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="recipe-management">
-<h3>Recipe management<a class="headerlink" href="#recipe-management" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>You can see the list of the available recipes with:</p>
+<h3>レシピ管理<a class="headerlink" href="#recipe-management" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>利用可能なレシピのリストを見るには:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">p4a</span> <span class="n">recipes</span>
 </pre></div>
 </div>
-<p>If you are contributing to p4a and want to test a recipes again,
-you need to clean the build and rebuild your distribution:</p>
+<p>p4aをコントリビュートしていて、レシピをもう一度テストしたい場合はビルドをクリーンしてディストリビューションを再ビルドする必要があります:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">p4a</span> <span class="n">clean_recipe_build</span> <span class="n">RECIPENAME</span>
 <span class="n">p4a</span> <span class="n">clean_dists</span>
 <span class="c1"># then rebuild your distribution</span>
 </pre></div>
 </div>
-<p>You can write &#8220;private&#8221; recipes for your application, just create a
-<code class="docutils literal"><span class="pre">p4a-recipes</span></code> folder in your build directory, and place a recipe in
-it (edit the <code class="docutils literal"><span class="pre">__init__.py</span></code>):</p>
+<p>アプリケーションの &#8220;private&#8221;　レシピを書けます。ビルドディレクトリに <code class="docutils literal"><span class="pre">p4a-recipes</span></code> フォルダを作成してレシピを配置します( <code class="docutils literal"><span class="pre">__init__.py</span></code> を編集):</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="n">p4a</span><span class="o">-</span><span class="n">recipes</span><span class="o">/</span><span class="n">myrecipe</span>
 <span class="n">touch</span> <span class="n">p4a</span><span class="o">-</span><span class="n">recipes</span><span class="o">/</span><span class="n">myrecipe</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="distribution-management">
-<h3>Distribution management<a class="headerlink" href="#distribution-management" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Every time you start a new project, python-for-android will internally
-create a new distribution (an Android build project including Python
-and your other dependencies compiled for Android), according to the
-requirements you added on the command line. You can force the reuse of
-an existing distribution by adding:</p>
+<h3>出力の管理<a class="headerlink" href="#distribution-management" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>あなたが新しいプロジェクトを開始するたびにpython-for-androidは、コマンドラインで追加した要件に従って内部的に新しいディストリビューション（Pythonを含むAndroidビルドプロジェクトとAndroid用にコンパイルされた他の依存関係）を作成します。既存のディストリビューションを強制的に再利用するには次のものを追加します:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">p4a</span> <span class="n">apk</span> <span class="o">--</span><span class="n">dist_name</span><span class="o">=</span><span class="n">myproject</span> <span class="o">...</span>
 </pre></div>
 </div>
-<p>This will ensure your distribution will always be built in the same
-directory, and avoids using more disk space every time you adjust a
-requirement.</p>
-<p>You can list the available distributions:</p>
+<p>これによりディストリビューションが常に同じディレクトリに構築されて要件を調整するたびに多くのディスクスペースを使用する必要がなくなります。</p>
+<p>使用可能なディストリビューションをリスト化できます:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">p4a</span> <span class="n">distributions</span>
 </pre></div>
 </div>
-<p>And clean all of them:</p>
+<p>すべてをクリーンします:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">p4a</span> <span class="n">clean_dists</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="configuration-file">
-<h3>Configuration file<a class="headerlink" href="#configuration-file" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>python-for-android checks in the current directory for a configuration
-file named <code class="docutils literal"><span class="pre">.p4a</span></code>. If found, it adds all the lines as options to the
-command line. For example, you can add the options you would always
-include such as:</p>
+<h3>設定ファイル<a class="headerlink" href="#configuration-file" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>python-for-androidは現在のディレクトリで <code class="docutils literal"><span class="pre">.p4a</span></code> という名前の設定ファイルをチェックします。見つかった場合はオプションとしてすべての行をコマンド行に追加します。例として次のように常に含めるオプションを追加できます:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">dist_name</span> <span class="n">my_example</span>
 <span class="o">--</span><span class="n">android_api</span> <span class="mi">19</span>
 <span class="o">--</span><span class="n">requirements</span> <span class="n">kivy</span><span class="p">,</span><span class="n">openssl</span>
@@ -379,8 +359,8 @@ include such as:</p>
 </div>
 </div>
 <div class="section" id="going-further">
-<h3>Going further<a class="headerlink" href="#going-further" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>See the other pages of this doc for more information on specific topics:</p>
+<h3>さらに進んで<a class="headerlink" href="#going-further" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>特定のトピックの詳細についてはドキュメントの他のページを参照してください:</p>
 <ul class="simple">
 <li><a class="reference internal" href="buildoptions.html"><span class="doc">Build options</span></a></li>
 <li><a class="reference internal" href="commands.html"><span class="doc">Commands</span></a></li>
