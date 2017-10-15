@@ -20,15 +20,16 @@ msgstr ""
 #: ../../source/buildoptions.rst:82
 #: ../../source/buildoptions.rst:200
 msgid "Build options"
-msgstr ""
+msgstr "ビルドオプション"
 
 #: ../../source/buildoptions.rst:5
 msgid "This page contains instructions for using different build options."
-msgstr ""
+msgstr "
+このページには、さまざまなビルドオプションの使用方法が記載されています。"
 
 #: ../../source/buildoptions.rst:9
 msgid "Python versions"
-msgstr ""
+msgstr "Pythonのバージョン"
 
 #: ../../source/buildoptions.rst:12
 msgid "python2"
@@ -36,15 +37,16 @@ msgstr ""
 
 #: ../../source/buildoptions.rst:14
 msgid "Select this by adding it in your requirements, e.g. ``--requirements=python2``."
-msgstr ""
+msgstr "これを要件に追加して選択します。例：``--requirements=python2``"
 
 #: ../../source/buildoptions.rst:16
 msgid "This option builds Python 2.7.2 for your selected Android architecture. There are no special requirements, all the building is done locally."
 msgstr ""
+"このオプションは選択したAndroidアーキテクチャ用のPython 2.7.2をビルドします。特別な要件はありません、すべてのビルドはローカルで行われます。"
 
 #: ../../source/buildoptions.rst:20
 msgid "The python2 build is also the way python-for-android originally worked, even in the old toolchain."
-msgstr ""
+msgstr "python2のビルドは古いツールチェーンでもPython-for-androidが元々動いていていた方法です。"
 
 #: ../../source/buildoptions.rst:25
 msgid "python3"
@@ -53,34 +55,42 @@ msgstr ""
 #: ../../source/buildoptions.rst:28
 msgid "Python3 support is experimental, and some of these details may change as it is improved and fully stabilised."
 msgstr ""
+"Python3のサポートは実験的なものであり、改良されて完全に安定するために詳細の一部が変更される可能性があります。"
 
 #: ../../source/buildoptions.rst:31
 msgid "You must manually download the `CrystaX NDK <https://www.crystax.net/android/ndk>`__ and tell python-for-android to use it with ``--ndk-dir /path/to/NDK``."
 msgstr ""
+"`CrystaX NDK <https://www.crystax.net/android/ndk>`__ を手動でダウンロードしてpython-for-androidに ``--ndk-dir /path/to/NDK`` と一緒に使用するう指示する必要があります。"
 
 #: ../../source/buildoptions.rst:35
 msgid "Select this by adding the ``python3crystax`` recipe to your requirements, e.g. ``--requirements=python3crystax``."
 msgstr ""
+"選択するには、``python3crystax`` レシピを要件に追加します。  ``--requirements=python3crystax`` 。"
 
 #: ../../source/buildoptions.rst:38
 msgid "This uses the prebuilt Python from the `CrystaX NDK <https://www.crystax.net/android/ndk>`__, a drop-in replacement for Google's official NDK which includes many improvements. You *must* use the CrystaX NDK 10.3.0 or higher when building with python3. You can get it `here <https://www.crystax.net/en/download>`__."
 msgstr ""
+"これは、`CrystaX NDK <https://www.crystax.net/android/ndk>`__ のプレビルドされたPythonを使用しています。CrystaX NDKはGoogleの公式NDKの代替品で多くの改良が加えられています。 Python3でビルドする場合は、CrystaX NDK 10.3.0以降を必ず使用します。 `ここ <https://www.crystax.net/en/download>`__ から取得できます。
+"
+
 
 #: ../../source/buildoptions.rst:45
 msgid "The python3crystax build is handled quite differently to python2 so there may be bugs or surprising behaviours. If you come across any, feel free to `open an issue <https://github.com/kivy/python-for-android>`__."
 msgstr ""
+"python3crystaxのビルドはpython2とはかなり異なって扱われるので、バグや驚くべき動作があるかもしれません。あなたが何かを見つけた場合は、自由に `issue を書く <https://github.com/kivy/python-for-android>`__ ことができます。"
 
 #: ../../source/buildoptions.rst:53
 msgid "Bootstrap options"
-msgstr ""
+msgstr "ブートストラップのオプション"
 
 #: ../../source/buildoptions.rst:55
 msgid "python-for-android supports multiple app backends with different types of interface. These are called *bootstraps*."
-msgstr ""
+msgstr "
+python-for-androidはさまざまな種類のインタフェースが持つ複数のアプリケーションバックエンドをサポートしています。これらは *ブートストラップ* と呼ばれます。"
 
 #: ../../source/buildoptions.rst:58
 msgid "Currently the following bootstraps are supported, but we hope that it should be easy to add others if your project has different requirements. `Let us know <https://groups.google.com/forum/#!forum/python-android>`__ if you'd like help adding a new one."
-msgstr ""
+msgstr "以下のブートストラップがサポートされていますが、プロジェクトに異なる要件がある場合は他のブートストラップを簡単に追加できることを願っています。新しいものを追加するのを助けたいかどうを `連絡 <https://groups.google.com/forum/#!forum/python-android>`__ してください。"
 
 #: ../../source/buildoptions.rst:65
 msgid "sdl2"
@@ -89,124 +99,130 @@ msgstr ""
 #: ../../source/buildoptions.rst:67
 msgid "Use this with ``--bootstrap=sdl2``, or just include the ``sdl2`` recipe, e.g. ``--requirements=sdl2,python2``."
 msgstr ""
+"``--bootstrap=sdl2`` とともに使用するか、 ``sdl2`` レシピを含めておいてください。``--requirements=sdl2,python2`` 。"
 
 #: ../../source/buildoptions.rst:70
 msgid "SDL2 is a popular cross-platform depelopment library, particularly for games. It has its own Android project support, which python-for-android uses as a bootstrap, and to which it adds the Python build and JNI code to start it."
 msgstr ""
+"SDL2は特にゲーム向けの一般的なクロスプラットフォームの開発ライブラリです。 Android用のPythonがブートストラップとして使用する独自のAndroidプロジェクトサポートを持ち、PythonビルドとJNIコードを追加して起動します。"
 
 #: ../../source/buildoptions.rst:75
 msgid "From the point of view of a Python program, SDL2 should behave as normal. For instance, you can build apps with Kivy or PySDL2 and have them work with this bootstrap. It should also be possible to use e.g. pygame_sdl2, but this would need a build recipe and doesn't yet have one."
 msgstr ""
+"Pythonプログラムの観点から見るとSDL2は正常に動作するはずです。 例としてKivyやPySDL2を使ってアプリケーションでビルドされたアプリはブートストラップで動作できます。 また使用することも可能です。 pygame_sdl2はビルドレシピが必要ですがまだ作成されていません。"
 
 #: ../../source/buildoptions.rst:84
 msgid "The sdl2 bootstrap supports the following additional command line options (this list may not be exhaustive):"
-msgstr ""
+msgstr "sdl2ブートストラップは以下の追加のコマンドラインオプションをサポートしています（このリストは網羅的ではありません）。"
 
 #: ../../source/buildoptions.rst:87
 #: ../../source/buildoptions.rst:147
 #: ../../source/buildoptions.rst:205
 msgid "``--private``: The directory containing your project files."
-msgstr ""
+msgstr "``--private``: プロジェクトファイルを含むディレクトリ。"
 
 #: ../../source/buildoptions.rst:88
 #: ../../source/buildoptions.rst:148
 #: ../../source/buildoptions.rst:209
 msgid "``--package``: The Java package name for your project. Choose e.g. ``org.example.yourapp``."
-msgstr ""
+msgstr "``--package``: プロジェクトのJavaパッケージ名。例： ``org.example.yourapp``"
 
 #: ../../source/buildoptions.rst:89
 #: ../../source/buildoptions.rst:149
 #: ../../source/buildoptions.rst:210
 msgid "``--name``: The app name."
-msgstr ""
+msgstr "``--name``: アプリケーションの名前"
 
 #: ../../source/buildoptions.rst:90
 #: ../../source/buildoptions.rst:150
 #: ../../source/buildoptions.rst:211
 msgid "``--version``: The version number."
-msgstr ""
+msgstr "--version``: バージョン番号"
 
 #: ../../source/buildoptions.rst:91
 #: ../../source/buildoptions.rst:151
 msgid "``--orientation``: Usually one of ``portait``, ``landscape``, ``sensor`` to automatically rotate according to the device orientation, or ``user`` to do the same but obeying the user's settings. The full list of valid options is given under ``android:screenOrientation`` in the `Android documentation <https://developer.android.com/guide/topics/manifest/activity-element.html>`__."
 msgstr ""
+"``--orientation``: 通常はデバイスの向きに応じて自動的に回転するか、 ``portait``, ``landscape``, ``sensor`` のどれか一つ。またはユーザーの設定に従います。有効なオプションの完全なリストは、`Android documentation <https://developer.android.com/guide/topics/manifest/activity-element.html>`__ の ``android:screenOrientation`` にあります。"
 
 #: ../../source/buildoptions.rst:97
 #: ../../source/buildoptions.rst:157
 #: ../../source/buildoptions.rst:214
 msgid "``--icon``: A path to the png file to use as the application icon."
-msgstr ""
+msgstr "``--icon``: "アプリケーションアイコンとして使用するpngファイルへのパス。
 
 #: ../../source/buildoptions.rst:98
 msgid "``--permission``: A permission name for the app, e.g. ``--permission VIBRATE``. For multiple permissions, add multiple ``--permission`` arguments."
 msgstr ""
+"``--permission``: アプリのパーミッションの名前です（例：``--permission VIBRATE`` 。複数の権限の場合は複数の ``--permission`` 引数を追加します。"
 
 #: ../../source/buildoptions.rst:101
 #: ../../source/buildoptions.rst:161
 #: ../../source/buildoptions.rst:220
 msgid "``--meta-data``: Custom key=value pairs to add in the application metadata."
-msgstr ""
+msgstr "``--meta-data``: "アプリケーションのメタデータに追加するカスタムキー=値のペア。
 
 #: ../../source/buildoptions.rst:102
 #: ../../source/buildoptions.rst:162
 #: ../../source/buildoptions.rst:221
 msgid "``--presplash``: A path to the image file to use as a screen while the application is loading."
-msgstr ""
+msgstr "--presplash``: アプリケーションのロード中に画面として使用するイメージファイルへのパス。"
 
 #: ../../source/buildoptions.rst:104
 #: ../../source/buildoptions.rst:164
 msgid "``--presplash-color``: The presplash screen background color, of the form ``#RRGGBB`` or a color name ``red``, ``green``, ``blue`` etc."
-msgstr ""
+msgstr "``--presplash-color``: ``#RRGGBB`` 形式のpresplash画面の背景色、または ``red``, ``green``, ``blue``などの色名。"
 
 #: ../../source/buildoptions.rst:106
 #: ../../source/buildoptions.rst:166
 #: ../../source/buildoptions.rst:223
 msgid "``--wakelock``: If the argument is included, the application will prevent the device from sleeping."
-msgstr ""
+msgstr "``--wakelock``: 引数が含まれている場合、アプリケーションはデバイスのスリーブをカバーします。"
 
 #: ../../source/buildoptions.rst:108
 #: ../../source/buildoptions.rst:168
 #: ../../source/buildoptions.rst:225
 msgid "``--window``: If the argument is included, the application will not cover the Android status bar."
-msgstr ""
+msgstr "``--window``: 引数が含まれている場合、アプリケーションはAndroidステータスバーをカバーしません。"
 
 #: ../../source/buildoptions.rst:110
 #: ../../source/buildoptions.rst:170
 #: ../../source/buildoptions.rst:227
 msgid "``--blacklist``: The path to a file containing blacklisted patterns that will be excluded from the final APK. Defaults to ``./blacklist.txt``."
-msgstr ""
+msgstr "``--blacklist``: 最終的なAPKから除外されるブラックリストに載ったパターンを含むファイルへのパス。デフォルトは ``./blacklist.txt`` です。"
 
 #: ../../source/buildoptions.rst:112
 #: ../../source/buildoptions.rst:172
 #: ../../source/buildoptions.rst:229
 msgid "``--whitelist``: The path to a file containing whitelisted patterns that will be included in the APK even if also blacklisted."
 msgstr ""
+"``--whitelist``: ブラックリストに記載されていてもAPKに含まれるホワイトリストに登録されたパターンを含むファイルへのパス。"
 
 #: ../../source/buildoptions.rst:114
 #: ../../source/buildoptions.rst:174
 #: ../../source/buildoptions.rst:231
 msgid "``--add-jar``: The path to a .jar file to include in the APK. To include multiple jar files, pass this argument multiple times."
-msgstr ""
+msgstr "``--add-jar``: APKに含める.jarファイルへのパス。複数のjarファイルをインクルードするにはこの引数を複数回渡します。"
 
 #: ../../source/buildoptions.rst:116
 #: ../../source/buildoptions.rst:176
 #: ../../source/buildoptions.rst:233
 msgid "``--intent-filters``: A file path containing intent filter xml to be included in AndroidManifest.xml."
-msgstr ""
+msgstr "``--intent-filters``: AndroidManifest.xmlに含めるインテントフィルタxmlを含むファイルパス。"
 
 #: ../../source/buildoptions.rst:118
 #: ../../source/buildoptions.rst:178
 #: ../../source/buildoptions.rst:235
 msgid "``--service``: A service name and the Python script it should run. See :ref:`arbitrary_scripts_services`."
-msgstr ""
+msgstr "``--service``: "サービス名と実行すべきPythonスクリプト。 :ref:`arbitrary_scripts_services` を参照してください
 
 #: ../../source/buildoptions.rst:120
 msgid "``--add-source``: Add a source directory to the app's Java code."
-msgstr ""
+msgstr "``--add-source``: アプリケーションのJavaコードにソースディレクトリを追加します。"
 
 #: ../../source/buildoptions.rst:121
 msgid "``--no-compile-pyo``: Do not optimise .py files to .pyo."
-msgstr ""
+msgstr "``--no-compile-pyo``: ".pyファイルを.pyoに最適化させない。
 
 #: ../../source/buildoptions.rst:125
 msgid "webview"
@@ -215,32 +231,37 @@ msgstr ""
 #: ../../source/buildoptions.rst:127
 msgid "You can use this with ``--bootstrap=webview``, or include the ``webviewjni`` recipe, e.g. ``--requirements=webviewjni,python2``."
 msgstr ""
+"``--bootstrap=webview`` とともに使用するか、 ``webviewjni`` レシピを含めることができます。 ``--requirements=webviewjni,python2`` 。"
 
 #: ../../source/buildoptions.rst:130
 msgid "The webview bootstrap gui is, per the name, a WebView displaying a webpage, but this page is hosted on the device via a Python webserver. For instance, your Python code can start a Flask application, and your app will display and allow the user to navigate this website."
 msgstr ""
+"webviewブートストラップguiは名前ごとにウェブページを表示するWebViewですが、ページはPython Webサーバー経由でデバイス上にホストされています。 例えばあなたのPythonコードはFlaskアプリケーションを起動できて、アプリケーションはWebサイトを表示してユーザがこのWebサイトをナビゲートできるようにします。"
 
 #: ../../source/buildoptions.rst:136
 msgid "Your Flask script must start the webserver *without* :code:``debug=True``. Debug mode doesn't seem to work on Android due to use of a subprocess."
 msgstr ""
+"あなたのFlaskスクリプトは、コードなし( :``debug=True`` )でWebサーバーを起動する必要があります。 デバッグモードはサブプロセスを使用しているためAndroid上で動作していないようです。"
 
 #: ../../source/buildoptions.rst:140
 msgid "This bootstrap will automatically try to load a website on port 5000 (the default for Flask), or you can specify a different option with the `--port` command line option. If the webserver is not immediately present (e.g. during the short Python loading time when first started), it will instead display a loading screen until the server is ready."
 msgstr ""
+"このブートストラップは自動的にポート5000（Flaskのデフォルト）でWebサイトをロードしようとするか、 `--port` コマンドラインオプションで別のオプションを指定することができます。 Webサーバーがすぐに存在しない場合（たとえば、最初に起動したPythonの読み込み時間が短い場合など）、サーバーの準備ができるまで読み込み画面が表示されます。"
 
 #: ../../source/buildoptions.rst:158
 #: ../../source/buildoptions.rst:217
 msgid "``-- permission``: A permission name for the app, e.g. ``--permission VIBRATE``. For multiple permissions, add multiple ``--permission`` arguments."
-msgstr ""
+msgstr "``-- permission``:  アプリのパーミッションの名前です（例：``--permission VIBRATE``　。複数の権限の場合は、複数の ``--permission`` 引数を追加します"
 
 #: ../../source/buildoptions.rst:180
 #: ../../source/buildoptions.rst:237
 msgid "``add-source``: Add a source directory to the app's Java code."
 msgstr ""
+"``add-source``: アプリケーションのJavaコードにソースディレクトリを追加します。"
 
 #: ../../source/buildoptions.rst:181
 msgid "``--port``: The port on localhost that the WebView will access. Defaults to 5000."
-msgstr ""
+msgstr "``--port``: WebViewがアクセスするlocalhost上のポートです。デフォルトは5000です。"
 
 #: ../../source/buildoptions.rst:186
 msgid "pygame"
@@ -248,37 +269,41 @@ msgstr ""
 
 #: ../../source/buildoptions.rst:188
 msgid "You can use this with ``--bootstrap=pygame``, or simply include the ``pygame`` recipe in your ``--requirements``."
-msgstr ""
+msgstr "``--bootstrap=pygame`` と一緒に使うこともできますし、単純に ``pygame`` のレシピをあなたの ``--requirements`` に含めることもできます。"
 
 #: ../../source/buildoptions.rst:191
 msgid "The pygame bootstrap is the original backend used by Kivy, and still works fine for use with Kivy apps. It may also work for pure pygame apps, but hasn't been developed with this in mind."
 msgstr ""
+"Pygameのブートストラップは、もとはKivyで使用されていたバックエンドでKivyアプリで使用するには問題ありません。 純粋なpygameアプリでも動作するかもしれませんが、これを念頭に置いて開発されていません。
+"
 
 #: ../../source/buildoptions.rst:195
 msgid "This bootstrap will eventually be deprecated in favour of sdl2, but not before the sdl2 bootstrap includes all the features that would be lost."
 msgstr ""
+"このブートストラップは最終的にはsdl2を優先して廃止されますが、sdl2のブートストラップには失われるすべての機能が含まれています。"
 
 #: ../../source/buildoptions.rst:202
 msgid "The pygame bootstrap supports the following additional command line options (this list may not be exhaustive):"
-msgstr ""
+msgstr "pygameのブートストラップは、次の追加のコマンドラインオプションをサポートしています（このリストは網羅的ではありません）。"
 
 #: ../../source/buildoptions.rst:206
 msgid "``--dir``: The directory containing your project files if you want them to be unpacked to the external storage directory rather than the app private directory."
 msgstr ""
+"``--dir``: プロジェクトのプライベートディレクトリではなく、外部のストレージディレクトリに展開する場合は、プロジェクトファイルを格納するディレクトリ。"
 
 #: ../../source/buildoptions.rst:212
 msgid "``--orientation``: One of ``portait``, ``landscape`` or ``sensor`` to automatically rotate according to the device orientation."
-msgstr ""
+msgstr "`--orientation``: デバイスの向きに応じて自動的に回転する、``portait``, ``landscape`` または ``sensor`` のどれか。"
 
 #: ../../source/buildoptions.rst:215
 msgid "``--ignore-path``: A path to ignore when including the app files. Pass multiple times to ignore multiple paths."
-msgstr ""
+msgstr "``--ignore-path``: アプリケーションファイルを含めるときに無視するパス。複数のパスを無視するには複数回パスします。"
 
 #: ../../source/buildoptions.rst:238
 msgid "``--compile-pyo``: Optimise .py files to .pyo."
-msgstr ""
+msgstr "``--compile-pyo``: .pyファイルを.pyoに最適化しません。"
 
 #: ../../source/buildoptions.rst:239
 msgid "``--resource``: A key=value pair to add in the string.xml resource file."
-msgstr ""
+msgstr "``--resource``: string.xmlリソースファイルに追加するkey=value のペア。"
 
