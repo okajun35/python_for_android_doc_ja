@@ -18,27 +18,28 @@ msgstr ""
 
 #: ../../source/commands.rst:3
 msgid "Commands"
-msgstr ""
+msgstr "コマンド"
 
 #: ../../source/commands.rst:5
 msgid "This page documents all the commands and options that can be passed to toolchain.py."
-msgstr ""
+msgstr "このページにはtoolchain.pyに渡せるすべてのコマンドとオプションが記載されてます。"
 
 #: ../../source/commands.rst:10
 msgid "Commands index"
-msgstr ""
+msgstr "コマンドのインデックス"
 
 #: ../../source/commands.rst:12
 msgid "The commands available are the methods of the ToolchainCL class, documented below. They may have options of their own, or you can always pass `general arguments`_ or `distribution arguments`_ to any command (though if irrelevant they may not have an effect)."
 msgstr ""
+"使用可能なコマンドは、ToolchainCLクラスのメソッドです（下記を参照）。 彼らは独自のオプションを持っているかもしれませんし、`一般的な引数`_ や `配布可能な引数を`_ いつでもコマンドに渡せますす（無関係で効果がないかもしれませんが）。"
 
 #: ../../source/commands.rst:22
 msgid "General arguments"
-msgstr ""
+msgstr "一般的な引数"
 
 #: ../../source/commands.rst:24
 msgid "These arguments may be passed to any command in order to modify its behaviour, though not all commands make use of them."
-msgstr ""
+msgstr "これらの引数は、すべてのコマンドで使用するわけではありませんが、動作を変更するためにすべてのコマンドに渡せます。"
 
 #: ../../source/commands.rst:28
 msgid "``--debug``"
@@ -46,7 +47,7 @@ msgstr ""
 
 #: ../../source/commands.rst:28
 msgid "Print extra debug information about the build, including all compilation output."
-msgstr ""
+msgstr "すべてのコンパイル出力を含むビルドに関する追加のデバッグ情報を出力します。"
 
 #: ../../source/commands.rst:32
 msgid "``--sdk_dir``"
@@ -54,7 +55,7 @@ msgstr ""
 
 #: ../../source/commands.rst:31
 msgid "The filepath where the Android SDK is installed. This can alternatively be set in several other ways."
-msgstr ""
+msgstr "Android SDKがインストールされているファイルパス。 これは他のいくつかの方法でも設定できます。"
 
 #: ../../source/commands.rst:36
 msgid "``--android_api``"
@@ -62,7 +63,7 @@ msgstr ""
 
 #: ../../source/commands.rst:35
 msgid "The Android API level to target; python-for-android will check if the platform tools for this level are installed."
-msgstr ""
+msgstr "ターゲットとするAndroid APIレベル。 python-for-androidはこのレベルのプラットフォームツールがインストールされているかをチェックします。"
 
 #: ../../source/commands.rst:40
 msgid "``--ndk_dir``"
@@ -70,7 +71,7 @@ msgstr ""
 
 #: ../../source/commands.rst:39
 msgid "The filepath where the Android NDK is installed. This can alternatively be set in several other ways."
-msgstr ""
+msgstr "Android NDKがインストールされているファイルパス。 これは他のいくつかの方法でも設定できます。"
 
 #: ../../source/commands.rst:48
 msgid "``--ndk_version``"
@@ -79,18 +80,20 @@ msgstr ""
 #: ../../source/commands.rst:43
 msgid "The version of the NDK installed, important because the internal filepaths to build tools depend on this. This can alternatively be set in several other ways, or if your NDK dir contains a RELEASE.TXT containing the version this is automatically checked so you don't need to manually set it."
 msgstr ""
+"NDKのバージョンがインストールされました。ツールを構築するための内部ファイルパスがこれに依存しているために重要です。これに関しては別の方法で設定もできますし、NDKディレクトリにバージョンを含むRELEASE.TXTが含まれている場合は自動的にチェックされるので、手動で設定する必要はありません。"
 
 #: ../../source/commands.rst:51
 msgid "Distribution arguments"
-msgstr ""
+msgstr "ディストリビューションの引数"
 
 #: ../../source/commands.rst:53
 msgid "p4a supports several arguments used for specifying which compiled Android distribution you want to use. You may pass any of these arguments to any command, and if a distribution is required they will be used to load, or compile, or download this as necessary."
 msgstr ""
+"p4aは、コンパイルされたどのAndroidディストリビューションを使用するかを指定するために使用されるいくつかの引数をサポートしています。 これらの引数のいずれかをコマンドに渡せます。配布が必要な場合は必要に応じてロード、コンパイル、またはダウンロードに使用されます。"
 
 #: ../../source/commands.rst:58
 msgid "None of these options are essential, and in principle you need only supply those that you need."
-msgstr ""
+msgstr "これらのオプションは必須ではなくて原則として必要なものだけを設定する必要があります。"
 
 #: ../../source/commands.rst:63
 msgid "``--name NAME``"
@@ -98,7 +101,7 @@ msgstr ""
 
 #: ../../source/commands.rst:63
 msgid "The name of the distribution. Only one distribution with a given name can be created."
-msgstr ""
+msgstr "ディストリビューションの名前。 指定された名前は1つだけ作成できます。"
 
 #: ../../source/commands.rst:68
 msgid "``--requirements LIST,OF,REQUIREMENTS``"
@@ -107,6 +110,7 @@ msgstr ""
 #: ../../source/commands.rst:66
 msgid "The recipes that your distribution must contain, as a comma separated list. These must be names of recipes or the pypi names of Python modules."
 msgstr ""
+"配布物に含まれなければならないレシピでカンマで区切られたリストです。 これらは、レシピ名またはPythonモジュールのpypiの名前でなければなりません。"
 
 #: ../../source/commands.rst:71
 msgid "``--force_build BOOL``"
@@ -114,7 +118,7 @@ msgstr ""
 
 #: ../../source/commands.rst:71
 msgid "Whether the distribution must be compiled from scratch."
-msgstr ""
+msgstr "配布をゼロからコンパイルする必要があるかどうか。"
 
 #: ../../source/commands.rst:75
 msgid "``--arch``"
@@ -122,7 +126,7 @@ msgstr ""
 
 #: ../../source/commands.rst:74
 msgid "The architecture to build for. Currently only one architecture can be targeted at a time, and a given distribution can only include one architecture."
-msgstr ""
+msgstr "構築するアーキテクチャ。 現在、一度に1つのアーキテクチャだけを対象にすることができて特定の配布には1つのアーキテクチャしか含められません。"
 
 #: ../../source/commands.rst:83
 msgid "``--bootstrap BOOTSTRAP``"
@@ -131,8 +135,9 @@ msgstr ""
 #: ../../source/commands.rst:78
 msgid "The Java bootstrap to use for your application. You mostly don't need to worry about this or set it manually, as an appropriate bootstrap will be chosen from your ``--requirements``. Current choices are ``sdl2`` or ``pygame``; ``sdl2`` is experimental but preferable where possible."
 msgstr ""
+"アプリケーションに使用するJavaブートストラップです。 ほとんどの場合心配する必要もなく手動で設定する必要もありません。適切なブートストラップがあなたの必要条件から選択されます。 現在の選択肢は ``sdl2`` または``pygame`` です。 ``sdl2`` は実験的ですが可能であれば好ましいです。"
 
 #: ../../source/commands.rst:85
 msgid "These options are preliminary. Others will include toggles for allowing downloads, and setting additional directories from which to load user dists."
 msgstr ""
-
+"オプションは暫定です。 他のものにはダウンロードを許可するためのトグルとユーザdistをロードする追加のディレクトリを設定するものが含まれます。"

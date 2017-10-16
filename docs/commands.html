@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Commands &mdash; python-for-android 0.1 ドキュメント</title>
+  <title>コマンド &mdash; python-for-android 0.1 ドキュメント</title>
   
 
   
@@ -72,10 +72,10 @@
 <li class="toctree-l2"><a class="reference internal" href="buildoptions.html#bootstrap-options">ブートストラップのオプション</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Commands</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#commands-index">Commands index</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#general-arguments">General arguments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#distribution-arguments">Distribution arguments</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">コマンド</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#commands-index">コマンドのインデックス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#general-arguments">一般的な引数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#distribution-arguments">ディストリビューションの引数</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="distutils.html">distutils/setuptools integration</a><ul>
@@ -158,7 +158,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Commands</li>
+    <li>コマンド</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="_sources/commands.txt" rel="nofollow"> View page source</a>
@@ -170,72 +170,57 @@
           <div role="main" class="document">
             
   <div class="section" id="commands">
-<h1>Commands<a class="headerlink" href="#commands" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>This page documents all the commands and options that can be passed to
-toolchain.py.</p>
+<h1>コマンド<a class="headerlink" href="#commands" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>このページにはtoolchain.pyに渡せるすべてのコマンドとオプションが記載されてます。</p>
 <div class="section" id="commands-index">
-<h2>Commands index<a class="headerlink" href="#commands-index" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The commands available are the methods of the ToolchainCL class,
-documented below. They may have options of their own, or you can
-always pass <a class="reference internal" href="#general-arguments">general arguments</a> or <a class="reference internal" href="#distribution-arguments">distribution arguments</a> to any
-command (though if irrelevant they may not have an effect).</p>
+<h2>コマンドのインデックス<a class="headerlink" href="#commands-index" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>使用可能なコマンドは、ToolchainCLクラスのメソッドです（下記を参照）。 彼らは独自のオプションを持っているかもしれませんし、<a class="reference internal" href="#general-arguments">一般的な引数</a> や <a class="reference internal" href="#general-arguments">配布可能な引数を</a> いつでもコマンドに渡せますす（無関係で効果がないかもしれませんが）。</p>
 </div>
 <div class="section" id="general-arguments">
-<h2>General arguments<a class="headerlink" href="#general-arguments" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>These arguments may be passed to any command in order to modify its
-behaviour, though not all commands make use of them.</p>
+<h2>一般的な引数<a class="headerlink" href="#general-arguments" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>これらの引数は、すべてのコマンドで使用するわけではありませんが、動作を変更するためにすべてのコマンドに渡せます。</p>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">--debug</span></code></dt>
-<dd>Print extra debug information about the build, including all compilation output.</dd>
+<dd><p class="first last">すべてのコンパイル出力を含むビルドに関する追加のデバッグ情報を出力します。</p>
+</dd>
 <dt><code class="docutils literal"><span class="pre">--sdk_dir</span></code></dt>
-<dd>The filepath where the Android SDK is installed. This can
-alternatively be set in several other ways.</dd>
+<dd><p class="first last">Android SDKがインストールされているファイルパス。 これは他のいくつかの方法でも設定できます。</p>
+</dd>
 <dt><code class="docutils literal"><span class="pre">--android_api</span></code></dt>
-<dd>The Android API level to target; python-for-android will check if
-the platform tools for this level are installed.</dd>
+<dd><p class="first last">ターゲットとするAndroid APIレベル。 python-for-androidはこのレベルのプラットフォームツールがインストールされているかをチェックします。</p>
+</dd>
 <dt><code class="docutils literal"><span class="pre">--ndk_dir</span></code></dt>
-<dd>The filepath where the Android NDK is installed. This can
-alternatively be set in several other ways.</dd>
+<dd><p class="first last">Android NDKがインストールされているファイルパス。 これは他のいくつかの方法でも設定できます。</p>
+</dd>
 <dt><code class="docutils literal"><span class="pre">--ndk_version</span></code></dt>
-<dd>The version of the NDK installed, important because the internal
-filepaths to build tools depend on this. This can alternatively be
-set in several other ways, or if your NDK dir contains a RELEASE.TXT
-containing the version this is automatically checked so you don&#8217;t
-need to manually set it.</dd>
+<dd><p class="first last">NDKのバージョンがインストールされました。ツールを構築するための内部ファイルパスがこれに依存しているために重要です。これに関しては別の方法で設定もできますし、NDKディレクトリにバージョンを含むRELEASE.TXTが含まれている場合は自動的にチェックされるので、手動で設定する必要はありません。</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="distribution-arguments">
-<h2>Distribution arguments<a class="headerlink" href="#distribution-arguments" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>p4a supports several arguments used for specifying which compiled
-Android distribution you want to use. You may pass any of these
-arguments to any command, and if a distribution is required they will
-be used to load, or compile, or download this as necessary.</p>
-<p>None of these options are essential, and in principle you need only
-supply those that you need.</p>
+<h2>ディストリビューションの引数<a class="headerlink" href="#distribution-arguments" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>p4aは、コンパイルされたどのAndroidディストリビューションを使用するかを指定するために使用されるいくつかの引数をサポートしています。 これらの引数のいずれかをコマンドに渡せます。配布が必要な場合は必要に応じてロード、コンパイル、またはダウンロードに使用されます。</p>
+<p>これらのオプションは必須ではなくて原則として必要なものだけを設定する必要があります。</p>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">--name</span> <span class="pre">NAME</span></code></dt>
-<dd>The name of the distribution. Only one distribution with a given name can be created.</dd>
+<dd><p class="first last">ディストリビューションの名前。 指定された名前は1つだけ作成できます。</p>
+</dd>
 <dt><code class="docutils literal"><span class="pre">--requirements</span> <span class="pre">LIST,OF,REQUIREMENTS</span></code></dt>
-<dd>The recipes that your
-distribution must contain, as a comma separated list. These must be
-names of recipes or the pypi names of Python modules.</dd>
+<dd><p class="first last">配布物に含まれなければならないレシピでカンマで区切られたリストです。 これらは、レシピ名またはPythonモジュールのpypiの名前でなければなりません。</p>
+</dd>
 <dt><code class="docutils literal"><span class="pre">--force_build</span> <span class="pre">BOOL</span></code></dt>
-<dd>Whether the distribution must be compiled from scratch.</dd>
+<dd><p class="first last">配布をゼロからコンパイルする必要があるかどうか。</p>
+</dd>
 <dt><code class="docutils literal"><span class="pre">--arch</span></code></dt>
-<dd>The architecture to build for. Currently only one architecture can be
-targeted at a time, and a given distribution can only include one architecture.</dd>
+<dd><p class="first last">構築するアーキテクチャ。 現在、一度に1つのアーキテクチャだけを対象にすることができて特定の配布には1つのアーキテクチャしか含められません。</p>
+</dd>
 <dt><code class="docutils literal"><span class="pre">--bootstrap</span> <span class="pre">BOOTSTRAP</span></code></dt>
-<dd>The Java bootstrap to use for your application. You mostly don&#8217;t
-need to worry about this or set it manually, as an appropriate
-bootstrap will be chosen from your <code class="docutils literal"><span class="pre">--requirements</span></code>. Current
-choices are <code class="docutils literal"><span class="pre">sdl2</span></code> or <code class="docutils literal"><span class="pre">pygame</span></code>; <code class="docutils literal"><span class="pre">sdl2</span></code> is experimental but
-preferable where possible.</dd>
+<dd><p class="first last">アプリケーションに使用するJavaブートストラップです。 ほとんどの場合心配する必要もなく手動で設定する必要もありません。適切なブートストラップがあなたの必要条件から選択されます。 現在の選択肢は <code class="docutils literal"><span class="pre">sdl2</span></code> または``pygame`` です。 <code class="docutils literal"><span class="pre">sdl2</span></code> は実験的ですが可能であれば好ましいです。</p>
+</dd>
 </dl>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">These options are preliminary. Others will include toggles
-for allowing downloads, and setting additional directories
-from which to load user dists.</p>
+<p class="last">オプションは暫定です。 他のものにはダウンロードを許可するためのトグルとユーザdistをロードする追加のディレクトリを設定するものが含まれます。</p>
 </div>
 </div>
 </div>
