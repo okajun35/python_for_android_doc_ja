@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>distutils/setuptools integration &mdash; python-for-android 0.1 ドキュメント</title>
+  <title>distutils / setuptoolsのインテグレート &mdash; python-for-android 0.1 ドキュメント</title>
   
 
   
@@ -29,8 +29,8 @@
 
   
     <link rel="top" title="python-for-android 0.1 ドキュメント" href="index.html"/>
-        <link rel="next" title="Recipes" href="recipes.html"/>
-        <link rel="prev" title="Commands" href="commands.html"/> 
+        <link rel="next" title="レシピ" href="recipes.html"/>
+        <link rel="prev" title="コマンド" href="commands.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -64,35 +64,35 @@
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html#concepts">コンセプト</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html#usage">使用方法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#advanced-usage">Advanced usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#advanced-usage">高度な使い方</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="buildoptions.html">Build options</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="buildoptions.html#python-versions">Python versions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="buildoptions.html#bootstrap-options">Bootstrap options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="buildoptions.html">ビルドオプション</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="buildoptions.html#python-versions">Pythonのバージョン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildoptions.html#bootstrap-options">ブートストラップのオプション</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="commands.html">Commands</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="commands.html#commands-index">Commands index</a></li>
-<li class="toctree-l2"><a class="reference internal" href="commands.html#general-arguments">General arguments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="commands.html#distribution-arguments">Distribution arguments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands.html">コマンド</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#commands-index">コマンドのインデックス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#general-arguments">一般的な引数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#distribution-arguments">ディストリビューションの引数</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">distutils/setuptools integration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#adding-p4a-arguments-in-setup-py">Adding p4a arguments in setup.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#adding-p4a-arguments-in-setup-cfg">Adding p4a arguments in setup.cfg</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">distutils / setuptoolsのインテグレート</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#adding-p4a-arguments-in-setup-py">setup.pyにp4a引数を追加する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-p4a-arguments-in-setup-cfg">setup.cfgにp4a引数を追加する</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="recipes.html">Recipes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="recipes.html#creating-your-own-recipe">Creating your own Recipe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recipes.html#methods-and-tools-to-help-with-compilation">Methods and tools to help with compilation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-pythonrecipe">Using a PythonRecipe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-cythonrecipe">Using a CythonRecipe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-compiledcomponentspythonrecipe">Using a CompiledComponentsPythonRecipe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-an-ndkrecipe">Using an NDKRecipe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recipes.html#a-recipe-template">A Recipe template</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recipes.html#examples-of-recipes">Examples of recipes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recipes.html#the-recipe-class">The <code class="docutils literal"><span class="pre">Recipe</span></code> class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes.html">レシピ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#creating-your-own-recipe">独自のレシピを作成する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#methods-and-tools-to-help-with-compilation">コンパイルに役立つメソッドとツール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-pythonrecipe">PythonRecipeの使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-cythonrecipe">CythonRecipeの使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-compiledcomponentspythonrecipe">CompiledComponentsPythonRecipeの使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-an-ndkrecipe">NDKRecipeの使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#a-recipe-template">レシピテンプレート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#examples-of-recipes">レシピの例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#the-recipe-class"><code class="docutils literal"><span class="pre">Recipe</span></code> クラス</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bootstraps.html">Bootstraps</a><ul>
@@ -158,7 +158,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>distutils/setuptools integration</li>
+    <li>distutils / setuptoolsのインテグレート</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="_sources/distutils.txt" rel="nofollow"> View page source</a>
@@ -170,17 +170,13 @@
           <div role="main" class="document">
             
   <div class="section" id="distutils-setuptools-integration">
-<h1>distutils/setuptools integration<a class="headerlink" href="#distutils-setuptools-integration" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>Instead of running p4a via the command line, you can integrate with
-distutils and setup.py.</p>
-<p>The base command is:</p>
+<h1>distutils / setuptoolsのインテグレート<a class="headerlink" href="#distutils-setuptools-integration" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>コマンドラインからp4aを実行する代わりにdistutilsとsetup.pyを統合できます。</p>
+<p>基本的なコマンドは以下の通りです:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">apk</span>
 </pre></div>
 </div>
-<p>The files included in the APK will be all those specified in the
-<code class="docutils literal"><span class="pre">package_data</span></code> argument to setup. For instance, the following
-example will include all .py and .png files in the <code class="docutils literal"><span class="pre">testapp</span></code>
-folder:</p>
+<p>APKに含まれるファイルは、setupの <code class="docutils literal"><span class="pre">package_data</span></code> 引数で指定されたファイルになります。 たとえば、次の例では、すべての.pyファイルと.pngファイルが <code class="docutils literal"><span class="pre">testapp</span></code> フォルダに含まれます。:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">distutils.core</span> <span class="k">import</span> <span class="n">setup</span>
 <span class="kn">from</span> <span class="nn">setup</span>
 
@@ -196,22 +192,17 @@ folder:</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>The app name and version will also be read automatically from the
-setup.py.</p>
-<p>The Android package name uses <code class="docutils literal"><span class="pre">org.test.lowercaseappname</span></code>
-if not set explicitly.</p>
-<p>The <code class="docutils literal"><span class="pre">--private</span></code> argument is set automatically using the
-package_data, you should <em>not</em> set this manually.</p>
-<p>The target architecture defaults to <code class="docutils literal"><span class="pre">--armeabi</span></code>.</p>
-<p>All of these automatic arguments can be overridden by passing them manually on the command line, e.g.:</p>
+<p>アプリ名とバージョンはsetup.pyから自動的に読み込まれます。</p>
+<p>Androidパッケージ名は、明示的に設定されていない場合、 <code class="docutils literal"><span class="pre">org.test.lowercaseappname</span></code> を使用します。</p>
+<p><code class="docutils literal"><span class="pre">--private</span></code> 引数はpackage_dataを使用して自動的に設定されるため手動で設定しないでください</p>
+<p>ターゲットアーキテクチャのデフォルトは <code class="docutils literal"><span class="pre">--armeabi</span></code> です。</p>
+<p>これらの自動引数はすべてコマンドラインで手動で渡すことで上書きできます。たとえば:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">apk</span> <span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Testapp Setup&quot;</span> <span class="o">--</span><span class="n">version</span><span class="o">=</span><span class="mf">2.5</span>
 </pre></div>
 </div>
 <div class="section" id="adding-p4a-arguments-in-setup-py">
-<h2>Adding p4a arguments in setup.py<a class="headerlink" href="#adding-p4a-arguments-in-setup-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Instead of providing extra arguments on the command line, you can
-store them in setup.py by passing the <code class="docutils literal"><span class="pre">options</span></code> parameter to
-<code class="code docutils literal"><span class="pre">setup</span></code>. For instance:</p>
+<h2>setup.pyにp4a引数を追加する<a class="headerlink" href="#adding-p4a-arguments-in-setup-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>コマンドラインに余分な引数を与える代わりに、<code class="docutils literal"><span class="pre">options</span></code> パラメータをsetupに渡すことでsetup.pyに格納することができます。 例えば：</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">distutils.core</span> <span class="k">import</span> <span class="n">setup</span>
 <span class="kn">from</span> <span class="nn">setuptools</span> <span class="k">import</span> <span class="n">find_packages</span>
 
@@ -237,14 +228,11 @@ store them in setup.py by passing the <code class="docutils literal"><span class
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>These options will be automatically included when you run <code class="docutils literal"><span class="pre">python</span>
-<span class="pre">setup.py</span> <span class="pre">apk</span></code>. Any options passed on the command line will override
-these values.</p>
+<p>これらのオプションは <code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">apk</span></code> を実行すると自動的にインクルードされます。 コマンドラインで渡されるオプションはこれらの値を上書きします。</p>
 </div>
 <div class="section" id="adding-p4a-arguments-in-setup-cfg">
-<h2>Adding p4a arguments in setup.cfg<a class="headerlink" href="#adding-p4a-arguments-in-setup-cfg" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>You can also provide p4a arguments in the setup.cfg file, as normal
-for distutils. The syntax is:</p>
+<h2>setup.cfgにp4a引数を追加する<a class="headerlink" href="#adding-p4a-arguments-in-setup-cfg" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>distutilsの通常と同じようにsetup.cfgファイルにp4a引数を指定できます。 構文は次のとおりです:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">apk</span><span class="p">]</span>
 
 <span class="n">argument</span><span class="o">=</span><span class="n">value</span>
@@ -261,10 +249,10 @@ for distutils. The syntax is:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="recipes.html" class="btn btn-neutral float-right" title="Recipes">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="recipes.html" class="btn btn-neutral float-right" title="レシピ">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="commands.html" class="btn btn-neutral" title="Commands"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="commands.html" class="btn btn-neutral" title="コマンド"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

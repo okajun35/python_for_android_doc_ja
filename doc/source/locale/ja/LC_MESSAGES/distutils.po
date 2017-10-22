@@ -18,57 +18,62 @@ msgstr ""
 
 #: ../../source/distutils.rst:3
 msgid "distutils/setuptools integration"
-msgstr ""
+msgstr "distutils / setuptoolsのインテグレート"
 
 #: ../../source/distutils.rst:5
 msgid "Instead of running p4a via the command line, you can integrate with distutils and setup.py."
-msgstr ""
+msgstr "コマンドラインからp4aを実行する代わりにdistutilsとsetup.pyを統合できます。"
 
 #: ../../source/distutils.rst:8
 msgid "The base command is::"
-msgstr ""
+msgstr "基本的なコマンドは以下の通りです::"
 
 #: ../../source/distutils.rst:12
 msgid "The files included in the APK will be all those specified in the ``package_data`` argument to setup. For instance, the following example will include all .py and .png files in the ``testapp`` folder::"
 msgstr ""
+"APKに含まれるファイルは、setupの ``package_data`` 引数で指定されたファイルになります。 たとえば、次の例では、すべての.pyファイルと.pngファイルが ``testapp`` フォルダに含まれます。::"
 
 #: ../../source/distutils.rst:31
 msgid "The app name and version will also be read automatically from the setup.py."
-msgstr ""
+msgstr "アプリ名とバージョンはsetup.pyから自動的に読み込まれます。"
 
 #: ../../source/distutils.rst:34
 msgid "The Android package name uses ``org.test.lowercaseappname`` if not set explicitly."
-msgstr ""
+msgstr "Androidパッケージ名は、明示的に設定されていない場合、 ``org.test.lowercaseappname`` を使用します。"
 
 #: ../../source/distutils.rst:37
 msgid "The ``--private`` argument is set automatically using the package_data, you should *not* set this manually."
-msgstr ""
+msgstr "``--private`` 引数はpackage_dataを使用して自動的に設定されるため手動で設定しないでください。
+"
 
 #: ../../source/distutils.rst:40
 msgid "The target architecture defaults to ``--armeabi``."
-msgstr ""
+msgstr "ターゲットアーキテクチャのデフォルトは ``--armeabi`` です。"
 
 #: ../../source/distutils.rst:42
 msgid "All of these automatic arguments can be overridden by passing them manually on the command line, e.g.::"
 msgstr ""
+"これらの自動引数はすべてコマンドラインで手動で渡すことで上書きできます。たとえば::"
 
 #: ../../source/distutils.rst:47
 msgid "Adding p4a arguments in setup.py"
-msgstr ""
+msgstr "setup.pyにp4a引数を追加する"
 
 #: ../../source/distutils.rst:49
 msgid "Instead of providing extra arguments on the command line, you can store them in setup.py by passing the ``options`` parameter to :code:`setup`. For instance::"
 msgstr ""
+"コマンドラインに余分な引数を与える代わりに、``options`` パラメータをsetupに渡すことでsetup.pyに格納することができます。 例えば："
 
 #: ../../source/distutils.rst:77
 msgid "These options will be automatically included when you run ``python setup.py apk``. Any options passed on the command line will override these values."
 msgstr ""
+"これらのオプションは ``python setup.py apk`` を実行すると自動的にインクルードされます。 コマンドラインで渡されるオプションはこれらの値を上書きします。"
 
 #: ../../source/distutils.rst:82
 msgid "Adding p4a arguments in setup.cfg"
-msgstr ""
+msgstr "setup.cfgにp4a引数を追加する"
 
 #: ../../source/distutils.rst:84
 msgid "You can also provide p4a arguments in the setup.cfg file, as normal for distutils. The syntax is::"
-msgstr ""
+msgstr "distutilsの通常と同じようにsetup.cfgファイルにp4a引数を指定できます。 構文は次のとおりです::"
 

@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Recipes &mdash; python-for-android 0.1 ドキュメント</title>
+  <title>レシピ &mdash; python-for-android 0.1 ドキュメント</title>
   
 
   
@@ -30,7 +30,7 @@
   
     <link rel="top" title="python-for-android 0.1 ドキュメント" href="index.html"/>
         <link rel="next" title="Bootstraps" href="bootstraps.html"/>
-        <link rel="prev" title="distutils/setuptools integration" href="distutils.html"/> 
+        <link rel="prev" title="distutils / setuptoolsのインテグレート" href="distutils.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -78,21 +78,21 @@
 <li class="toctree-l2"><a class="reference internal" href="commands.html#distribution-arguments">ディストリビューションの引数</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="distutils.html">distutils/setuptools integration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="distutils.html#adding-p4a-arguments-in-setup-py">Adding p4a arguments in setup.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="distutils.html#adding-p4a-arguments-in-setup-cfg">Adding p4a arguments in setup.cfg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distutils.html">distutils / setuptoolsのインテグレート</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="distutils.html#adding-p4a-arguments-in-setup-py">setup.pyにp4a引数を追加する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distutils.html#adding-p4a-arguments-in-setup-cfg">setup.cfgにp4a引数を追加する</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Recipes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#creating-your-own-recipe">Creating your own Recipe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#methods-and-tools-to-help-with-compilation">Methods and tools to help with compilation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-a-pythonrecipe">Using a PythonRecipe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-a-cythonrecipe">Using a CythonRecipe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-a-compiledcomponentspythonrecipe">Using a CompiledComponentsPythonRecipe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-an-ndkrecipe">Using an NDKRecipe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#a-recipe-template">A Recipe template</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#examples-of-recipes">Examples of recipes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#the-recipe-class">The <code class="docutils literal"><span class="pre">Recipe</span></code> class</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">レシピ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creating-your-own-recipe">独自のレシピを作成する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#methods-and-tools-to-help-with-compilation">コンパイルに役立つメソッドとツール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-a-pythonrecipe">PythonRecipeの使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-a-cythonrecipe">CythonRecipeの使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-a-compiledcomponentspythonrecipe">CompiledComponentsPythonRecipeの使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-an-ndkrecipe">NDKRecipeの使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-recipe-template">レシピテンプレート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples-of-recipes">レシピの例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-recipe-class"><code class="docutils literal"><span class="pre">Recipe</span></code> クラス</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bootstraps.html">Bootstraps</a><ul>
@@ -158,7 +158,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Recipes</li>
+    <li>レシピ</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="_sources/recipes.txt" rel="nofollow"> View page source</a>
@@ -170,29 +170,16 @@
           <div role="main" class="document">
             
   <div class="section" id="recipes">
-<h1>Recipes<a class="headerlink" href="#recipes" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>This page describes how python-for-android (p4a) compilation recipes
-work, and how to build your own. If you just want to build an APK,
-ignore this and jump straight to the <a class="reference internal" href="quickstart.html"><span class="doc">初めに</span></a>.</p>
-<p>Recipes are special scripts for compiling and installing different programs
-(including Python modules) into a p4a distribution. They are necessary
-to take care of compilation for any compiled components, as these must
-be compiled for Android with the correct architecture.</p>
-<p>python-for-android comes with many recipes for popular modules. No
-recipe is necessary to use of Python modules with no
-compiled components; these are installed automaticaly via pip.</p>
-<p>If you are new to building recipes, it is recommended that you first
-read all of this page, at least up to the Recipe reference
-documentation. The different recipe sections include a number of
-examples of how recipes are built or overridden for specific purposes.</p>
+<h1>レシピ<a class="headerlink" href="#recipes" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>このページではpython-for-android（p4a）のコンパイルレシピがどのように機能するかとビルド方法について説明します。 APKを構築したいだけならばこの章を無視して <a class="reference internal" href="quickstart.html"><span class="doc">初めに</span></a> に直接ジャンプしてください。</p>
+<p>レシピはさまざまなプログラム（Pythonモジュールを含む）をコンパイルしてp4aディストリビューションにインストールするための特別なスクリプトです。 コンパイルされたコンポーネントは、適切なアーキテクチャでAndroid用にコンパイルする必要があるためにコンパイルされたコンポーネントのコンパイルには必要です。</p>
+<p>python-for-androidには一般的なモジュールの多くのレシピが付属しています。 コンパイルされたコンポーネントを持たないPythonモジュールを使用するためのレシピは不要です。 これらはpipによって自動でインストールされます。</p>
+<p>レシピを作成するのが初めての方は少なくともこのレシピのリファレンスドキュメントまでページ全体を読むことをお勧めします。 異なるレシピセクションにはレシピの作成方法や特定の目的のためのオーバーライドの方法についての例が多数含まれています。</p>
 <div class="section" id="creating-your-own-recipe">
-<h2>Creating your own Recipe<a class="headerlink" href="#creating-your-own-recipe" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The formal reference documentation of the Recipe
-class can be found in the <a class="reference internal" href="#recipe-class">Recipe class</a> section and below.</p>
-<p>Check the <a class="reference internal" href="#recipe-template">recipe template section</a> for a template
-that combines all of these ideas, in which you can replace whichever
-components you like.</p>
-<p>The basic declaration of a recipe is as follows:</p>
+<h2>独自のレシピを作成する<a class="headerlink" href="#creating-your-own-recipe" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>レシピ・クラスの正式なリファレンス・ドキュメントは、<a class="reference internal" href="#recipe-class">レシピクラス</a> のセクションおよびその下にあります。</p>
+<p>レシピテンプレート &lt;<a class="reference internal" href="#recipe-template">recipe_template</a>&gt;`_ のセクションで、これらのアイデアをすべて組み合わせたテンプレートを確認してください。好きなコンポーネントを置き換えれます。</p>
+<p>レシピの基本的な宣言は以下のとおりです。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">YourRecipe</span><span class="p">(</span><span class="n">Recipe</span><span class="p">):</span>
 
     <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://example.com/example-</span><span class="si">{version}</span><span class="s1">.tar.gz&#39;</span>
@@ -207,19 +194,14 @@ components you like.</p>
 <span class="n">recipe</span> <span class="o">=</span> <span class="n">YourRecipe</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>See the <a class="reference internal" href="#recipe-class">Recipe class documentation</a> for full
-information about each parameter.</p>
-<p>These core options are vital for all recipes, though the url may be
-omitted if the source is somehow loaded from elsewhere.</p>
-<p>You must include <code class="docutils literal"><span class="pre">recipe</span> <span class="pre">=</span> <span class="pre">YourRecipe()</span></code>. This variable is accessed
-when the recipe is imported.</p>
+<p>各パラメータの詳細については、<a class="reference internal" href="#recipe-class">レシピクラスのドキュメント</a>  を参照してください。</p>
+<p>これらのコアオプションはすべてのレシピにとって不可欠ですが、ソースが何らかの形でロードされている場合はURLを省略できます。</p>
+<p><code class="docutils literal"><span class="pre">recipe</span> <span class="pre">=</span> <span class="pre">YourRecipe()</span></code> を含める必要があります。 この変数はレシピをインポートするときにアクセスされます</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">The url includes the <code class="docutils literal"><span class="pre">{version}</span></code> tag. You should only
-access the url with the <code class="docutils literal"><span class="pre">versioned_url</span></code> property, which
-replaces this with the version attribute.</p>
+<p class="last">urlには <code class="docutils literal"><span class="pre">{version}</span></code> タグが含まれています。 <code class="docutils literal"><span class="pre">versioned_url</span></code> プロパティでURLにアクセスする必要があります。これはversion属性で置き換えられます。</p>
 </div>
-<p>The actual build process takes place via three core methods:</p>
+<p>実際のビルドプロセスは大きく分けて3つの方法で行われます:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prebuild_arch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arch</span><span class="p">):</span>
     <span class="nb">super</span><span class="p">(</span><span class="n">YourRecipe</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">prebuild_arch</span><span class="p">(</span><span class="n">arch</span><span class="p">)</span>
     <span class="c1"># Do any pre-initialisation</span>
@@ -233,15 +215,9 @@ replaces this with the version attribute.</p>
     <span class="c1"># Do any clearing up</span>
 </pre></div>
 </div>
-<p>These methods are always run in the listed order; prebuild, then
-build, then postbuild.</p>
-<p>If you defined an url for your recipe, you do <em>not</em> need to manually
-download it, this is handled automatically.</p>
-<p>The recipe will automatically be built in a special isolated build
-directory, which you can access with
-<code class="code docutils literal"><span class="pre">self.get_build_dir(arch.arch)</span></code>. You should only work within
-this directory. It may be convenient to use the <code class="docutils literal"><span class="pre">current_directory</span></code>
-context manager defined in toolchain.py:</p>
+<p>これらのメソッドは常にリストされた順序で実行されます。 ビルドしてからビルドしてください。</p>
+<p>レシピのURLを定義した場合は、手動でダウンロードする必要は <em>ありません</em> 。これは自動的に処理されます。</p>
+<p>このレシピは、 <code class="code docutils literal"><span class="pre">self.get_build_dir(arch.arch)</span></code> を使ってアクセスできる特別な隔離されたビルドディレクトリに自動的にビルドされます。 このディレクトリ内でのみ作業する必要があります。 toolchain.pyで定義されている <code class="docutils literal"><span class="pre">current_directory</span></code> コンテキストマネージャを使用すると便利です:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythonforandroid.toolchain</span> <span class="k">import</span> <span class="n">current_directory</span>
 <span class="k">def</span> <span class="nf">build_arch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arch</span><span class="p">):</span>
     <span class="nb">super</span><span class="p">(</span><span class="n">YourRecipe</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">build_arch</span><span class="p">(</span><span class="n">arch</span><span class="p">)</span>
@@ -250,39 +226,24 @@ context manager defined in toolchain.py:</p>
             <span class="n">fileh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;This is written to a file within the build dir&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The argument to each method, <code class="docutils literal"><span class="pre">arch</span></code>, is an object relating to the
-architecture currently being built for. You can mostly ignore it,
-though may need to use the arch name <code class="docutils literal"><span class="pre">arch.arch</span></code>.</p>
+<p>各メソッドの引数 <code class="docutils literal"><span class="pre">arch</span></code> は、現在ビルドされているアーキテクチャに関連するオブジェクトです。 それをほとんど無視できますが、 <code class="docutils literal"><span class="pre">arch.arch</span></code>  を使用する必要があるかもしれません。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">You can also implement arch-specific versions of each
-method, which are called (if they exist) by the superclass,
-e.g. <code class="docutils literal"><span class="pre">def</span> <span class="pre">prebuild_armeabi(self,</span> <span class="pre">arch)</span></code>.</p>
+<p class="last">それぞれのメソッドのアーチ固有のバージョンを実装することもできます。これらのバージョンは、スーパークラスによって呼び出されます（存在する場合は）。 例: <code class="docutils literal"><span class="pre">def</span> <span class="pre">prebuild_armeabi(self,</span> <span class="pre">arch)</span></code></p>
 </div>
-<p>This is the core of what&#8217;s necessary to write a recipe, but has not
-covered any of the details of how one actually writes code to compile
-for android. This is covered in the next sections, including the
-<a class="reference internal" href="#standard-mechanisms">standard mechanisms</a> used as part of the
-build, and the details of specific recipe classes for Python, Cython,
-and some generic compiled recipes. If your module is one of the
-latter, you should use these later classes rather than reimplementing
-the functionality from scratch.</p>
+<p>レシピを書くために必要なものの核ですが、実際にAndroidでコンパイルするためのコードを実際に書く方法の詳細については触れていません。 ビルドの一部として使用される <a class="reference internal" href="#standard-mechanisms">標準メカニズム</a> 、Python、Cython、およびいくつかの一般的なコンパイルされたレシピの具体的なレシピクラスの詳細を含む説明については次のセクションで説明されています。 モジュールが後者のモジュールの1つである場合、最初から機能を再実装するのではなく、後のクラスを使用する必要があります。</p>
 </div>
 <div class="section" id="methods-and-tools-to-help-with-compilation">
-<span id="standard-mechanisms"></span><h2>Methods and tools to help with compilation<a class="headerlink" href="#methods-and-tools-to-help-with-compilation" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="standard-mechanisms"></span><h2>コンパイルに役立つメソッドとツール<a class="headerlink" href="#methods-and-tools-to-help-with-compilation" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="patching-modules-before-installation">
-<h3>Patching modules before installation<a class="headerlink" href="#patching-modules-before-installation" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>You can easily apply patches to your recipes by adding them to the
-<code class="docutils literal"><span class="pre">patches</span></code> declaration, e.g.:</p>
+<h3>インストール前にモジュールにパッチを適用する<a class="headerlink" href="#patching-modules-before-installation" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">patches</span></code>  宣言にパッチを追加すると簡単にレシピにパッチを適用できます。例:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">patches</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;some_fix.patch&#39;</span><span class="p">,</span>
            <span class="s1">&#39;another_fix.patch&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>The paths should be relative to the recipe file. Patches are
-automatically applied just once (i.e. not reapplied the second time
-python-for-android is run).</p>
-<p>You can also use the helper functions in <code class="docutils literal"><span class="pre">pythonforandroid.patching</span></code>
-to apply patches depending on certain conditions, e.g.:</p>
+<p>パスはレシピファイルに関連している必要があります。 パッチは自動的に1回だけ適用されます（つまり、Python-for-androidは2回目に再適用されません）。</p>
+<p><code class="docutils literal"><span class="pre">pythonforandroid.patching</span></code> のヘルパー関数を使用して、特定の条件に応じてパッチを適用することもできます。例:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythonforandroid.patching</span> <span class="k">import</span> <span class="n">will_build</span><span class="p">,</span> <span class="n">is_arch</span>
 
 <span class="o">...</span>
@@ -295,16 +256,11 @@ to apply patches depending on certain conditions, e.g.:</p>
     <span class="o">...</span>
 </pre></div>
 </div>
-<p>You can include your own conditions by passing any function as the
-second entry of the tuple. It will receive the <code class="docutils literal"><span class="pre">arch</span></code> (e.g. x86,
-armeabi) and <code class="docutils literal"><span class="pre">recipe</span></code> (i.e. the Recipe object) as kwargs. The patch
-will be applied only if the function returns True.</p>
+<p>任意の関数をタプルの2番目のエントリとして渡すことで独自の条件を含められます。 それはkwargsとして <code class="docutils literal"><span class="pre">arch</span></code> （例えばx86、armeabi）とレ <code class="docutils literal"><span class="pre">recipe</span></code>  （すなわちレシピオブジェクト）を受け取ります。 パッチは、関数がTrueを返す場合にのみ適用されます。</p>
 </div>
 <div class="section" id="installing-libs">
-<h3>Installing libs<a class="headerlink" href="#installing-libs" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Some recipes generate .so files that must be manually copied into the
-android project. You can use code like the following to accomplish
-this, copying to the correct lib cache dir:</p>
+<h3>libsのインストール<a class="headerlink" href="#installing-libs" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>いくつかのレシピは.soファイルを生成してアンドロイドプロジェクトに手動でコピーする必要があります。 正しいlibキャッシュディレクトリにコピーするには、次のようなコードを使用します。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_arch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arch</span><span class="p">):</span>
     <span class="n">do_the_build</span><span class="p">()</span>  <span class="c1"># e.g. running ./configure and make</span>
 
@@ -313,19 +269,12 @@ this, copying to the correct lib cache dir:</p>
                     <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">get_libs_dir</span><span class="p">(</span><span class="n">arch</span><span class="o">.</span><span class="n">arch</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Any libs copied to this dir will automatically be included in the
-appropriate libs dir of the generated android project.</p>
+<p>このディレクトリにコピーされたlibsは自動的に生成されたアンドロイドプロジェクトの適切なlibsディレクトリに含まれます。</p>
 </div>
 <div class="section" id="compiling-for-the-android-architecture">
-<h3>Compiling for the Android architecture<a class="headerlink" href="#compiling-for-the-android-architecture" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>When performing any compilation, it is vital to do so with appropriate
-environment variables set, ensuring that the Android libraries are
-properly linked and the compilation target is the correct
-architecture.</p>
-<p>You can get a dictionary of appropriate environment variables with the
-<code class="docutils literal"><span class="pre">get_recipe_env</span></code> method. You should make sure to set this
-environment for any processes that you call. It is convenient to do
-this using the <code class="docutils literal"><span class="pre">sh</span></code> module as follows:</p>
+<h3>Androidアーキテクチャ用にコンパイルする<a class="headerlink" href="#compiling-for-the-android-architecture" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>コンパイルを実行するには適切な環境変数を設定してAndroidライブラリが適切にリンクされ、コンパイルターゲットが正しいアーキテクチャであることを確認することが重要です。</p>
+<p><code class="docutils literal"><span class="pre">get_recipe_env</span></code> メソッドを使用して適切な環境変数の辞書を取得できます。 この環境は、呼び出したすべてのプロセスに設定する必要があります。 次のように <code class="docutils literal"><span class="pre">sh</span></code> モジュールを使用すると便利です:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_arch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arch</span><span class="p">):</span>
     <span class="nb">super</span><span class="p">(</span><span class="n">YourRecipe</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">build_arch</span><span class="p">(</span><span class="n">arch</span><span class="p">)</span>
     <span class="n">env</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_recipe_env</span><span class="p">(</span><span class="n">arch</span><span class="p">)</span>
@@ -333,17 +282,12 @@ this using the <code class="docutils literal"><span class="pre">sh</span></code>
                                 <span class="c1"># env dict</span>
 </pre></div>
 </div>
-<p>You can also use the <code class="docutils literal"><span class="pre">shprint</span></code> helper function from the p4a
-toolchain module, which will print information about the process and
-its current status:</p>
+<p>またp4aツールチェーンモジュールの <code class="docutils literal"><span class="pre">shprint</span></code> ヘルパー機能を使用すると、プロセスとその現在のステータスに関する情報が表示されます:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythonforandroid.toolchain</span> <span class="k">import</span> <span class="n">shprint</span>
 <span class="n">shprint</span><span class="p">(</span><span class="n">sh</span><span class="o">.</span><span class="n">echo</span><span class="p">,</span> <span class="s1">&#39;$PATH&#39;</span><span class="p">,</span> <span class="n">_env</span><span class="o">=</span><span class="n">env</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>You can also override the <code class="docutils literal"><span class="pre">get_recipe_env</span></code> method to add new env
-vars for the use of your recipe. For instance, the Kivy recipe does
-the following when compiling for SDL2, in order to tell Kivy what
-backend to use:</p>
+<p>また、 <code class="docutils literal"><span class="pre">get_recipe_env</span></code>  メソッドをオーバーライドして、新しいenv変数を追加してレシピの使用もできます。 たとえば、Kivyのレシピは、SDL2用にコンパイルするときに、Kivyにバックエンドに使用することを伝えるために以下のことを行います:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_recipe_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arch</span><span class="p">):</span>
     <span class="n">env</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">KivySDL2Recipe</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_recipe_env</span><span class="p">(</span><span class="n">arch</span><span class="p">)</span>
     <span class="n">env</span><span class="p">[</span><span class="s1">&#39;USE_SDL2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span>
@@ -359,25 +303,16 @@ backend to use:</p>
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
-<p class="last">When using the sh module like this the new env <em>completely
-replaces</em> the normal environment, so you must define any env
-vars you want to access.</p>
+<p class="last">このようなshモジュールを使用する場合は新しいenvは通常の環境に完全に置き換わるので、アクセスしたい環境変数を定義する必要があります。</p>
 </div>
 </div>
 <div class="section" id="including-files-with-your-recipe">
-<h3>Including files with your recipe<a class="headerlink" href="#including-files-with-your-recipe" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>レシピにファイルを含める<a class="headerlink" href="#including-files-with-your-recipe" title="このヘッドラインへのパーマリンク">¶</a></h3>
 </div>
 <div class="section" id="the-should-build-method">
-<h3>The should_build method<a class="headerlink" href="#the-should-build-method" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>The Recipe class has a <code class="docutils literal"><span class="pre">should_build</span></code> method, which returns a
-boolean. This is called for each architecture before running
-<code class="docutils literal"><span class="pre">build_arch</span></code>, and if it returns False then the build is
-skipped. This is useful to avoid building a recipe more than once for
-different dists.</p>
-<p>By default, should_build returns True, but you can override it however
-you like. For instance, PythonRecipe and its subclasses all replace it
-with a check for whether the recipe is already installed in the Python
-distribution:</p>
+<h3>should_buildメソッド<a class="headerlink" href="#the-should-build-method" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Recipeクラスにはbooleanを返す <code class="docutils literal"><span class="pre">should_build</span></code> メソッドがあります。 これは <code class="docutils literal"><span class="pre">build_arch</span></code> を実行する前に各アーキテクチャに対して呼び出されてFalseを返すとビルドはスキップされます。 これは異なるdistに対して複数回レシピを作成するのを避けるのに便利です。</p>
+<p>デフォルトでは、should_buildはTrueを返しますが、好きなようにオーバーライドできます。 例えば、PythonRecipeとそのサブクラスはすべて、レシピが既にPythonディストリビューションにインストールされているかどうかのチェックに置き換えられます:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">should_build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arch</span><span class="p">):</span>
     <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">site_packages_name</span>
     <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -392,13 +327,9 @@ distribution:</p>
 </div>
 </div>
 <div class="section" id="using-a-pythonrecipe">
-<h2>Using a PythonRecipe<a class="headerlink" href="#using-a-pythonrecipe" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>If your recipe is to install a Python module without compiled
-components, you should use a PythonRecipe. This overrides
-<code class="docutils literal"><span class="pre">build_arch</span></code> to automatically call the normal <code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span>
-<span class="pre">install</span></code> with an appropriate environment.</p>
-<p>For instance, the following is all that&#8217;s necessary to create a recipe
-for the Vispy module:</p>
+<h2>PythonRecipeの使用<a class="headerlink" href="#using-a-pythonrecipe" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>レシピが、コンパイルされたコンポーネントなしでPythonモジュールをインストールするのであれば、PythonRecipeを使うべきです。 これは <code class="docutils literal"><span class="pre">build_arch</span></code> をオーバーライドして通常の <code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code> を適切な環境で自動的に呼び出すようにします</p>
+<p>たとえば、Vispyモジュールのレシピを作成するために必要なことは以下のとおりです:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythonforandroid.toolchain</span> <span class="k">import</span> <span class="n">PythonRecipe</span>
 <span class="k">class</span> <span class="nc">VispyRecipe</span><span class="p">(</span><span class="n">PythonRecipe</span><span class="p">):</span>
     <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;master&#39;</span>
@@ -411,13 +342,8 @@ for the Vispy module:</p>
 <span class="n">recipe</span> <span class="o">=</span> <span class="n">VispyRecipe</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal"><span class="pre">site_packages_name</span></code> is a new attribute that identifies the
-folder in which the module will be installed in the Python
-package. This is only essential to add if the name is different to the
-recipe name. It is used to check if the recipe installation can be
-skipped, which is the case if the folder is already present in the
-Python installation.</p>
-<p>For reference, the code that accomplishes this is the following:</p>
+<p><code class="docutils literal"><span class="pre">site_packages_name</span></code> は、モジュールがPythonパッケージにインストールされるフォルダを識別する新しい属性です。 名前がレシピ名と異なる場合はを追加するだけです。 レシピのインストールをスキップできるかどうかを確認するために使用されます。これはフォルダがすでにPythonインストールに存在する場合です。</p>
+<p>参考までにこれを実現するコードは次のとおりです:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_arch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arch</span><span class="p">):</span>
     <span class="nb">super</span><span class="p">(</span><span class="n">PythonRecipe</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">build_arch</span><span class="p">(</span><span class="n">arch</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">install_python_package</span><span class="p">()</span>
@@ -436,24 +362,16 @@ Python installation.</p>
         <span class="n">shprint</span><span class="p">(</span><span class="n">hostpython</span><span class="p">,</span> <span class="s1">&#39;setup.py&#39;</span><span class="p">,</span> <span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="s1">&#39;-O2&#39;</span><span class="p">,</span> <span class="n">_env</span><span class="o">=</span><span class="n">env</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This combines techniques and tools from the above documentation to
-create a generic mechanism for all Python modules.</p>
+<p>これは上記のドキュメンテーションの手法とツールを組み合わせて、すべてのPythonモジュール用の汎用メカニズムを作成します。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">The hostpython is the path to the Python binary that should
-be used for any kind of installation. You <em>must</em> run Python
-in a similar way if you need to do so in any of your own
-recipes.</p>
+<p class="last">hostpythonはPythonバイナリへのパスであり、どのような種類のインストールにも使用する必要があります。 独自のレシピでPythonを実行する必要がある場合は同様の方法でPythonを実行する必要があります。</p>
 </div>
 </div>
 <div class="section" id="using-a-cythonrecipe">
-<h2>Using a CythonRecipe<a class="headerlink" href="#using-a-cythonrecipe" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>If your recipe is to install a Python module that uses Cython, you
-should use a CythonRecipe. This overrides <code class="docutils literal"><span class="pre">build_arch</span></code> to both build
-the cython components and to install the Python module just like a
-normal PythonRecipe.</p>
-<p>For instance, the following is all that&#8217;s necessary to make a recipe
-for Kivy (in this case, depending on Pygame rather than SDL2):</p>
+<h2>CythonRecipeの使用<a class="headerlink" href="#using-a-cythonrecipe" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>レシピがCythonを使用するPythonモジュールをインストールする場合はCythonRecipeを使用する必要があります。これは通常のPythonRecipeと同じように、cythonコンポーネントをビルドし、Pythonモジュールをインストールする <code class="docutils literal"><span class="pre">build_arch</span></code> をオーバーライドします</p>
+<p>たとえばKivyのレシピを作成するには以下のすべてが必要です（この場合、SDL2ではなくPygameによって異なります）:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">KivyRecipe</span><span class="p">(</span><span class="n">CythonRecipe</span><span class="p">):</span>
      <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;stable&#39;</span>
      <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/kivy/kivy/archive/</span><span class="si">{version}</span><span class="s1">.zip&#39;</span>
@@ -464,7 +382,7 @@ for Kivy (in this case, depending on Pygame rather than SDL2):</p>
 <span class="n">recipe</span> <span class="o">=</span> <span class="n">KivyRecipe</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>For reference, the code that accomplishes this is the following:</p>
+<p>参考までにこれを実現するコードは次のとおりです:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_arch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arch</span><span class="p">):</span>
     <span class="n">Recipe</span><span class="o">.</span><span class="n">build_arch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arch</span><span class="p">)</span>  <span class="c1"># a hack to avoid calling</span>
                                    <span class="c1"># PythonRecipe.build_arch</span>
@@ -496,42 +414,23 @@ for Kivy (in this case, depending on Pygame rather than SDL2):</p>
                 <span class="n">env</span><span class="p">[</span><span class="s1">&#39;STRIP&#39;</span><span class="p">],</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">_env</span><span class="o">=</span><span class="n">env</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The failing build and manual cythonisation is necessary, first to
-make sure that any .pyx files have been generated by setup.py, and
-second because cython isn&#8217;t installed in the hostpython build.</p>
-<p>This may actually fail if the setup.py tries to import cython before
-making any pyx files (in which case it crashes too early), although
-this is probably not usually an issue. If this happens to you, try
-patching to remove this import or make it fail quietly.</p>
-<p>Other than this, these methods follow the techniques in the above
-documentation to make a generic recipe for most cython based modules.</p>
+<p>最初に.pyxファイルがsetup.pyによって生成されたことを確認するために、その次にcythonがhostpythonビルドにインストールされていないために失敗したビルドと手動のcython化が必要です</p>
+<p>実際にはsetup.pyがpyxファイルを作成する前にcythonをインポートしようとすると失敗する可能性があります。これが起こった場合は、パッチを適用してこのインポートを削除するか、静かに失敗させてください。</p>
+<p>これ以外にもこれらのメソッドは上記のドキュメントのテクニックに従って、ほとんどのcythonベースのモジュールの汎用レシピを作成します。</p>
 </div>
 <div class="section" id="using-a-compiledcomponentspythonrecipe">
-<h2>Using a CompiledComponentsPythonRecipe<a class="headerlink" href="#using-a-compiledcomponentspythonrecipe" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>This is similar to a CythonRecipe but is intended for modules like
-numpy which include compiled but non-cython components. It uses a
-similar mechanism to compile with the right environment.</p>
-<p>This isn&#8217;t documented yet because it will probably be changed so that
-CythonRecipe inherits from it (to avoid code duplication).</p>
+<h2>CompiledComponentsPythonRecipeの使用<a class="headerlink" href="#using-a-compiledcomponentspythonrecipe" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>これはCythonRecipeに似ていますがnumpyのようなコンパイルされた非cythonコンポーネントを含むモジュール用です。同様のメカニズムを使用して適切な環境でコンパイルします。</p>
+<p>おそらく、（コードの重複を避けるために）CythonRecipeがそれを継承するように変更されるためでこれは文書化されていません。</p>
 </div>
 <div class="section" id="using-an-ndkrecipe">
-<h2>Using an NDKRecipe<a class="headerlink" href="#using-an-ndkrecipe" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>If you are writing a recipe not for a Python module but for something
-that would normall go in the JNI dir of an Android project (i.e. it
-has an <code class="docutils literal"><span class="pre">Application.mk</span></code> and <code class="docutils literal"><span class="pre">Android.mk</span></code> that the Android build
-system can use), you can use an NDKRecipe to automatically set it
-up. The NDKRecipe overrides the normal <code class="docutils literal"><span class="pre">get_build_dir</span></code> method to
-place things in the Android project.</p>
+<h2>NDKRecipeの使用<a class="headerlink" href="#using-an-ndkrecipe" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Pythonモジュール用ではなく、AndroidプロジェクトのJNIディレクトリ（つまり、Androidビルドシステムで使用できる <code class="docutils literal"><span class="pre">Application.mk</span></code> と <code class="docutils literal"><span class="pre">Android.mk</span></code> がある）のためにレシピを作成している場合は、 NDKRecipeを自動的に設定します。 NDKRecipeは通常の <code class="docutils literal"><span class="pre">get_build_dir</span></code> メソッドをオーバーライドしてAndroidプロジェクトに配置します。</p>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
-<p class="last">The NDKRecipe does <em>not</em> currently actually call
-ndk-build, you must add this call (for your module) by
-manually making a build_arch method. This may be fixed
-later.</p>
+<p class="last">現在、NDKRecipeは実際にはndk-buildを呼び出すのではなくて手動でbuild_archメソッドを作成してこの呼び出しを（モジュール用に）追加する必要があります。 これは後に修正される可能性があります。</p>
 </div>
-<p>For instance, the following recipe is all that&#8217;s necessary to place
-SDL2_ttf in the jni dir. This is built later by the SDL2 recipe, which
-calls ndk-build with this as a dependency:</p>
+<p>たとえばSDL2_ttfをjniディレクトリに配置するには次のレシピが必要です。 これは後でSDL2のレシピによってビルドされます。このレシピは依存関係としてndk-buildを呼び出します:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LibSDL2TTF</span><span class="p">(</span><span class="n">NDKRecipe</span><span class="p">):</span>
     <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;2.0.12&#39;</span>
     <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-</span><span class="si">{version}</span><span class="s1">.tar.gz&#39;</span>
@@ -540,16 +439,11 @@ calls ndk-build with this as a dependency:</p>
 <span class="n">recipe</span> <span class="o">=</span> <span class="n">LibSDL2TTF</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>The dir_name argument is a new class attribute that tells the recipe
-what the jni dir folder name should be. If it is omitted, the recipe
-name is used. Be careful here, sometimes the folder name is important,
-especially if this folder is a dependency of something else.</p>
+<p>dir_name引数は新しいクラス属性で、jniディレクトリのフォルダ名をレシピに伝えます。 省略した場合はレシピ名が使用されます。 注意してください。特にこのフォルダが他のものの依存関係である場合はフォルダ名が重要な場合があります。</p>
 </div>
 <div class="section" id="a-recipe-template">
-<span id="recipe-template"></span><h2>A Recipe template<a class="headerlink" href="#a-recipe-template" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The following template includes all the recipe sections you might
-use. None are compulsory, feel free to delete method
-overrides if you do not use them:</p>
+<span id="recipe-template"></span><h2>レシピテンプレート<a class="headerlink" href="#a-recipe-template" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>次のテンプレートには使用するすべてのレシピセクションが含まれています。 いずれも強制的なものではありません。あなたがそれらを使用しない場合、メソッドのオーバーライドを自由に削除してください:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythonforandroid.toolchain</span> <span class="k">import</span> <span class="n">Recipe</span><span class="p">,</span> <span class="n">shprint</span><span class="p">,</span> <span class="n">current_directory</span>
 <span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">exists</span><span class="p">,</span> <span class="n">join</span>
 <span class="kn">import</span> <span class="nn">sh</span>
@@ -604,18 +498,12 @@ overrides if you do not use them:</p>
 </div>
 </div>
 <div class="section" id="examples-of-recipes">
-<h2>Examples of recipes<a class="headerlink" href="#examples-of-recipes" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>This documentation covers most of what is ever necessary to make a
-recipe work. For further examples, python-for-android includes many
-recipes for popular modules, which are an excellent resource to find
-out how to add your own. You can find these in the <a class="reference external" href="https://github.com/kivy/python-for-android/tree/master/pythonforandroid/recipes">python-for-android
-Github page</a>.</p>
+<h2>レシピの例<a class="headerlink" href="#examples-of-recipes" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>この文書ではレシピを作成するために必要なことのほとんどをカバーしています。 さらなる例としてはpython-for-androidには人気のあるモジュールのための多くのレシピが含まれています。これは独自のモジュールを追加する方法を見つけるためには優れたリソースです。 これらは <a class="reference external" href="https://github.com/kivy/python-for-android/tree/master/pythonforandroid/recipes">python-for-android Github ページ</a> で見つけることができます。</p>
 </div>
 <div class="section" id="the-recipe-class">
-<span id="recipe-class"></span><h2>The <code class="docutils literal"><span class="pre">Recipe</span></code> class<a class="headerlink" href="#the-recipe-class" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The <code class="docutils literal"><span class="pre">Recipe</span></code> is the base class for all p4a recipes. The core
-documentation of this class is given below, followed by discussion of
-how to create your own Recipe subclass.</p>
+<span id="recipe-class"></span><h2><code class="docutils literal"><span class="pre">Recipe</span></code> クラス<a class="headerlink" href="#the-recipe-class" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">Recipe</span></code> は、すべてのp4aレシピの基本クラスです。 このクラスの中核となる文書を下に示し、独自のRecipeサブクラスを作成する方法について説明します</p>
 </div>
 </div>
 
@@ -628,7 +516,7 @@ how to create your own Recipe subclass.</p>
         <a href="bootstraps.html" class="btn btn-neutral float-right" title="Bootstraps">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="distutils.html" class="btn btn-neutral" title="distutils/setuptools integration"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="distutils.html" class="btn btn-neutral" title="distutils / setuptoolsのインテグレート"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
