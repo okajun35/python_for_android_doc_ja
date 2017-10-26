@@ -18,69 +18,81 @@ msgstr ""
 
 #: ../../source/services.rst:2
 msgid "Services"
-msgstr ""
+msgstr "サービス"
 
 #: ../../source/services.rst:4
 msgid "python-for-android supports the use of Android Services, background tasks running in separate processes. These are the closest Android equivalent to multiprocessing on e.g. desktop platforms, and it is not possible to use normal multiprocessing on Android. Services are also the only way to run code when your app is not currently opened by the user."
 msgstr ""
+"python-for-androidはAndroidサービスの使用をサポートしてバックグラウンドタスクは別々のプロセスで実行されます。 これらはAndroid上でのマルチプロセッシングに最も類似しています。 Androidプラットフォームでは通常のマルチプロセッシングを使用できません。 アプリが現在ユーザーによって開かれていないときにも、サービスはコードを実行する唯一の方法です。"
 
 #: ../../source/services.rst:10
 msgid "Services must be declared when building your APK. Each one will have its own main.py file with the Python script to be run. You can communicate with the service process from your app using e.g. `osc <https://pypi.python.org/pypi/python-osc>`__ or (a heavier option) `twisted <https://twistedmatrix.com/trac/>`__."
 msgstr ""
+"サービスはAPKをビルドする際に宣言する必要があります。 それぞれに独自のmain.pyファイルがあり、Pythonスクリプトが実行されます。 アプリを使用してサービスプロセスと通信ができます。 例： `osc <https://pypi.python.org/pypi/python-osc>`__ または `twisted <https://twistedmatrix.com/trac/>`__ （重いオプション）。"
 
 #: ../../source/services.rst:17
 msgid "Service creation"
-msgstr ""
+msgstr "サービスを作成する"
 
 #: ../../source/services.rst:19
 msgid "There are two ways to have services included in your APK."
-msgstr ""
+msgstr "APKにサービスを含めるには2通りの方法があります。"
 
 #: ../../source/services.rst:22
 msgid "Service folder"
-msgstr ""
+msgstr "サービスフォルダー"
 
 #: ../../source/services.rst:24
 msgid "This basic method works with both the new SDL2 and old Pygame bootstraps. It is recommended to use the second method (below) where possible."
 msgstr ""
+"この基本的な方法は、新しいSDL2と古いPygameブートストラップの両方で動作します。 可能であれば、以下の2番目の方法を使用することをお勧めします。
+"
 
 #: ../../source/services.rst:28
 msgid "Create a folder named ``service`` in your app directory, and add a file ``service/main.py``. This file should contain the Python code that you want the service to run."
 msgstr ""
+"アプリケーションディレクトリに ``service`` という名前のフォルダを作成し、 ``service/main.py`` ファイルを追加します。 このファイルには、サービスを実行するPythonコードが含まれている必要があります。"
 
 #: ../../source/services.rst:32
 msgid "To start the service, use the :code:`start_service` function from the :code:`android` module (included automatically with the Pygame bootstrap, you must add it to the requirements manually with SDL2 if you wish to use this method)::"
 msgstr ""
+"サービスを開始するには、 :code:`android` モジュールの :code:`start_service` 関数を使用します（この方法を使用する場合は、Pygameブートストラップに自動的に含まれています。SDL2を使用して要件に手動で追加する必要があります）::"
 
 #: ../../source/services.rst:45
 msgid "Arbitrary service scripts"
-msgstr ""
+msgstr "任意のサービススクリプト"
 
 #: ../../source/services.rst:47
 msgid "This service method is *not supported* by the Pygame bootstrap."
-msgstr ""
+msgstr "このサービス方法は、Pygameブートストラップでは *サポートされていません* 。"
 
 #: ../../source/services.rst:49
 msgid "This method is recommended for non-trivial use of services as it is more flexible, supporting multiple services and a wider range of options."
-msgstr ""
+msgstr "この方法は、柔軟性が高く、複数のサービスをサポートし、幅広いオプションをサポートするため、サービスの軽微な使用に推奨されます"
 
 #: ../../source/services.rst:53
 msgid "To create the service, create a python script with your service code and add a :code:`--service=myservice:/path/to/myservice.py` argument when calling python-for-android. The ``myservice`` name before the colon is the name of the service class, via which you will interact with it later. You can add multiple :code:`--service` arguments to include multiple services, which you will later be able to stop and start from your app."
 msgstr ""
+"サービスを作成するには、サービスコードでpythonスクリプトを作成し、python-for-androidを呼び出すときに :code:`--service=myservice:/path/to/myservice.py` 引数を追加します。 コロンの前にある ``myservice`` の名前は、サービスクラスの名前です。このクラスを使用して後でやりとりします。 複数の :code:`--service` 引数を追加して複数のサービスを追加できます。これらのサービスは、後でアプリケーションから停止して開始できます。"
 
 #: ../../source/services.rst:61
 msgid "To run the services (i.e. starting them from within your main app code), you must use PyJNIus to interact with the java class python-for-android creates for each one, as follows::"
 msgstr ""
+"サービスを実行する(つまりmain appのコード内からサービスを開始する）)にはPyJNIusを使ってPython-for-androidが作成するJavaクラスと相互作用する必要があります。"
 
 #: ../../source/services.rst:71
 msgid "Here, ``your.package.name`` refers to the package identifier of your APK as set by the ``--package`` argument to python-for-android, and the name of the service is ``ServiceYourservicename``, in which ``Yourservicename`` is the identifier passed to the ``--service`` argument with the first letter upper case. You must also pass the ``argument`` parameter even if (as here) it is an empty string. If you do pass it, the service can make use of this argument."
 msgstr ""
+"ここで ``your.package.name`` はあなたのAPKのパッケージ識別子を ``--package`` 引数でpython-for-androidに設定したものを指しておりサービスの名前は ``ServiceYourservicename`` です。 ``Yourservicename`` は 最初の大文字のサービス引数です。 また、（ここのように）空の文字列であっても ``argument`` パラメータを渡す必要があります。 それを渡すと、サービスはこの引数を利用できます。
+"
 
 #: ../../source/services.rst:79
 msgid "Services support a range of options and interactions not yet documented here but all accessible via calling other methods of the ``service`` reference."
-msgstr ""
+msgstr "サービスは、ここではまだ文書化されていないが、すべて ``service``  リファレンスの他のメソッドを呼び出すことでアクセス可能なさまざまなオプションと呼び出すことをサポートしています。
+"
 
 #: ../../source/services.rst:85
 msgid "The app root directory for Python imports will be in the app root folder even if the service file is in a subfolder. To import from your service folder you must use e.g.  ``import service.module`` instead of ``import module``, if the service file is in the ``service/`` folder."
 msgstr ""
+"Pythonのインポート用のアプリケーションルートディレクトリはサービスファイルがサブフォルダ内にあってもアプリケーションのルートフォルダにあります。 サービスフォルダからインポートするには、たとえば、サービスファイルが ``service/``  フォルダ内にある場合は、``import module`` の代わりに ``service.module をインポート``  します。"
 
