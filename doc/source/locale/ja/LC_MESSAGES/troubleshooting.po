@@ -18,115 +18,121 @@ msgstr ""
 
 #: ../../source/troubleshooting.rst:4
 msgid "Troubleshooting"
-msgstr ""
+msgstr "トラブルシューティング"
 
 #: ../../source/troubleshooting.rst:7
 msgid "Debug output"
-msgstr ""
+msgstr "デバッグ出力"
 
 #: ../../source/troubleshooting.rst:9
 msgid "Add the ``--debug`` option to any python-for-android command to see full debug output including the output of all the external tools used in the compilation and packaging steps."
 msgstr ""
+"python-for-androidコマンドに``--debug`` オプションを追加すると、コンパイルとパッケージングのステップで使用されるすべての外部ツールの出力を含む完全なデバッグ出力が表示されます。"
 
 #: ../../source/troubleshooting.rst:13
 msgid "If reporting a problem by email or irc, it is usually helpful to include this full log, via e.g. a `pastebin <http://paste.ubuntu.com/>`_ or `Github gist <https://gist.github.com/>`_."
 msgstr ""
+"電子メールまたはircで問題を報告する場合は、通常、この完全なログを含めると便利です。 `pastebin <http://paste.ubuntu.com/>`_  または `Github gist <https://gist.github.com/>`_。"
 
 #: ../../source/troubleshooting.rst:19
 msgid "Getting help"
-msgstr ""
+msgstr "ヘルプの利用"
 
 #: ../../source/troubleshooting.rst:21
 msgid "python-for-android is managed by the Kivy Organisation, and you can get help with any problems using the same channels as Kivy itself:"
-msgstr ""
+msgstr "python-for-androidはKivy Organizationによって管理されています。Kivyと同じチャネルを使用しているすべての問題については、Kivyのヘルプが得られます："
 
 #: ../../source/troubleshooting.rst:24
 msgid "by email to the `kivy-users Google group <https://groups.google.com/forum/#!forum/kivy-users>`_"
-msgstr ""
+msgstr "`kivy-users Google group <https://groups.google.com/forum/#!forum/kivy-users>`_ のEmailで"
 
 #: ../../source/troubleshooting.rst:26
 msgid "by irc in the #kivy room at irc.freenode.net"
-msgstr ""
+msgstr "irc.freenode.netの#kivy roomのircで"
 
 #: ../../source/troubleshooting.rst:28
 msgid "If you find a bug, you can also post an issue on the `python-for-android Github page <https://github.com/kivy/python-for-android>`_."
-msgstr ""
+msgstr "バグを発見した場合は、`python-for-android Github ページ <https://github.com/kivy/python-for-android>`_ に問題を投稿できます。"
 
 #: ../../source/troubleshooting.rst:33
 msgid "Debugging on Android"
-msgstr ""
+msgstr "Androidでのデバッグ"
 
 #: ../../source/troubleshooting.rst:35
 msgid "When a python-for-android APK doesn't work, often the only indication that you get is that it closes. It is important to be able to find out what went wrong."
-msgstr ""
+msgstr "Python-for-android APKが動作しないときは、しばしばアプリが閉じるという唯一の兆候があります。 何が問題になったのかを知ることが重要です。"
 
 #: ../../source/troubleshooting.rst:39
 msgid "python-for-android redirects Python's stdout and stderr to the Android logcat stream. You can see this by enabling developer mode on your Android device, enabling adb on the device, connecting it to your PC (you should see a notification that USB debugging is connected) and running ``adb logcat``. If adb is not in your PATH, you can find it at ``/path/to/Android/SDK/platform-tools/adb``, or access it through python-for-android with the shortcut::"
 msgstr ""
+"python-for-androidはPythonのstdoutとstderrをAndroid logcatストリームにリダイレクトします。 これは、Androidデバイスで開発者モードを有効にし、デバイス上でadbを有効にし、PCに接続して（USBデバッグが接続されていることがわかるはずです）、``adb logcat`` を実行して確認できます。adbがあなたのPATHにない場合は ``/path/to/Android/SDK/platform-tools/adb`` で見つけるか、またはpython-for-androidでショートカットを使ってアクセスしてください::"
 
 #: ../../source/troubleshooting.rst:49
 msgid "or::"
-msgstr ""
+msgstr "または::"
 
 #: ../../source/troubleshooting.rst:53
 msgid "Running logcat command gives a lot of information about what Android is doing. You can usually see important lines by using logcat's built in functionality to see only lines with the ``python`` tag (or just grepping this)."
 msgstr ""
+"logcatコマンドを実行するとAndroidの動作に関する多くの情報が得られます。 重要な行はlogcatの組み込み機能を使って ``python`` タグの行だけを表示する（またはこれをgrepする）ことができます。"
 
 #: ../../source/troubleshooting.rst:58
 msgid "When your app crashes, you'll see the normal Python traceback here, as well as the output of any print statements etc. that your app runs. Use these to diagnose the problem just as normal."
 msgstr ""
+"アプリケーションがクラッシュすると、Pythonの通常のトレースバックと、アプリケーションが実行するprintステートメントなどの出力が表示されます。 通常の問題を調査するには、これらを使用します。"
 
 #: ../../source/troubleshooting.rst:62
 msgid "The adb command passes its arguments straight to adb itself, so you can also do other debugging tasks such as ``python-for-android adb devices`` to get the list of connected devices."
-msgstr ""
+msgstr "adbコマンドはその引数を直接adbに渡すので、``python-for-android adb devices`` などのデバッグタスクを実行して、接続されているデバイスのリストを取得することもできます。"
 
 #: ../../source/troubleshooting.rst:66
 msgid "For further information, see the Android docs on `adb <http://developer.android.com/intl/zh-cn/tools/help/adb.html>`_, and on `logcat <http://developer.android.com/intl/zh-cn/tools/help/logcat.html>`_ in particular."
-msgstr ""
+msgstr "詳細については、 `adb <http://developer.android.com/intl/zh-cn/tools/help/adb.html>`_ のAndroidドキュメントと特に `logcat <http://developer.android.com/intl/zh-cn/tools/help/logcat.html>`_ を参照してください。"
 
 #: ../../source/troubleshooting.rst:73
 msgid "Unpacking an APK"
-msgstr ""
+msgstr "APKのアンパック"
 
 #: ../../source/troubleshooting.rst:75
 msgid "It is sometimes useful to unpack a pacakged APK to see what is inside, especially when debugging python-for-android itself."
-msgstr ""
+msgstr "特に、python-for-android自体をデバッグする際に、内部に何が入っているかを確認するために、パッケージジングされたAPKを解凍すると便利なことがあります。"
 
 #: ../../source/troubleshooting.rst:78
 msgid "APKs are just zip files, so you can extract the contents easily::"
-msgstr ""
+msgstr "APKはzipファイルなので簡単にコンテンツを抽出できます::"
 
 #: ../../source/troubleshooting.rst:82
 msgid "At the top level, this will always contain the same set of files::"
-msgstr ""
+msgstr "トップレベルでは、常に同じファイルセットが含まれます::"
 
 #: ../../source/troubleshooting.rst:88
 msgid "The Python distribution is in the assets folder::"
-msgstr ""
+msgstr "Pythonディストリビューションはassetsフォルダにあります::"
 
 #: ../../source/troubleshooting.rst:94
 msgid "``private.mp3`` is actually a tarball containing all your packaged data, and the Python distribution. Extract it::"
-msgstr ""
+msgstr "``private.mp3`` は実際にパッケージ化されたすべてのデータとPythonディストリビューションを含むtarballです。 抽出します:："
 
 #: ../../source/troubleshooting.rst:99
 msgid "This will reveal all the Python-related files::"
-msgstr ""
+msgstr "これによりすべてのPython関連ファイルが表示されます::"
 
 #: ../../source/troubleshooting.rst:107
 msgid "Most of these files have been included by the user (in this case, they come from one of my own apps), the rest relate to the python distribution."
-msgstr ""
+msgstr "これらのファイルの大半はユーザーが含んでいます（この場合は自分のアプリケーションのものです）、残りはPythonディストリビューションに関連しています。"
 
 #: ../../source/troubleshooting.rst:111
 msgid "With Python 2, the Python installation can mostly be found in the ``lib`` folder. With Python 3 (using the ``python3crystax`` recipe), the Python installation can be found in a folder named ``crystax_python``."
 msgstr ""
+"Python2系ではPythonのインストールはほとんどは ``lib`` フォルダにあります。 Python3系（ ``python3crystax`` レシピを使用）では、Pythonインストールは ``crystax_python`` という名前のフォルダにあります。"
 
 #: ../../source/troubleshooting.rst:118
 msgid "Common errors"
-msgstr ""
+msgstr "一般的なエラー"
 
 #: ../../source/troubleshooting.rst:120
 msgid "The following are common problems and resolutions that users have reported."
-msgstr ""
+msgstr "以下はユーザーが報告した一般的な問題と解決方法です。"
 
 #: ../../source/troubleshooting.rst:124
 msgid "AttributeError: 'AnsiCodes' object has no attribute 'LIGHTBLUE_EX'"
@@ -134,11 +140,11 @@ msgstr ""
 
 #: ../../source/troubleshooting.rst:126
 msgid "This occurs if your version of colorama is too low, install version 0.3.3 or higher."
-msgstr ""
+msgstr "これは使用しているバージョンのcoloramaが低すぎる場合に発生します。バージョン0.3.3以上をインストールします。"
 
 #: ../../source/troubleshooting.rst:129
 msgid "If you install python-for-android with pip or via setup.py, this dependency should be taken care of automatically."
-msgstr ""
+msgstr "python-for-androidをpipまたはsetup.pyを使ってインストールする場合はこの依存関係は自動的に処理されます。"
 
 #: ../../source/troubleshooting.rst:133
 msgid "AttributeError: 'Context' object has no attribute 'hostpython'"
@@ -147,6 +153,7 @@ msgstr ""
 #: ../../source/troubleshooting.rst:135
 msgid "This is a known bug in some releases. To work around it, add your python requirement explicitly, e.g. :code:`--requirements=python2,kivy`. This also applies when using buildozer, in which case add python2 to your buildozer.spec requirements."
 msgstr ""
+"これは、一部のリリースでは既知のバグです。この問題を回避するにはPythonのrequirementを明示的に追加します。(例: :code:`--requirements=python2,kivy` )。これはbuildozerを使用する場合にも当てはまります。この場合、buildozer.spec の requirements にpython2を追加します。"
 
 #: ../../source/troubleshooting.rst:141
 msgid "linkname too long"
@@ -155,6 +162,8 @@ msgstr ""
 #: ../../source/troubleshooting.rst:143
 msgid "This can happen when you try to include a very long filename, which doesn't normally happen but can occur accidentally if the p4a directory contains a .buildozer directory that is not excluded from the build (e.g. if buildozer was previously used). Removing this directory should fix the problem, and is desirable anyway since you don't want it in the APK."
 msgstr ""
+"これは通常は起こりませんが、p4aディレクトリにビルドから除外されていない.buildozerディレクトリが含まれていると誤って実行される可能性がある非常に長いファイル名を含めると発生します。ディレクトリを削除すると問題が解決するはずですが、APKには必要ないためこのディレクトリを使用しないことをお勧めします。
+"
 
 #: ../../source/troubleshooting.rst:151
 msgid "Exception in thread \"main\" java.lang.UnsupportedClassVersionError: com/android/dx/command/Main : Unsupported major.minor version 52.0"
@@ -162,7 +171,7 @@ msgstr ""
 
 #: ../../source/troubleshooting.rst:153
 msgid "This occurs due to a java version mismatch, it should be fixed by installing Java 8 (e.g. the openjdk-8-jdk package on Ubuntu)."
-msgstr ""
+msgstr "これはJavaバージョンの不一致が原因で発生します。Java 8（Ubuntu上のopenjdk-8-jdkパッケージなど）をインストールして修正する必要があります。"
 
 #: ../../source/troubleshooting.rst:157
 msgid "JNI DETECTED ERROR IN APPLICATION: static jfieldID 0x0000000 not valid for class java.lang.Class<org.renpy.android.PythonActivity>"
@@ -171,6 +180,7 @@ msgstr ""
 #: ../../source/troubleshooting.rst:159
 msgid "This error appears in the logcat log if you try to access ``org.renpy.android.PythonActivity`` from within the new toolchain. To fix it, change your code to reference ``org.kivy.android.PythonActivity`` instead."
 msgstr ""
+"このエラーは、新しいツールチェーン内から ``org.renpy.android.PythonActivity`` にアクセスしようとすると、logcatログに表示されます。 これを修正するには代わりに ``org.renpy.android.PythonActivity`` を参照するようにコードを変更してください。"
 
 #: ../../source/troubleshooting.rst:165
 msgid "websocket-client: if you see errors relating to 'SSL not available'"
@@ -178,9 +188,9 @@ msgstr ""
 
 #: ../../source/troubleshooting.rst:166
 msgid "Ensure you have the package backports.ssl-match-hostname in the buildozer requirements, since Kivy targets python 2.7.x"
-msgstr ""
+msgstr "Kivyはpython2.7.xをターゲットにしているため、buildozerのrequirementにbackports.ssl-match-hostnameというパッケージがあることを確認してください"
 
 #: ../../source/troubleshooting.rst:168
 msgid "You may also need sslopt={\"cert_reqs\": ssl.CERT_NONE} as a parameter to ws.run_forever() if you get an error relating to host verification"
-msgstr ""
+msgstr "ホストの検証に関連するエラーが発生した場合は、ws.run_forever() のパラメータとしてsslopt={\"cert_reqs\": ssl.CERT_NONE} が必要です。"
 
